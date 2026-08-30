@@ -14,6 +14,9 @@
     "pdf:gzh": "node scripts/gen-pdf.mjs \"docs/产品/公众号排版速查表.md\" \"docs/产品/公众号排版速查表.pdf\"",
     "pdf:scripts": "node scripts/gen-pdf.mjs \"docs/产品/AI自动化办公脚本合集.md\" \"docs/产品/AI自动化办公脚本合集.pdf\"",
     "img": "node scripts/gen-listing-images.mjs",
+    "xianyu": "node scripts/gen-xianyu-kit.mjs",
+    "xianyu:week": "node scripts/xianyu-weekly.mjs",
+    "test:xianyu": "node scripts/_smoke-xianyu.mjs",
     "og": "node scripts/gen-og-image.mjs",
     "preview": "node build.mjs && node server.mjs",
     "serve": "node server.mjs"

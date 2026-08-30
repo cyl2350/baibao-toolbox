@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>闲鱼 AI 代运营工作台</title>
+<style>
+  :root {
+    --bg: #f5f6f8; --card: #ffffff; --line: #e5e7eb;
+    --text: #1f2328; --muted: #6b7280; --brand: #ff6a00;
+    --brand-2: #ff9d45; --ok: #16a34a; --warn: #d97706;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font: 14px/1.6 -apple-system, "Segoe UI", "Microsoft YaHei", sans-serif; padding-bottom: 60px; }
+  header { background: linear-gradient(135deg, var(--brand), var(--brand-2)); color: #fff; padding: 18px 16px 14px; }
+  header h1 { font-size: 18px; }
+  header .sub { font-size: 12px; opacity: .9; margin-top: 2px; }
+  nav { display: flex; background: var(--card); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 5; }
+  nav button { flex: 1; padding: 12px 0; border: 0; background: none; font-size: 15px; color: var(--muted); border-bottom: 2px solid transparent; cursor: pointer; }
+  nav button.active { color: var(--brand); border-bottom-color: var(--brand); font-weight: 600; }
+  main { max-width: 720px; margin: 0 auto; padding: 14px 12px; }
+  .panel { display: none; }
+  .panel.active { display: block; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 14px; margin-bottom: 12px; }
+  .card h3 { font-size: 15px; display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+  .price { background: var(--brand); color: #fff; border-radius: 999px; padding: 2px 10px; font-size: 13px; white-space: nowrap; }
+  .field { margin-top: 10px; }
+  .field .lbl { font-size: 12px; color: var(--muted); margin-bottom: 4px; }
+  .box { background: #fafafa; border: 1px solid var(--line); border-radius: 8px; padding: 10px; white-space: pre-wrap; word-break: break-word; font-size: 13px; }
+  .box.desc { max-height: 150px; overflow: auto; }
+  .tags { margin-top: 8px; }
+  .tag { display: inline-block; background: #fff4ec; color: var(--brand); border-radius: 999px; padding: 1px 8px; font-size: 12px; margin: 2px 4px 0 0; }
+  .meta { margin-top: 8px; font-size: 12px; color: var(--muted); }
+  .btnrow { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+  .btn { border: 0; border-radius: 8px; padding: 8px 14px; font-size: 13px; cursor: pointer; background: var(--brand); color: #fff; }
+  .btn.ghost { background: #fff; color: var(--brand); border: 1px solid var(--brand); }
+  .btn.small { padding: 4px 10px; font-size: 12px; }
+  .btn.ok { background: var(--ok); }
+  .toast { position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); background: #111827; color: #fff; padding: 8px 18px; border-radius: 999px; font-size: 13px; opacity: 0; pointer-events: none; transition: opacity .2s; z-index: 99; }
+  .toast.show { opacity: .95; }
+  .search { width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-radius: 10px; font-size: 14px; margin-bottom: 10px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+  .chip { border: 1px solid var(--line); background: var(--card); border-radius: 999px; padding: 4px 12px; font-size: 13px; cursor: pointer; }
+  .chip.active { background: var(--brand); border-color: var(--brand); color: #fff; }
+  .task-group { margin-bottom: 14px; }
+  .task-group h4 { font-size: 14px; color: var(--brand); margin-bottom: 6px; }
+  .task { display: flex; gap: 8px; align-items: flex-start; background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; margin-bottom: 6px; }
+  .task input { margin-top: 4px; accent-color: var(--brand); }
+  .task.done .ttext { color: var(--muted); text-decoration: line-through; }
+  .progress { height: 6px; background: var(--line); border-radius: 999px; overflow: hidden; margin: 4px 0 12px; }
+  .progress i { display: block; height: 100%; background: var(--ok); transition: width .2s; }
+  .formrow { display: flex; gap: 8px; margin-bottom: 8px; flex-wrap: wrap; }
+  .formrow input, .formrow select { flex: 1; min-width: 120px; padding: 9px 10px; border: 1px solid var(--line); border-radius: 8px; font-size: 13px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th, td { text-align: left; padding: 8px 6px; border-bottom: 1px solid var(--line); }
+  th { color: var(--muted); font-weight: 500; }
+  .sum { font-size: 14px; margin: 8px 0; }
+  .sum b { color: var(--ok); }
+  .empty { color: var(--muted); text-align: center; padding: 24px 0; }
+  .note { background: #fff8ee; border: 1px solid #f5d9b8; color: #92400e; border-radius: 10px; padding: 10px 12px; font-size: 12.5px; margin-bottom: 12px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>闲鱼 AI 代运营工作台</h1>
+  <div class="sub" id="header-sub">今日任务 + 上架卡片 + 回复话术 + 销售台账 · 数据全部存在本机浏览器</div>
+</header>
+<nav>
+  <button data-tab="listing" class="active">上架</button>
+  <button data-tab="replies">话术</button>
+  <button data-tab="tasks">任务</button>
+  <button data-tab="ledger">台账</button>
+</nav>
+<main>
+  <div class="note">✅ 上架只需 3 步:① 复制卡片整套文案 → ② 手机传图片(见卡片图片列表)→ ③ 粘贴发布。回复/发货用「话术」页,日常运营勾「任务」页,每单记「台账」。</div>
+
+  <section class="panel active" id="panel-listing"></section>
+
+  <section class="panel" id="panel-replies">
+    <input class="search" id="reply-search" placeholder="搜索话术,如:发货、砍价、好评">
+    <div class="chips" id="reply-chips"></div>
+    <div id="reply-list"></div>
+  </section>
+
+  <section class="panel" id="panel-tasks">
+    <div class="progress"><i id="task-progress"></i></div>
+    <div class="btnrow" style="margin-top:0;margin-bottom:12px;">
+      <button class="btn ghost" id="task-copy">复制今日任务</button>
+      <button class="btn ghost" id="task-reset">重置勾选</button>
+    </div>
+    <div id="task-groups"></div>
+  </section>
+
+  <section class="panel" id="panel-ledger">
+    <div class="card">
+      <div class="formrow">
+        <input type="date" id="ledger-date">
+        <select id="ledger-product"></select>
+      </div>
+      <div class="formrow">
+        <input type="number" id="ledger-price" placeholder="成交价(元)" step="0.1" min="0">
+        <input type="text" id="ledger-note" placeholder="备注(如:买家ID/渠道)">
+      </div>
+      <div class="btnrow" style="margin-top:0;">
+        <button class="btn" id="ledger-add">记一笔</button>
+        <button class="btn ghost" id="ledger-export">导出 CSV</button>
+        <button class="btn ghost" id="ledger-clear">清空</button>
+      </div>
+    </div>
+    <div class="sum" id="ledger-sum"></div>
+    <div class="card" style="padding:6px 12px;"><table id="ledger-table"></table></div>
+  </section>
+</main>
+<div class="toast" id="toast"></div>
+
+<script id="dsh-data" type="application/json">{"shop":{"name":"百宝效率铺","netdisk":"https://pan.baidu.com/s/xxxxx","netdiskPwd":"1234","delivery":"百度网盘链接 + 提取码(闲鱼虚拟商品自动发货)","slogan":"职场效率资料,原创整理,网盘秒发"},"products":[{"id":"ai-handbook","name":"AI提示词实战手册","file":"AI提示词实战手册.pdf","price":"3.9","promoPrice":"2.9","title":"AI提示词手册 PDF 网盘发货 60个场景直接抄 职场效率神器","desc":["【AI 提示词实战手册 · 60 个可直接复制的模板】","覆盖写作/职场/学习/编程/营销/生活六大场景,每类 10 个高质量模板,每条都是「标题+完整模板+使用要点」,拿到手就能用,发给 ChatGPT/DeepSeek/Kimi/文心一言 都行。","附赠:5 个让 AI 输出更好的进阶技巧。","✅ 成品 PDF,手机电脑都能看","✅ 网盘自动发货,秒发","✅ 原创整理,可商用"],"tags":["AI","提示词","效率工具","职场","副业"],"images":["ai提示词手册/封面.png","ai提示词手册/目录.png","ai提示词手册/内容展示1.png","ai提示词手册/内容展示2.png"],"category":"学习/资料 → 电子资料"},{"id":"xhs-templates","name":"小红书爆款文案模板库","file":"小红书爆款文案模板库.pdf","price":"2.9","promoPrice":"2.9","title":"小红书文案模板 50个爆款公式 笔记直接套 自媒体必备","desc":["【小红书爆款文案模板库 · 50 个爆款公式】","覆盖种草/干货/日常/测评/穿搭/美食/旅行/职场八大场景,每个公式带标题套路+正文结构+例子,发笔记直接套,不用再憋文案。","✅ 成品 PDF,手机电脑都能看","✅ 网盘自动发货,秒发","✅ 原创整理,可商用"],"tags":["小红书","文案","自媒体","爆款","副业"],"images":["小红书文案模板/封面.png","小红书文案模板/目录.png","小红书文案模板/内容展示1.png","小红书文案模板/内容展示2.png"],"category":"学习/资料 → 电子资料"},{"id":"resume-pack","name":"简历模板+面试话术包","file":"简历模板+面试话术包.pdf","price":"3.9","promoPrice":"2.9","title":"简历模板面试话术包 20道高频题答题框架 求职自救","desc":["【简历模板 + 面试话术包 · 求职自救】","简历结构 + 用词库 + 自我介绍模板 + 20 道高频面试题答题框架 + 谈薪话术,面试前翻一遍,心里有底。","✅ 成品 PDF,手机电脑都能看","✅ 网盘自动发货,秒发","✅ 原创整理,可商用"],"tags":["简历","面试","求职","话术","职场"],"images":["简历面试话术包/封面.png","简历面试话术包/目录.png","简历面试话术包/内容展示1.png","简历面试话术包/内容展示2.png"],"category":"学习/资料 → 电子资料"},{"id":"gzh-cheatsheet","name":"公众号排版速查表","file":"公众号排版速查表.pdf","price":"2.9","promoPrice":"2.9","title":"公众号排版速查表 字号行距配色全搞定 自媒体人必备","desc":["【公众号排版速查表 · 42 个速查条目】","字号/行距/配色/标题公式/排版工具一次查全,照着调,排版立刻干净高级,自媒体人必备。","✅ 成品 PDF,手机电脑都能看","✅ 网盘自动发货,秒发","✅ 原创整理,可商用"],"tags":["公众号","排版","自媒体","效率","副业"],"images":["公众号排版速查表/封面.png","公众号排版速查表/目录.png","公众号排版速查表/内容展示1.png","公众号排版速查表/内容展示2.png"],"category":"学习/资料 → 电子资料"},{"id":"office-scripts","name":"AI自动化办公脚本合集","file":"AI自动化办公脚本合集.pdf","price":"5.9","promoPrice":"4.9","title":"AI办公脚本合集 批量改名压缩合并Excel 效率翻倍","desc":["【AI 自动化办公脚本合集 · 36 个场景】","文件批处理/Excel 批量操作/网页数据抓取/定时提醒,每个场景给可运行的脚本模板,复制改改就能用,效率翻倍。","✅ 成品 PDF,手机电脑都能看","✅ 网盘自动发货,秒发","✅ 原创整理,可商用"],"tags":["办公","自动化","脚本","Excel","效率"],"images":["AI办公脚本合集/封面.png","AI办公脚本合集/目录.png","AI办公脚本合集/内容展示1.png","AI办公脚本合集/内容展示2.png"],"category":"学习/资料 → 电子资料"},{"id":"bundle-5in1","name":"职场效率资料包(五合一)","file":"五款资料打包(见上架操作单)","price":"15.9","promoPrice":"12.9","title":"职场效率资料包 5合1 AI手册+文案+简历+排版+脚本","desc":["【职场效率资料包 · 五合一】","AI 提示词实战手册 + 小红书爆款文案模板库 + 简历模板面试话术包 + 公众号排版速查表 + AI 自动化办公脚本合集,一次买齐,全部网盘发送。","✅ 5 份成品 PDF,手机电脑都能看","✅ 网盘自动发货,秒发","✅ 原创整理,可商用"],"tags":["资料包","职场","AI","效率","合集"],"images":["资料包5合1封面.png"],"category":"学习/资料 → 电子资料"}],"replies":{"首聊接待":["在的亲~ 这款是电子资料,拍下后网盘秒发,内容包含【内容一句话】,手机电脑都能看 😊","亲,资料都是原创整理的成品 PDF,不是网上一搜一大把的搬运货,放心拍~"],"询问内容":["亲,内容大概是【一句话介绍】,我给你发目录截图和 3 张内页,您看看合不合用~"],"砍价":["亲,今天拍下送 20 个彩蛋提示词哦,很划算的~ 资料是原创整理,外面都卖 9.9+","亲,这款已经是跑量价啦,再低就没利润了 😅 不过今天拍下可以给您加一份赠品资料~"],"已付款自动发货":["您好,资料已发您网盘:【粘贴网盘链接】 提取码:【密码】\n收到麻烦确认收货给个好评哈,后续更新免费发您~ 有其他需要的也可以看看我主页其他资料 😊"],"售后打不开":["亲,把您的邮箱发我,我重新给您发一份~ 或者告诉我是哪个链接打不开,我马上处理,别着急哈"],"好评引导":["喜欢的话给个五星好评哈,后续更新免费发您,有新的资料也会第一时间通知您 😊"],"未读跟进":["亲,看您拍下后还没领取资料,网盘链接再发您一次:【粘贴网盘链接】 提取码:【密码】,有问题随时找我~"]},"routine":{"morning":["擦亮 6 件商品(闲鱼 App → 我的 → 我卖出的 → 逐个点「擦亮」)","看昨晚曝光/咨询数据,有商品曝光 < 50 就换首图或改标题"],"noon":["回复所有询价(目标:< 10 分钟)","处理新订单:确认自动发货已触发,没触发就手动发网盘链接"],"evening":["发货/跟进未读买家(用「未读跟进」话术)","在台账里记一笔:卖出几单、各多少钱","复盘:今天咨询 < 3 次 → 降一款价或改一款标题;成交 ≥ 2 单 → 明天把价格上调 0.5~1 元试水"],"weekly":["发 1~2 条小红书引流笔记(docs/运营/小红书引流笔记.md 有现成 10 条)","周复盘:哪款曝光/成交最好 → 重点擦亮;哪款没动静 → 换标题关键词","更新「今日任务」为下周计划"]},"generated":"2026-08-30 19:03"}</script>
+<script>
+(function () {
+  var DATA = JSON.parse(document.getElementById('dsh-data').textContent);
+  var SHOP = DATA.shop, PRODUCTS = DATA.products, REPLIES = DATA.replies, ROUTINE = DATA.routine;
+
+  // ---------- 工具 ----------
+  function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+  function toast(msg) { var t = document.getElementById('toast'); t.textContent = msg; t.classList.add('show'); clearTimeout(t._h); t._h = setTimeout(function () { t.classList.remove('show'); }, 1400); }
+  function copyText(text) {
+    function fallback() {
+      var ta = document.createElement('textarea'); ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); toast('已复制'); } catch (e) { toast('复制失败,请手动复制'); }
+      document.body.removeChild(ta);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(text).then(function () { toast('已复制'); }, fallback); } else { fallback(); }
+  }
+  function buildListing(p) {
+    var desc = p.desc.join('\n');
+    var full = '【标题】' + p.title + '\n\n【描述】\n' + desc + '\n\n【定价】¥' + p.price + '(前期跑量价;新号可先用 ¥' + p.promoPrice + ')\n【类目】' + p.category + '\n【发货方式】' + SHOP.delivery + '\n【标签】' + p.tags.map(function (t) { return '#' + t; }).join(' ') + '\n\n【图片】' + p.images.length + ' 张 → docs/产品/详情图打包/' + p.images.join('、');
+    var imgs = p.images.map(function (im) { return '详情图打包/' + im; }).join('\n');
+    var el = document.createElement('div'); el.className = 'card';
+    el.innerHTML =
+      '<h3><span>' + esc(p.name) + '</span><span class="price">¥' + p.price + '</span></h3>' +
+      '<div class="field"><div class="lbl">标题(直接复制)</div><div class="box">' + esc(p.title) + '</div></div>' +
+      '<div class="field"><div class="lbl">描述</div><div class="box desc">' + esc(desc) + '</div></div>' +
+      '<div class="tags">' + p.tags.map(function (t) { return '<span class="tag">#' + esc(t) + '</span>'; }).join('') + '</div>' +
+      '<div class="meta">' + esc(p.category) + ' · 发货:' + esc(SHOP.delivery) + '</div>' +
+      '<div class="meta">图片(手机上传,按顺序):</div><div class="box" style="font-size:12px;">' + esc(imgs) + '</div>' +
+      '<div class="btnrow">' +
+      '<button class="btn" data-copy="' + esc(p.title) + '">复制标题</button>' +
+      '<button class="btn ghost" data-copy="' + esc(desc) + '">复制描述</button>' +
+      '<button class="btn ok" data-copy="' + esc(full) + '">复制整套文案</button>' +
+      '</div>';
+    return el;
+  }
+  function renderListing() {
+    var box = document.getElementById('panel-listing'); box.innerHTML = '';
+    PRODUCTS.forEach(function (p) { box.appendChild(buildListing(p)); });
+    box.addEventListener('click', function (e) { var b = e.target.closest('button[data-copy]'); if (b) copyText(b.getAttribute('data-copy')); });
+  }
+
+  // ---------- 话术 ----------
+  var activeCat = '全部';
+  function renderReplies() {
+    var chips = document.getElementById('reply-chips'), list = document.getElementById('reply-list');
+    var kw = (document.getElementById('reply-search').value || '').trim().toLowerCase();
+    var cats = ['全部'].concat(Object.keys(REPLIES));
+    chips.innerHTML = cats.map(function (c) { return '<button class="chip' + (c === activeCat ? ' active' : '') + '" data-cat="' + esc(c) + '">' + esc(c) + '</button>'; }).join('');
+    list.innerHTML = '';
+    cats.filter(function (c) { return activeCat === '全部' || c === activeCat; }).forEach(function (c) {
+      if (c === '全部') return;
+      REPLIES[c].forEach(function (txt) {
+        if (kw && txt.toLowerCase().indexOf(kw) === -1 && c.toLowerCase().indexOf(kw) === -1) return;
+        var el = document.createElement('div'); el.className = 'card';
+        el.innerHTML = '<div class="lbl" style="font-size:12px;color:var(--muted);margin-bottom:6px;">' + esc(c) + '</div>' +
+          '<div class="box">' + esc(txt) + '</div>' +
+          '<div class="btnrow"><button class="btn small" data-copy="' + esc(txt) + '">复制</button></div>';
+        list.appendChild(el);
+      });
+    });
+    if (!list.children.length) list.innerHTML = '<div class="empty">没有匹配的话术</div>';
+  }
+
+  // ---------- 任务 ----------
+  var TASK_KEY = 'xy-task-' + DATA.generated.slice(0, 10);
+  function taskKey() { return 'xy-task-' + new Date().toISOString().slice(0, 10); }
+  function loadTasks() { try { return JSON.parse(localStorage.getItem(taskKey()) || '{}'); } catch (e) { return {}; } }
+  function saveTasks(s) { localStorage.setItem(taskKey(), JSON.stringify(s)); }
+  function renderTasks() {
+    var groups = document.getElementById('task-groups'), state = loadTasks(), total = 0, done = 0;
+    groups.innerHTML = '';
+    Object.keys(ROUTINE).forEach(function (g) {
+      var titles = { morning: '早上(5 分钟)', noon: '中午(5 分钟)', evening: '晚上(10 分钟)', weekly: '每周' };
+      var box = document.createElement('div'); box.className = 'task-group';
+      box.innerHTML = '<h4>' + esc(titles[g] || g) + '</h4>';
+      ROUTINE[g].forEach(function (t, i) {
+        var id = g + '-' + i; total++;
+        if (state[id]) done++;
+        var row = document.createElement('div'); row.className = 'task' + (state[id] ? ' done' : '');
+        row.innerHTML = '<input type="checkbox" data-id="' + id + '"' + (state[id] ? ' checked' : '') + '><span class="ttext">' + esc(t) + '</span>';
+        box.appendChild(row);
+      });
+      groups.appendChild(box);
+    });
+    document.getElementById('task-progress').style.width = total ? Math.round(done / total * 100) + '%' : '0%';
+  }
+  function collectTasks() {
+    var lines = ['【' + new Date().toLocaleDateString('zh-CN') + ' 闲鱼今日任务】'];
+    var titles = { morning: '早上', noon: '中午', evening: '晚上', weekly: '每周' };
+    Object.keys(ROUTINE).forEach(function (g) {
+      lines.push('□ ' + (titles[g] || g) + ':' + ROUTINE[g].join(' / '));
+    });
+    return lines.join('\n');
+  }
+
+  // ---------- 台账 ----------
+  var LED_KEY = 'xy-ledger';
+  function loadLedger() { try { return JSON.parse(localStorage.getItem(LED_KEY) || '[]'); } catch (e) { return []; } }
+  function saveLedger(a) { localStorage.setItem(LED_KEY, JSON.stringify(a)); }
+  function renderLedger() {
+    var rows = loadLedger(), sum = rows.reduce(function (s, r) { return s + (parseFloat(r.price) || 0); }, 0);
+    document.getElementById('ledger-sum').innerHTML = '累计 <b>' + rows.length + '</b> 单 · 合计 <b>¥' + sum.toFixed(1) + '</b>';
+    var tb = document.getElementById('ledger-table');
+    if (!rows.length) { tb.innerHTML = '<tr><td colspan="4" class="empty">还没有记录,成交后记一笔吧</td></tr>'; return; }
+    tb.innerHTML = '<tr><th>日期</th><th>产品</th><th>金额</th><th>备注</th></tr>' + rows.slice().reverse().map(function (r) {
+      return '<tr><td>' + esc(r.date) + '</td><td>' + esc(r.product) + '</td><td>¥' + esc(r.price) + '</td><td>' + esc(r.note || '') + '</td></tr>';
+    }).join('');
+  }
+  function exportCsv() {
+    var rows = loadLedger();
+    var csv = '\uFEFF日期,产品,金额,备注\n' + rows.map(function (r) { return [r.date, '"' + r.product + '"', r.price, '"' + (r.note || '') + '"'].join(','); }).join('\n');
+    var a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([csv], { type: 'text/csv;charset=utf-8' })); a.download = '闲鱼销售台账.csv'; a.click();
+  }
+
+  // ---------- 初始化 ----------
+  document.getElementById('header-sub').textContent = '生成于 ' + DATA.generated + ' · 今日任务 + 上架卡片 + 回复话术 + 销售台账 · 数据存在本机浏览器';
+  var today = new Date().toISOString().slice(0, 10);
+  document.getElementById('ledger-date').value = today;
+  var sel = document.getElementById('ledger-product');
+  PRODUCTS.forEach(function (p) { var o = document.createElement('option'); o.value = p.name; o.textContent = p.name + '(¥' + p.price + ')'; sel.appendChild(o); });
+
+  renderListing(); renderReplies(); renderTasks(); renderLedger();
+
+  document.querySelectorAll('nav button').forEach(function (b) {
+    b.addEventListener('click', function () {
+      document.querySelectorAll('nav button').forEach(function (x) { x.classList.remove('active'); });
+      document.querySelectorAll('.panel').forEach(function (x) { x.classList.remove('active'); });
+      b.classList.add('active'); document.getElementById('panel-' + b.getAttribute('data-tab')).classList.add('active');
+    });
+  });
+  document.getElementById('reply-search').addEventListener('input', renderReplies);
+  document.getElementById('reply-chips').addEventListener('click', function (e) {
+    var b = e.target.closest('.chip'); if (!b) return; activeCat = b.getAttribute('data-cat'); renderReplies();
+  });
+  document.getElementById('reply-list').addEventListener('click', function (e) {
+    var b = e.target.closest('button[data-copy]'); if (b) copyText(b.getAttribute('data-copy'));
+  });
+  document.getElementById('task-groups').addEventListener('change', function (e) {
+    var cb = e.target; if (!cb.matches('input[type=checkbox]')) return;
+    var s = loadTasks(); s[cb.getAttribute('data-id')] = cb.checked; saveTasks(s); renderTasks();
+  });
+  document.getElementById('task-copy').addEventListener('click', function () { copyText(collectTasks()); });
+  document.getElementById('task-reset').addEventListener('click', function () { localStorage.removeItem(taskKey()); renderTasks(); });
+  document.getElementById('ledger-add').addEventListener('click', function () {
+    var d = document.getElementById('ledger-date').value, p = sel.value, pr = document.getElementById('ledger-price').value, n = document.getElementById('ledger-note').value;
+    if (!d || !p || pr === '') { toast('请填日期/产品/金额'); return; }
+    var a = loadLedger(); a.push({ date: d, product: p, price: pr, note: n }); saveLedger(a);
+    document.getElementById('ledger-price').value = ''; document.getElementById('ledger-note').value = '';
+    renderLedger(); toast('已记账');
+  });
+  document.getElementById('ledger-export').addEventListener('click', exportCsv);
+  document.getElementById('ledger-clear').addEventListener('click', function () { if (confirm('确定清空全部台账记录?')) { localStorage.removeItem(LED_KEY); renderLedger(); } });
+})();
+</script>
+</body>
+</html>
