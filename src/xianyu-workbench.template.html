@@ -70,6 +70,8 @@
   <button data-tab="replies">话术</button>
   <button data-tab="tasks">任务</button>
   <button data-tab="ledger">台账</button>
+  <button data-tab="xhs">引流</button>
+  <button data-tab="multi">多平台</button>
 </nav>
 <main>
   <div class="note">✅ 上架只需 3 步:① 复制卡片整套文案 → ② 手机传图片(见卡片图片列表)→ ③ 粘贴发布。回复/发货用「话术」页,日常运营勾「任务」页,每单记「台账」。</div>
@@ -109,6 +111,16 @@
     </div>
     <div class="sum" id="ledger-sum"></div>
     <div class="card" style="padding:6px 12px;"><table id="ledger-table"></table></div>
+  </section>
+
+  <section class="panel" id="panel-xhs">
+    <div id="xhs-today"></div>
+    <div class="card"><h3>📅 轮发计划(未来 4 周)</h3><div id="xhs-plan"></div></div>
+    <div class="card"><h3>📚 全部笔记(10 条)</h3><div id="xhs-notes"></div></div>
+  </section>
+
+  <section class="panel" id="panel-multi">
+    <div id="multi-list"></div>
   </section>
 </main>
 <div class="toast" id="toast"></div>
@@ -229,13 +241,28 @@
   }
 
   // ---------- 初始化 ----------
-  document.getElementById('header-sub').textContent = '生成于 ' + DATA.generated + ' · 今日任务 + 上架卡片 + 回复话术 + 销售台账 · 数据存在本机浏览器';
+  document.getElementById('header-sub').textContent = '生成于 ' + DATA.generated + ' · 上架 / 话术 / 引流 / 多平台 / 任务 / 台账 · 数据存在本机浏览器';
   var today = new Date().toISOString().slice(0, 10);
   document.getElementById('ledger-date').value = today;
   var sel = document.getElementById('ledger-product');
   PRODUCTS.forEach(function (p) { var o = document.createElement('option'); o.value = p.name; o.textContent = p.name + '(¥' + p.price + ')'; sel.appendChild(o); });
 
-  renderListing(); renderReplies(); renderTasks(); renderLedger();
+  renderListing(); renderReplies(); renderTasks(); renderLedger(); renderXhs(); renderMulti();
+
+  document.getElementById('panel-xhs').addEventListener('click', function (e) {
+    var b = e.target.closest('button[data-xhs]');
+    if (b) {
+      var a = loadXhs(); a.push({ no: Number(b.getAttribute('data-xhs')), date: new Date().toISOString().slice(0, 10) }); saveXhs(a);
+      renderXhs(); toast('已标记:今天发第 ' + b.getAttribute('data-xhs') + ' 条');
+      return;
+    }
+    var c = e.target.closest('button[data-copy]');
+    if (c) copyText(c.getAttribute('data-copy'));
+  });
+  document.getElementById('panel-multi').addEventListener('click', function (e) {
+    var c = e.target.closest('button[data-copy]');
+    if (c) copyText(c.getAttribute('data-copy'));
+  });
 
   document.querySelectorAll('nav button').forEach(function (b) {
     b.addEventListener('click', function () {
@@ -266,6 +293,78 @@
   });
   document.getElementById('ledger-export').addEventListener('click', exportCsv);
   document.getElementById('ledger-clear').addEventListener('click', function () { if (confirm('确定清空全部台账记录?')) { localStorage.removeItem(LED_KEY); renderLedger(); } });
+
+  // ---------- 引流(小红书轮发) ----------
+  var XHS_KEY = 'xy-xhs-posted';
+  function loadXhs() { try { return JSON.parse(localStorage.getItem(XHS_KEY) || '[]'); } catch (e) { return []; } }
+  function saveXhs(a) { localStorage.setItem(XHS_KEY, JSON.stringify(a)); }
+  function xhsRecent() {
+    var cutoff = Date.now() - 14 * 86400000;
+    return loadXhs().filter(function (r) { return new Date(r.date).getTime() >= cutoff; });
+  }
+  function noteCard(n, recentNos) {
+    var posted = recentNos.indexOf(n.no) !== -1;
+    var body = Array.isArray(n.body) ? n.body.join('\n') : n.body;
+    var el = document.createElement('div'); el.className = 'card';
+    el.innerHTML =
+      '<div class="lbl" style="font-size:12px;color:var(--muted);margin-bottom:6px;">第 ' + n.no + ' 条 · ' + esc(n.typeLabel) + (posted ? ' · ✅ 近 14 天已发' : '') + '</div>' +
+      '<h3 style="font-size:14px;margin-bottom:6px;">' + esc(n.title) + '</h3>' +
+      '<div class="box">' + esc(body) + '</div>' +
+      '<div class="btnrow">' +
+      '<button class="btn" data-copy="' + esc(n.title + '\n\n' + body) + '">复制整篇</button>' +
+      (posted ? '' : '<button class="btn ghost" data-xhs="' + n.no + '">标记已发</button>') +
+      '</div>';
+    return el;
+  }
+  function renderXhs() {
+    if (!DATA.xhsNotes || !DATA.plan) return;
+    var day = new Date().getDay(), slotMap = { 2: 'A', 4: 'B', 6: 'A' }, slot = slotMap[day] || '';
+    var recent = xhsRecent(), recentNos = recent.map(function (r) { return r.no; });
+    var todayStr = new Date().toISOString().slice(0, 10);
+    var todayPosted = recent.filter(function (r) { return r.date === todayStr; });
+    var box = document.getElementById('xhs-today'); box.innerHTML = '';
+    var head = document.createElement('div'); head.className = 'card';
+    if (!slot) {
+      var nextMap = { 0: '周二', 1: '周二', 3: '周四', 5: '周六' };
+      head.innerHTML = '<h3>今天不是发文日</h3><div class="meta">下次发文:' + (nextMap[day] || '周二') + ' · 节奏:每周 2~3 条(引流/卖产品交替)</div>';
+    } else {
+      var pool = DATA.xhsNotes.filter(function (n) { return n.type === slot && recentNos.indexOf(n.no) === -1; });
+      if (todayPosted.length) {
+        head.innerHTML = '<h3>✅ 今天已发(第 ' + todayPosted[0].no + ' 条)</h3><div class="meta">回复评论要快(1 小时内最佳),引导私信走闲鱼链接</div>';
+      } else if (pool.length) {
+        head.innerHTML = '<h3>📣 今天该发这条</h3>';
+        head.appendChild(noteCard(pool[0], recentNos));
+      } else {
+        head.innerHTML = '<h3>😴 引流类近 14 天都发过了</h3><div class="meta">今天休息,或换发另一类型 / 换封面重发同一篇测数据</div>';
+      }
+    }
+    box.appendChild(head);
+    document.getElementById('xhs-plan').innerHTML = '<table><tr><th>日期</th><th>星期</th><th>类型</th><th>笔记</th></tr>' + DATA.plan.map(function (r) {
+      return '<tr><td>' + esc(r.date) + '</td><td>' + esc(r.weekday) + '</td><td>' + (r.type === 'A' ? '引流' : '卖产品') + '</td><td>第 ' + r.no + ' 条 · ' + esc(r.title) + '</td></tr>';
+    }).join('') + '</table>';
+    var nh = document.getElementById('xhs-notes'); nh.innerHTML = '';
+    DATA.xhsNotes.forEach(function (n) { nh.appendChild(noteCard(n, recentNos)); });
+  }
+
+  // ---------- 多平台 ----------
+  function renderMulti() {
+    if (!DATA.multi) return;
+    var list = document.getElementById('multi-list'); list.innerHTML = '';
+    DATA.multi.forEach(function (m) {
+      var el = document.createElement('div'); el.className = 'card';
+      el.innerHTML = '<h3><span>' + esc(m.name) + '</span><span class="price">¥' + m.price + '</span></h3>';
+      var wrap = document.createElement('div');
+      [['xhs', '小红书笔记'], ['video', '视频号橱窗'], ['moment', '朋友圈'], ['star', '知识星球']].forEach(function (pm) {
+        var v = m.platforms[pm[0]];
+        var txt = pm[0] === 'xhs' ? (v.title + '\n\n' + (Array.isArray(v.body) ? v.body.join('\n') : v.body)) : v;
+        var row = document.createElement('div'); row.className = 'field';
+        row.innerHTML = '<div class="lbl">' + pm[1] + '</div><div class="box" style="max-height:110px;overflow:auto;">' + esc(txt) + '</div>' +
+          '<div class="btnrow"><button class="btn small" data-copy="' + esc(txt) + '">复制</button></div>';
+        wrap.appendChild(row);
+      });
+      el.appendChild(wrap); list.appendChild(el);
+    });
+  }
 })();
 </script>
 </body>

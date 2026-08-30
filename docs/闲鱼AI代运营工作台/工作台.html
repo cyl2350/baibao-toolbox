@@ -70,6 +70,8 @@
   <button data-tab="replies">话术</button>
   <button data-tab="tasks">任务</button>
   <button data-tab="ledger">台账</button>
+  <button data-tab="xhs">引流</button>
+  <button data-tab="multi">多平台</button>
 </nav>
 <main>
   <div class="note">✅ 上架只需 3 步:① 复制卡片整套文案 → ② 手机传图片(见卡片图片列表)→ ③ 粘贴发布。回复/发货用「话术」页,日常运营勾「任务」页,每单记「台账」。</div>
@@ -110,10 +112,20 @@
     <div class="sum" id="ledger-sum"></div>
     <div class="card" style="padding:6px 12px;"><table id="ledger-table"></table></div>
   </section>
+
+  <section class="panel" id="panel-xhs">
+    <div id="xhs-today"></div>
+    <div class="card"><h3>📅 轮发计划(未来 4 周)</h3><div id="xhs-plan"></div></div>
+    <div class="card"><h3>📚 全部笔记(10 条)</h3><div id="xhs-notes"></div></div>
+  </section>
+
+  <section class="panel" id="panel-multi">
+    <div id="multi-list"></div>
+  </section>
 </main>
 <div class="toast" id="toast"></div>
 
-<script id="dsh-data" type="application/json">{"shop":{"name":"百宝效率铺","netdisk":"https://pan.baidu.com/s/xxxxx","netdiskPwd":"1234","delivery":"百度网盘链接 + 提取码(闲鱼虚拟商品自动发货)","slogan":"职场效率资料,原创整理,网盘秒发"},"products":[{"id":"ai-handbook","name":"AI提示词实战手册","file":"AI提示词实战手册.pdf","price":"3.9","promoPrice":"2.9","title":"AI提示词手册 PDF 网盘发货 60个场景直接抄 职场效率神器","desc":["【AI 提示词实战手册 · 60 个可直接复制的模板】","覆盖写作/职场/学习/编程/营销/生活六大场景,每类 10 个高质量模板,每条都是「标题+完整模板+使用要点」,拿到手就能用,发给 ChatGPT/DeepSeek/Kimi/文心一言 都行。","附赠:5 个让 AI 输出更好的进阶技巧。","✅ 成品 PDF,手机电脑都能看","✅ 网盘自动发货,秒发","✅ 原创整理,可商用"],"tags":["AI","提示词","效率工具","职场","副业"],"images":["ai提示词手册/封面.png","ai提示词手册/目录.png","ai提示词手册/内容展示1.png","ai提示词手册/内容展示2.png"],"category":"学习/资料 → 电子资料"},{"id":"xhs-templates","name":"小红书爆款文案模板库","file":"小红书爆款文案模板库.pdf","price":"2.9","promoPrice":"2.9","title":"小红书文案模板 50个爆款公式 笔记直接套 自媒体必备","desc":["【小红书爆款文案模板库 · 50 个爆款公式】","覆盖种草/干货/日常/测评/穿搭/美食/旅行/职场八大场景,每个公式带标题套路+正文结构+例子,发笔记直接套,不用再憋文案。","✅ 成品 PDF,手机电脑都能看","✅ 网盘自动发货,秒发","✅ 原创整理,可商用"],"tags":["小红书","文案","自媒体","爆款","副业"],"images":["小红书文案模板/封面.png","小红书文案模板/目录.png","小红书文案模板/内容展示1.png","小红书文案模板/内容展示2.png"],"category":"学习/资料 → 电子资料"},{"id":"resume-pack","name":"简历模板+面试话术包","file":"简历模板+面试话术包.pdf","price":"3.9","promoPrice":"2.9","title":"简历模板面试话术包 20道高频题答题框架 求职自救","desc":["【简历模板 + 面试话术包 · 求职自救】","简历结构 + 用词库 + 自我介绍模板 + 20 道高频面试题答题框架 + 谈薪话术,面试前翻一遍,心里有底。","✅ 成品 PDF,手机电脑都能看","✅ 网盘自动发货,秒发","✅ 原创整理,可商用"],"tags":["简历","面试","求职","话术","职场"],"images":["简历面试话术包/封面.png","简历面试话术包/目录.png","简历面试话术包/内容展示1.png","简历面试话术包/内容展示2.png"],"category":"学习/资料 → 电子资料"},{"id":"gzh-cheatsheet","name":"公众号排版速查表","file":"公众号排版速查表.pdf","price":"2.9","promoPrice":"2.9","title":"公众号排版速查表 字号行距配色全搞定 自媒体人必备","desc":["【公众号排版速查表 · 42 个速查条目】","字号/行距/配色/标题公式/排版工具一次查全,照着调,排版立刻干净高级,自媒体人必备。","✅ 成品 PDF,手机电脑都能看","✅ 网盘自动发货,秒发","✅ 原创整理,可商用"],"tags":["公众号","排版","自媒体","效率","副业"],"images":["公众号排版速查表/封面.png","公众号排版速查表/目录.png","公众号排版速查表/内容展示1.png","公众号排版速查表/内容展示2.png"],"category":"学习/资料 → 电子资料"},{"id":"office-scripts","name":"AI自动化办公脚本合集","file":"AI自动化办公脚本合集.pdf","price":"5.9","promoPrice":"4.9","title":"AI办公脚本合集 批量改名压缩合并Excel 效率翻倍","desc":["【AI 自动化办公脚本合集 · 36 个场景】","文件批处理/Excel 批量操作/网页数据抓取/定时提醒,每个场景给可运行的脚本模板,复制改改就能用,效率翻倍。","✅ 成品 PDF,手机电脑都能看","✅ 网盘自动发货,秒发","✅ 原创整理,可商用"],"tags":["办公","自动化","脚本","Excel","效率"],"images":["AI办公脚本合集/封面.png","AI办公脚本合集/目录.png","AI办公脚本合集/内容展示1.png","AI办公脚本合集/内容展示2.png"],"category":"学习/资料 → 电子资料"},{"id":"bundle-5in1","name":"职场效率资料包(五合一)","file":"五款资料打包(见上架操作单)","price":"15.9","promoPrice":"12.9","title":"职场效率资料包 5合1 AI手册+文案+简历+排版+脚本","desc":["【职场效率资料包 · 五合一】","AI 提示词实战手册 + 小红书爆款文案模板库 + 简历模板面试话术包 + 公众号排版速查表 + AI 自动化办公脚本合集,一次买齐,全部网盘发送。","✅ 5 份成品 PDF,手机电脑都能看","✅ 网盘自动发货,秒发","✅ 原创整理,可商用"],"tags":["资料包","职场","AI","效率","合集"],"images":["资料包5合1封面.png"],"category":"学习/资料 → 电子资料"}],"replies":{"首聊接待":["在的亲~ 这款是电子资料,拍下后网盘秒发,内容包含【内容一句话】,手机电脑都能看 😊","亲,资料都是原创整理的成品 PDF,不是网上一搜一大把的搬运货,放心拍~"],"询问内容":["亲,内容大概是【一句话介绍】,我给你发目录截图和 3 张内页,您看看合不合用~"],"砍价":["亲,今天拍下送 20 个彩蛋提示词哦,很划算的~ 资料是原创整理,外面都卖 9.9+","亲,这款已经是跑量价啦,再低就没利润了 😅 不过今天拍下可以给您加一份赠品资料~"],"已付款自动发货":["您好,资料已发您网盘:【粘贴网盘链接】 提取码:【密码】\n收到麻烦确认收货给个好评哈,后续更新免费发您~ 有其他需要的也可以看看我主页其他资料 😊"],"售后打不开":["亲,把您的邮箱发我,我重新给您发一份~ 或者告诉我是哪个链接打不开,我马上处理,别着急哈"],"好评引导":["喜欢的话给个五星好评哈,后续更新免费发您,有新的资料也会第一时间通知您 😊"],"未读跟进":["亲,看您拍下后还没领取资料,网盘链接再发您一次:【粘贴网盘链接】 提取码:【密码】,有问题随时找我~"]},"routine":{"morning":["擦亮 6 件商品(闲鱼 App → 我的 → 我卖出的 → 逐个点「擦亮」)","看昨晚曝光/咨询数据,有商品曝光 < 50 就换首图或改标题"],"noon":["回复所有询价(目标:< 10 分钟)","处理新订单:确认自动发货已触发,没触发就手动发网盘链接"],"evening":["发货/跟进未读买家(用「未读跟进」话术)","在台账里记一笔:卖出几单、各多少钱","复盘:今天咨询 < 3 次 → 降一款价或改一款标题;成交 ≥ 2 单 → 明天把价格上调 0.5~1 元试水"],"weekly":["发 1~2 条小红书引流笔记(docs/运营/小红书引流笔记.md 有现成 10 条)","周复盘:哪款曝光/成交最好 → 重点擦亮;哪款没动静 → 换标题关键词","更新「今日任务」为下周计划"]},"generated":"2026-08-30 19:03"}</script>
+<script id="dsh-data" type="application/json">{"shop":{"name":"百宝效率铺","netdisk":"https://pan.baidu.com/s/xxxxx","netdiskPwd":"1234","delivery":"百度网盘链接 + 提取码(闲鱼虚拟商品自动发货)","slogan":"职场效率资料,原创整理,网盘秒发"},"products":[{"id":"ai-handbook","name":"AI提示词实战手册","file":"AI提示词实战手册.pdf","price":"3.9","promoPrice":"2.9","title":"AI提示词手册 PDF 网盘发货 60个场景直接抄 职场效率神器","desc":["【AI 提示词实战手册 · 60 个可直接复制的模板】","覆盖写作/职场/学习/编程/营销/生活六大场景,每类 10 个高质量模板,每条都是「标题+完整模板+使用要点」,拿到手就能用,发给 ChatGPT/DeepSeek/Kimi/文心一言 都行。","附赠:5 个让 AI 输出更好的进阶技巧。","✅ 成品 PDF,手机电脑都能看","✅ 网盘自动发货,秒发","✅ 原创整理,可商用"],"tags":["AI","提示词","效率工具","职场","副业"],"images":["ai提示词手册/封面.png","ai提示词手册/目录.png","ai提示词手册/内容展示1.png","ai提示词手册/内容展示2.png"],"category":"学习/资料 → 电子资料"},{"id":"xhs-templates","name":"小红书爆款文案模板库","file":"小红书爆款文案模板库.pdf","price":"2.9","promoPrice":"2.9","title":"小红书文案模板 50个爆款公式 笔记直接套 自媒体必备","desc":["【小红书爆款文案模板库 · 50 个爆款公式】","覆盖种草/干货/日常/测评/穿搭/美食/旅行/职场八大场景,每个公式带标题套路+正文结构+例子,发笔记直接套,不用再憋文案。","✅ 成品 PDF,手机电脑都能看","✅ 网盘自动发货,秒发","✅ 原创整理,可商用"],"tags":["小红书","文案","自媒体","爆款","副业"],"images":["小红书文案模板/封面.png","小红书文案模板/目录.png","小红书文案模板/内容展示1.png","小红书文案模板/内容展示2.png"],"category":"学习/资料 → 电子资料"},{"id":"resume-pack","name":"简历模板+面试话术包","file":"简历模板+面试话术包.pdf","price":"3.9","promoPrice":"2.9","title":"简历模板面试话术包 20道高频题答题框架 求职自救","desc":["【简历模板 + 面试话术包 · 求职自救】","简历结构 + 用词库 + 自我介绍模板 + 20 道高频面试题答题框架 + 谈薪话术,面试前翻一遍,心里有底。","✅ 成品 PDF,手机电脑都能看","✅ 网盘自动发货,秒发","✅ 原创整理,可商用"],"tags":["简历","面试","求职","话术","职场"],"images":["简历面试话术包/封面.png","简历面试话术包/目录.png","简历面试话术包/内容展示1.png","简历面试话术包/内容展示2.png"],"category":"学习/资料 → 电子资料"},{"id":"gzh-cheatsheet","name":"公众号排版速查表","file":"公众号排版速查表.pdf","price":"2.9","promoPrice":"2.9","title":"公众号排版速查表 字号行距配色全搞定 自媒体人必备","desc":["【公众号排版速查表 · 42 个速查条目】","字号/行距/配色/标题公式/排版工具一次查全,照着调,排版立刻干净高级,自媒体人必备。","✅ 成品 PDF,手机电脑都能看","✅ 网盘自动发货,秒发","✅ 原创整理,可商用"],"tags":["公众号","排版","自媒体","效率","副业"],"images":["公众号排版速查表/封面.png","公众号排版速查表/目录.png","公众号排版速查表/内容展示1.png","公众号排版速查表/内容展示2.png"],"category":"学习/资料 → 电子资料"},{"id":"office-scripts","name":"AI自动化办公脚本合集","file":"AI自动化办公脚本合集.pdf","price":"5.9","promoPrice":"4.9","title":"AI办公脚本合集 批量改名压缩合并Excel 效率翻倍","desc":["【AI 自动化办公脚本合集 · 36 个场景】","文件批处理/Excel 批量操作/网页数据抓取/定时提醒,每个场景给可运行的脚本模板,复制改改就能用,效率翻倍。","✅ 成品 PDF,手机电脑都能看","✅ 网盘自动发货,秒发","✅ 原创整理,可商用"],"tags":["办公","自动化","脚本","Excel","效率"],"images":["AI办公脚本合集/封面.png","AI办公脚本合集/目录.png","AI办公脚本合集/内容展示1.png","AI办公脚本合集/内容展示2.png"],"category":"学习/资料 → 电子资料"},{"id":"bundle-5in1","name":"职场效率资料包(五合一)","file":"五款资料打包(见上架操作单)","price":"15.9","promoPrice":"12.9","title":"职场效率资料包 5合1 AI手册+文案+简历+排版+脚本","desc":["【职场效率资料包 · 五合一】","AI 提示词实战手册 + 小红书爆款文案模板库 + 简历模板面试话术包 + 公众号排版速查表 + AI 自动化办公脚本合集,一次买齐,全部网盘发送。","✅ 5 份成品 PDF,手机电脑都能看","✅ 网盘自动发货,秒发","✅ 原创整理,可商用"],"tags":["资料包","职场","AI","效率","合集"],"images":["资料包5合1封面.png"],"category":"学习/资料 → 电子资料"}],"replies":{"首聊接待":["在的亲~ 这款是电子资料,拍下后网盘秒发,内容包含【内容一句话】,手机电脑都能看 😊","亲,资料都是原创整理的成品 PDF,不是网上一搜一大把的搬运货,放心拍~"],"询问内容":["亲,内容大概是【一句话介绍】,我给你发目录截图和 3 张内页,您看看合不合用~"],"砍价":["亲,今天拍下送 20 个彩蛋提示词哦,很划算的~ 资料是原创整理,外面都卖 9.9+","亲,这款已经是跑量价啦,再低就没利润了 😅 不过今天拍下可以给您加一份赠品资料~"],"已付款自动发货":["您好,资料已发您网盘:【粘贴网盘链接】 提取码:【密码】\n收到麻烦确认收货给个好评哈,后续更新免费发您~ 有其他需要的也可以看看我主页其他资料 😊"],"售后打不开":["亲,把您的邮箱发我,我重新给您发一份~ 或者告诉我是哪个链接打不开,我马上处理,别着急哈"],"好评引导":["喜欢的话给个五星好评哈,后续更新免费发您,有新的资料也会第一时间通知您 😊"],"未读跟进":["亲,看您拍下后还没领取资料,网盘链接再发您一次:【粘贴网盘链接】 提取码:【密码】,有问题随时找我~"]},"routine":{"morning":["擦亮 6 件商品(闲鱼 App → 我的 → 我卖出的 → 逐个点「擦亮」)","看昨晚曝光/咨询数据,有商品曝光 < 50 就换首图或改标题"],"noon":["回复所有询价(目标:< 10 分钟)","处理新订单:确认自动发货已触发,没触发就手动发网盘链接"],"evening":["发货/跟进未读买家(用「未读跟进」话术)","在台账里记一笔:卖出几单、各多少钱","复盘:今天咨询 < 3 次 → 降一款价或改一款标题;成交 ≥ 2 单 → 明天把价格上调 0.5~1 元试水"],"weekly":["按工作台「引流」页发 1~2 条小红书笔记(周二/四/六发文日,发完点「标记已发」)","周复盘:哪款曝光/成交最好 → 重点擦亮;哪款没动静 → 换标题关键词","更新「今日任务」为下周计划"]},"xhsNotes":[{"no":1,"typeLabel":"引流(工具站)","type":"A","title":"我整理了一个免费在线工具箱,60 个功能不用下载 🧰","body":["打工人的电脑里总缺那么几个小工具:压缩图片、转 PDF、算房贷、身份证校验……每次现搜现下载,烦。","我整理了一个免费在线工具箱:图片压缩、二维码生成、房贷计算、卡路里计算、银行卡校验、Markdown 编辑器……40+ 个功能,打开就用,不用注册不用下载!","关键是:所有处理都在本地浏览器完成,私密文件不用担心上传。","需要的姐妹评论区扣「工具箱」或看主页简介～","#在线工具 #效率神器 #免费工具 #打工人必备 #效率提升"]},{"no":2,"typeLabel":"引流(图片压缩)","type":"A","title":"图片太大发不出去?3 步从 8MB 压到 300KB 📸","body":["公众号上传提示超 10M、邮件附件被退回、微信原图发不出……你是不是也遇到过?","我的方法:打开在线图片压缩工具,① 选图片 ② 调质量 ③ 下载,10 秒搞定,还能选 WebP 格式再省 30%。","全程本地处理,不怕隐私泄露。比装软件香多了。","具体工具在主页,搜索「图片压缩」也能找到我整理的那个～","#图片压缩 #公众号运营 #职场干货 #效率工具"]},{"no":3,"typeLabel":"引流(房贷计算)","type":"A","title":"买房必看!等额本息和等额本金,30 年能差 9 万 💰","body":["准备买房的小伙伴注意:同样贷 100 万 30 年,还款方式选错,利息差近 10 万!","等额本息:月供固定 4546,总利息 63.7 万","等额本金:首月 5778 逐月递减,总利息 54.2 万","怎么选?收入稳选本息,前期能扛选本金。我用在线房贷计算器一键算出两个方案的完整对比,还能看每月明细。","工具在主页简介,收藏备用～","#买房 #房贷 #房贷计算 #等额本息 #理财"]},{"no":4,"typeLabel":"引流(身份证校验)","type":"A","title":"身份证最后一位 X 是啥?18 位号码暗藏 3 个秘密 🪪","body":["用了这么多年身份证,你知道第 18 位是怎么算出来的吗?","① 前 6 位=户籍省份市区 ② 7~14 位=出生日期 ③ 15~17 位=顺序码(奇男偶女) ④ 最后 1 位=校验码,X 代表数字 10!","校验码按国家标准加权取模算出,能验出号码有没有抄错。","我在线校验过自己的号码,还顺带解析出星座生肖(顺便说,校验通过不代表真人,大家别拿号码去乱查!注意信息安全)","工具在主页～","#身份证 #冷知识 #生活常识 #信息安全"]},{"no":5,"typeLabel":"引流(卡路里)","type":"A","title":"减肥先别饿自己!算清楚 TDEE 再决定吃多少 🔥","body":["很多人减肥第一步就错了:直接断碳、只吃 1000 大卡,结果代谢崩了还反弹。","正确顺序:算出基础代谢 BMR → 乘以活动系数得到每日消耗 TDEE → 制造 300~500 大卡缺口。","举例:30 岁 170cm 65kg 男生,TDEE 约 2182 大卡,减脂期吃 1680~1880 就行。","我用的在线卡路里计算器,输入身高体重一键出结果,还有三档目标热量,主页自取～","#减肥 #卡路里 #基础代谢 #减脂 #健康饮食"]},{"no":6,"typeLabel":"引流(打字测速)","type":"A","title":"打字慢被同事嫌弃?每天 15 分钟,一个月 WPM 提升 50% ⌨️","body":["办公室最尴尬的事:别人键盘噼里啪啦,你还在找字母在哪。","我的练法:① 先练标准指法(不看键盘) ② 正确率优先,别追求速度 ③ 每天 15 分钟 ④ 每周测一次速看进步","免费打字测速工具在主页,中英文都有,自动算 WPM 和正确率,打工人和学生党都能练。","亲测 4 周从 35 到 55 WPM,评论区蹲一个你的成绩～","#打字 #职场技能 #打字练习 #效率 #自我提升"]},{"no":7,"typeLabel":"卖产品(AI 提示词手册)","type":"B","title":"我把 60 个 AI 提示词模板整理成了手册,直接抄 📖","body":["用了半年 AI,发现 90% 的人不会提问,问出来的答案又空又水。","我整理了 60 个高频场景模板:公众号文章、小红书笔记、简历优化、面试模拟、代码报错、旅行攻略……每条都是「标题+完整模板+使用要点」,替换【】就能用!","附赠 5 个让 AI 输出更好的技巧,新手老手都有用。","8 页成品 PDF,网盘发货,原创整理可商用。评论区扣「手册」或私信～","#AI工具 #提示词 #ChatGPT #副业 #效率"]},{"no":8,"typeLabel":"卖产品(小红书文案模板)","type":"B","title":"小红书 50 个爆款文案模板,照着套就能发 ✍️","body":["做小红书最痛苦的不是发,是想文案想到头秃。","我整理了一本《小红书爆款文案模板库》:万能种草公式、痛点开篇、数字清单法、对比测评……八大场景 50 个模板,美妆穿搭美食旅行家居学习全都有!","每条直接替换【】就能发,还附发布时间、封面技巧、话题标签攻略。","7 页 PDF 网盘发货,一杯奶茶钱。扣「模板」私信～","#小红书运营 #文案模板 #自媒体 #副业干货"]},{"no":9,"typeLabel":"卖产品(简历话术包)","type":"B","title":"秋招自救!简历模板+20 道面试题答题框架都给你 🎯","body":["投了几十份简历没回音?面试就紧张?这一本就够了:","① 简历黄金结构(照着填) ② 用词库(「负责」→「主导」,附数据化公式) ③ 1 分钟自我介绍模板 ④ 20 道高频面试题答题框架 ⑤ 谈薪话术","应届生、转行、跳槽都适用,5 页 PDF 网盘发货。","求职的宝子扣「简历」～","#秋招 #简历 #面试 #求职 #应届生"]},{"no":10,"typeLabel":"卖产品(资料包)","type":"B","title":"职场效率资料包 5 合 1,一次集齐能省 200 小时 ⚡","body":["整理了半年,把最实用的一套都打包了:","① AI 提示词手册(60 模板) ② 小红书文案模板库(50 模板) ③ 简历+面试话术包(20 题) ④ 公众号排版速查表 ⑤ AI 办公脚本合集","写作、求职、排版、自动化全覆盖,五合一打包价更划算,网盘秒发。","需要的扣「资料包」或私信我～","#效率工具 #职场干货 #资料包 #副业 #自我提升","- **频率**:每周 2~3 条,同一内容不同封面可发两次测数据;","- **封面**:大字标题 + 高对比底色,手机截图即可,别用网图;","- **引导**:评论区扣字引导私信,回复要快(1 小时内最佳);","- **合规**:私信交易走闲鱼链接,不要在站内直接转账;虚拟商品说明清楚「网盘发货」。"]}],"plan":[{"date":"2026-09-01","weekday":"周二","type":"A","no":1,"title":"我整理了一个免费在线工具箱,60 个功能不用下载 🧰"},{"date":"2026-09-03","weekday":"周四","type":"B","no":7,"title":"我把 60 个 AI 提示词模板整理成了手册,直接抄 📖"},{"date":"2026-09-05","weekday":"周六","type":"A","no":2,"title":"图片太大发不出去?3 步从 8MB 压到 300KB 📸"},{"date":"2026-09-08","weekday":"周二","type":"A","no":3,"title":"买房必看!等额本息和等额本金,30 年能差 9 万 💰"},{"date":"2026-09-10","weekday":"周四","type":"B","no":8,"title":"小红书 50 个爆款文案模板,照着套就能发 ✍️"},{"date":"2026-09-12","weekday":"周六","type":"A","no":4,"title":"身份证最后一位 X 是啥?18 位号码暗藏 3 个秘密 🪪"},{"date":"2026-09-15","weekday":"周二","type":"A","no":5,"title":"减肥先别饿自己!算清楚 TDEE 再决定吃多少 🔥"},{"date":"2026-09-17","weekday":"周四","type":"B","no":9,"title":"秋招自救!简历模板+20 道面试题答题框架都给你 🎯"},{"date":"2026-09-19","weekday":"周六","type":"A","no":6,"title":"打字慢被同事嫌弃?每天 15 分钟,一个月 WPM 提升 50% ⌨️"},{"date":"2026-09-22","weekday":"周二","type":"A","no":1,"title":"我整理了一个免费在线工具箱,60 个功能不用下载 🧰"},{"date":"2026-09-24","weekday":"周四","type":"B","no":10,"title":"职场效率资料包 5 合 1,一次集齐能省 200 小时 ⚡"},{"date":"2026-09-26","weekday":"周六","type":"A","no":2,"title":"图片太大发不出去?3 步从 8MB 压到 300KB 📸"}],"multi":[{"name":"AI提示词实战手册","price":"3.9","platforms":{"xhs":{"title":"我把 60 个 AI 提示词模板整理成了手册,直接抄 📖","body":"用了半年 AI,发现 90% 的人不会提问,问出来的答案又空又水。\n我整理了 60 个高频场景模板:公众号文章、小红书笔记、简历优化、面试模拟、代码报错、旅行攻略……每条都是「标题+完整模板+使用要点」,替换【】就能用!\n附赠 5 个让 AI 输出更好的技巧,新手老手都有用。\n8 页成品 PDF,网盘发货,原创整理可商用。评论区扣「手册」或私信～\n#AI工具 #提示词 #ChatGPT #副业 #效率"},"video":"【AI提示词实战手册】AI效率神器,网盘秒发,点击橱窗直接买~","moment":"AI提示词实战手册上架啦!AI效率神器,网盘秒发,私信领链接~ #闲鱼 #效率工具 #副业","star":"# 星球福利 · AI提示词实战手册\n\n【AI 提示词实战手册 · 60 个可直接复制的模板】\n覆盖写作/职场/学习/编程/营销/生活六大场景,每类 10 个高质量模板,每条都是「标题+完整模板+使用要点」,拿到手就能用,发给 ChatGPT/DeepSeek/Kimi/文心一言 都行。\n附赠:5 个让 AI 输出更好的进阶技巧。\n✅ 成品 PDF,手机电脑都能看\n✅ 网盘自动发货,秒发\n✅ 原创整理,可商用\n\n定价 ¥3.9,星球成员专享 ¥2.9,评论区扣「AI」领取。"}},{"name":"小红书爆款文案模板库","price":"2.9","platforms":{"xhs":{"title":"小红书 50 个爆款文案模板,照着套就能发 ✍️","body":"做小红书最痛苦的不是发,是想文案想到头秃。\n我整理了一本《小红书爆款文案模板库》:万能种草公式、痛点开篇、数字清单法、对比测评……八大场景 50 个模板,美妆穿搭美食旅行家居学习全都有!\n每条直接替换【】就能发,还附发布时间、封面技巧、话题标签攻略。\n7 页 PDF 网盘发货,一杯奶茶钱。扣「模板」私信～\n#小红书运营 #文案模板 #自媒体 #副业干货"},"video":"【小红书爆款文案模板库】小红书效率神器,网盘秒发,点击橱窗直接买~","moment":"小红书爆款文案模板库上架啦!小红书效率神器,网盘秒发,私信领链接~ #闲鱼 #效率工具 #副业","star":"# 星球福利 · 小红书爆款文案模板库\n\n【小红书爆款文案模板库 · 50 个爆款公式】\n覆盖种草/干货/日常/测评/穿搭/美食/旅行/职场八大场景,每个公式带标题套路+正文结构+例子,发笔记直接套,不用再憋文案。\n✅ 成品 PDF,手机电脑都能看\n✅ 网盘自动发货,秒发\n✅ 原创整理,可商用\n\n定价 ¥2.9,星球成员专享 ¥2.9,评论区扣「小红书」领取。"}},{"name":"简历模板+面试话术包","price":"3.9","platforms":{"xhs":{"title":"秋招自救!简历模板+20 道面试题答题框架都给你 🎯","body":"投了几十份简历没回音?面试就紧张?这一本就够了:\n① 简历黄金结构(照着填) ② 用词库(「负责」→「主导」,附数据化公式) ③ 1 分钟自我介绍模板 ④ 20 道高频面试题答题框架 ⑤ 谈薪话术\n应届生、转行、跳槽都适用,5 页 PDF 网盘发货。\n求职的宝子扣「简历」～\n#秋招 #简历 #面试 #求职 #应届生"},"video":"【简历模板+面试话术包】简历效率神器,网盘秒发,点击橱窗直接买~","moment":"简历模板+面试话术包上架啦!简历效率神器,网盘秒发,私信领链接~ #闲鱼 #效率工具 #副业","star":"# 星球福利 · 简历模板+面试话术包\n\n【简历模板 + 面试话术包 · 求职自救】\n简历结构 + 用词库 + 自我介绍模板 + 20 道高频面试题答题框架 + 谈薪话术,面试前翻一遍,心里有底。\n✅ 成品 PDF,手机电脑都能看\n✅ 网盘自动发货,秒发\n✅ 原创整理,可商用\n\n定价 ¥3.9,星球成员专享 ¥2.9,评论区扣「简历」领取。"}},{"name":"公众号排版速查表","price":"2.9","platforms":{"xhs":{"title":"公众号排版字号行距配色,一张速查表全搞定 ✍️","body":"【公众号排版速查表 · 42 个速查条目】\n字号/行距/配色/标题公式/排版工具一次查全,照着调,排版立刻干净高级,自媒体人必备。\n评论区扣「公众号」或私信~ 网盘秒发,原创整理可商用。"},"video":"【公众号排版速查表】公众号效率神器,网盘秒发,点击橱窗直接买~","moment":"公众号排版速查表上架啦!公众号效率神器,网盘秒发,私信领链接~ #闲鱼 #效率工具 #副业","star":"# 星球福利 · 公众号排版速查表\n\n【公众号排版速查表 · 42 个速查条目】\n字号/行距/配色/标题公式/排版工具一次查全,照着调,排版立刻干净高级,自媒体人必备。\n✅ 成品 PDF,手机电脑都能看\n✅ 网盘自动发货,秒发\n✅ 原创整理,可商用\n\n定价 ¥2.9,星球成员专享 ¥2.9,评论区扣「公众号」领取。"}},{"name":"AI自动化办公脚本合集","price":"5.9","platforms":{"xhs":{"title":"36 个 AI 办公脚本,批量改名压缩合并 Excel 直接抄 ⚡","body":"【AI 自动化办公脚本合集 · 36 个场景】\n文件批处理/Excel 批量操作/网页数据抓取/定时提醒,每个场景给可运行的脚本模板,复制改改就能用,效率翻倍。\n评论区扣「办公」或私信~ 网盘秒发,原创整理可商用。"},"video":"【AI自动化办公脚本合集】办公效率神器,网盘秒发,点击橱窗直接买~","moment":"AI自动化办公脚本合集上架啦!办公效率神器,网盘秒发,私信领链接~ #闲鱼 #效率工具 #副业","star":"# 星球福利 · AI自动化办公脚本合集\n\n【AI 自动化办公脚本合集 · 36 个场景】\n文件批处理/Excel 批量操作/网页数据抓取/定时提醒,每个场景给可运行的脚本模板,复制改改就能用,效率翻倍。\n✅ 成品 PDF,手机电脑都能看\n✅ 网盘自动发货,秒发\n✅ 原创整理,可商用\n\n定价 ¥5.9,星球成员专享 ¥4.9,评论区扣「办公」领取。"}},{"name":"职场效率资料包(五合一)","price":"15.9","platforms":{"xhs":{"title":"职场效率资料包 5 合 1,一次集齐能省 200 小时 ⚡","body":"整理了半年,把最实用的一套都打包了:\n① AI 提示词手册(60 模板) ② 小红书文案模板库(50 模板) ③ 简历+面试话术包(20 题) ④ 公众号排版速查表 ⑤ AI 办公脚本合集\n写作、求职、排版、自动化全覆盖,五合一打包价更划算,网盘秒发。\n需要的扣「资料包」或私信我～\n#效率工具 #职场干货 #资料包 #副业 #自我提升\n- **频率**:每周 2~3 条,同一内容不同封面可发两次测数据;\n- **封面**:大字标题 + 高对比底色,手机截图即可,别用网图;\n- **引导**:评论区扣字引导私信,回复要快(1 小时内最佳);\n- **合规**:私信交易走闲鱼链接,不要在站内直接转账;虚拟商品说明清楚「网盘发货」。"},"video":"【职场效率资料包(五合一)】资料包效率神器,网盘秒发,点击橱窗直接买~","moment":"职场效率资料包(五合一)上架啦!资料包效率神器,网盘秒发,私信领链接~ #闲鱼 #效率工具 #副业","star":"# 星球福利 · 职场效率资料包(五合一)\n\n【职场效率资料包 · 五合一】\nAI 提示词实战手册 + 小红书爆款文案模板库 + 简历模板面试话术包 + 公众号排版速查表 + AI 自动化办公脚本合集,一次买齐,全部网盘发送。\n✅ 5 份成品 PDF,手机电脑都能看\n✅ 网盘自动发货,秒发\n✅ 原创整理,可商用\n\n定价 ¥15.9,星球成员专享 ¥12.9,评论区扣「资料包」领取。"}}],"generated":"2026-08-30 19:09"}</script>
 <script>
 (function () {
   var DATA = JSON.parse(document.getElementById('dsh-data').textContent);
@@ -229,13 +241,28 @@
   }
 
   // ---------- 初始化 ----------
-  document.getElementById('header-sub').textContent = '生成于 ' + DATA.generated + ' · 今日任务 + 上架卡片 + 回复话术 + 销售台账 · 数据存在本机浏览器';
+  document.getElementById('header-sub').textContent = '生成于 ' + DATA.generated + ' · 上架 / 话术 / 引流 / 多平台 / 任务 / 台账 · 数据存在本机浏览器';
   var today = new Date().toISOString().slice(0, 10);
   document.getElementById('ledger-date').value = today;
   var sel = document.getElementById('ledger-product');
   PRODUCTS.forEach(function (p) { var o = document.createElement('option'); o.value = p.name; o.textContent = p.name + '(¥' + p.price + ')'; sel.appendChild(o); });
 
-  renderListing(); renderReplies(); renderTasks(); renderLedger();
+  renderListing(); renderReplies(); renderTasks(); renderLedger(); renderXhs(); renderMulti();
+
+  document.getElementById('panel-xhs').addEventListener('click', function (e) {
+    var b = e.target.closest('button[data-xhs]');
+    if (b) {
+      var a = loadXhs(); a.push({ no: Number(b.getAttribute('data-xhs')), date: new Date().toISOString().slice(0, 10) }); saveXhs(a);
+      renderXhs(); toast('已标记:今天发第 ' + b.getAttribute('data-xhs') + ' 条');
+      return;
+    }
+    var c = e.target.closest('button[data-copy]');
+    if (c) copyText(c.getAttribute('data-copy'));
+  });
+  document.getElementById('panel-multi').addEventListener('click', function (e) {
+    var c = e.target.closest('button[data-copy]');
+    if (c) copyText(c.getAttribute('data-copy'));
+  });
 
   document.querySelectorAll('nav button').forEach(function (b) {
     b.addEventListener('click', function () {
@@ -266,6 +293,78 @@
   });
   document.getElementById('ledger-export').addEventListener('click', exportCsv);
   document.getElementById('ledger-clear').addEventListener('click', function () { if (confirm('确定清空全部台账记录?')) { localStorage.removeItem(LED_KEY); renderLedger(); } });
+
+  // ---------- 引流(小红书轮发) ----------
+  var XHS_KEY = 'xy-xhs-posted';
+  function loadXhs() { try { return JSON.parse(localStorage.getItem(XHS_KEY) || '[]'); } catch (e) { return []; } }
+  function saveXhs(a) { localStorage.setItem(XHS_KEY, JSON.stringify(a)); }
+  function xhsRecent() {
+    var cutoff = Date.now() - 14 * 86400000;
+    return loadXhs().filter(function (r) { return new Date(r.date).getTime() >= cutoff; });
+  }
+  function noteCard(n, recentNos) {
+    var posted = recentNos.indexOf(n.no) !== -1;
+    var body = Array.isArray(n.body) ? n.body.join('\n') : n.body;
+    var el = document.createElement('div'); el.className = 'card';
+    el.innerHTML =
+      '<div class="lbl" style="font-size:12px;color:var(--muted);margin-bottom:6px;">第 ' + n.no + ' 条 · ' + esc(n.typeLabel) + (posted ? ' · ✅ 近 14 天已发' : '') + '</div>' +
+      '<h3 style="font-size:14px;margin-bottom:6px;">' + esc(n.title) + '</h3>' +
+      '<div class="box">' + esc(body) + '</div>' +
+      '<div class="btnrow">' +
+      '<button class="btn" data-copy="' + esc(n.title + '\n\n' + body) + '">复制整篇</button>' +
+      (posted ? '' : '<button class="btn ghost" data-xhs="' + n.no + '">标记已发</button>') +
+      '</div>';
+    return el;
+  }
+  function renderXhs() {
+    if (!DATA.xhsNotes || !DATA.plan) return;
+    var day = new Date().getDay(), slotMap = { 2: 'A', 4: 'B', 6: 'A' }, slot = slotMap[day] || '';
+    var recent = xhsRecent(), recentNos = recent.map(function (r) { return r.no; });
+    var todayStr = new Date().toISOString().slice(0, 10);
+    var todayPosted = recent.filter(function (r) { return r.date === todayStr; });
+    var box = document.getElementById('xhs-today'); box.innerHTML = '';
+    var head = document.createElement('div'); head.className = 'card';
+    if (!slot) {
+      var nextMap = { 0: '周二', 1: '周二', 3: '周四', 5: '周六' };
+      head.innerHTML = '<h3>今天不是发文日</h3><div class="meta">下次发文:' + (nextMap[day] || '周二') + ' · 节奏:每周 2~3 条(引流/卖产品交替)</div>';
+    } else {
+      var pool = DATA.xhsNotes.filter(function (n) { return n.type === slot && recentNos.indexOf(n.no) === -1; });
+      if (todayPosted.length) {
+        head.innerHTML = '<h3>✅ 今天已发(第 ' + todayPosted[0].no + ' 条)</h3><div class="meta">回复评论要快(1 小时内最佳),引导私信走闲鱼链接</div>';
+      } else if (pool.length) {
+        head.innerHTML = '<h3>📣 今天该发这条</h3>';
+        head.appendChild(noteCard(pool[0], recentNos));
+      } else {
+        head.innerHTML = '<h3>😴 引流类近 14 天都发过了</h3><div class="meta">今天休息,或换发另一类型 / 换封面重发同一篇测数据</div>';
+      }
+    }
+    box.appendChild(head);
+    document.getElementById('xhs-plan').innerHTML = '<table><tr><th>日期</th><th>星期</th><th>类型</th><th>笔记</th></tr>' + DATA.plan.map(function (r) {
+      return '<tr><td>' + esc(r.date) + '</td><td>' + esc(r.weekday) + '</td><td>' + (r.type === 'A' ? '引流' : '卖产品') + '</td><td>第 ' + r.no + ' 条 · ' + esc(r.title) + '</td></tr>';
+    }).join('') + '</table>';
+    var nh = document.getElementById('xhs-notes'); nh.innerHTML = '';
+    DATA.xhsNotes.forEach(function (n) { nh.appendChild(noteCard(n, recentNos)); });
+  }
+
+  // ---------- 多平台 ----------
+  function renderMulti() {
+    if (!DATA.multi) return;
+    var list = document.getElementById('multi-list'); list.innerHTML = '';
+    DATA.multi.forEach(function (m) {
+      var el = document.createElement('div'); el.className = 'card';
+      el.innerHTML = '<h3><span>' + esc(m.name) + '</span><span class="price">¥' + m.price + '</span></h3>';
+      var wrap = document.createElement('div');
+      [['xhs', '小红书笔记'], ['video', '视频号橱窗'], ['moment', '朋友圈'], ['star', '知识星球']].forEach(function (pm) {
+        var v = m.platforms[pm[0]];
+        var txt = pm[0] === 'xhs' ? (v.title + '\n\n' + (Array.isArray(v.body) ? v.body.join('\n') : v.body)) : v;
+        var row = document.createElement('div'); row.className = 'field';
+        row.innerHTML = '<div class="lbl">' + pm[1] + '</div><div class="box" style="max-height:110px;overflow:auto;">' + esc(txt) + '</div>' +
+          '<div class="btnrow"><button class="btn small" data-copy="' + esc(txt) + '">复制</button></div>';
+        wrap.appendChild(row);
+      });
+      el.appendChild(wrap); list.appendChild(el);
+    });
+  }
 })();
 </script>
 </body>
