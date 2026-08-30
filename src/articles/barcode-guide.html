@@ -1,0 +1,36 @@
+<p>超市结账扫的是条形码,微信加好友扫的是二维码。同样是「码」,它们到底有什么区别?电商上架的 EAN-13 商品码又是怎么回事?本文一次讲清。</p>
+
+<h2>一、条形码(一维码)vs 二维码</h2>
+<table style="width:100%;border-collapse:collapse;font-size:14px">
+<thead><tr style="background:var(--bg)"><th style="padding:6px 8px;text-align:left">对比项</th><th style="padding:6px 8px;text-align:left">条形码(一维)</th><th style="padding:6px 8px;text-align:left">二维码(二维)</th></tr></thead>
+<tbody>
+<tr><td style="padding:6px 8px">信息量</td><td style="padding:6px 8px">几十个字符</td><td style="padding:6px 8px">几千个字符</td></tr>
+<tr><td style="padding:6px 8px">外观</td><td style="padding:6px 8px">黑白竖条 + 数字</td><td style="padding:6px 8px">黑白方块矩阵</td></tr>
+<tr><td style="padding:6px 8px">扫码方向</td><td style="padding:6px 8px">只能横向扫描</td><td style="padding:6px 8px">任意方向可扫</td></tr>
+<tr><td style="padding:6px 8px">损坏容错</td><td style="padding:6px 8px">较差</td><td style="padding:6px 8px">有纠错码,耐遮挡</td></tr>
+<tr><td style="padding:6px 8px">典型用途</td><td style="padding:6px 8px">商品条码、库存管理</td><td style="padding:6px 8px">支付、链接、名片、防伪</td></tr>
+</tbody>
+</table>
+
+<h2>二、EAN-13 商品条码的结构</h2>
+<p>国内商品条码使用 <b>EAN-13</b>(13 位):</p>
+<ul>
+<li>前 2~3 位:国家/地区前缀(中国为 690~699);</li>
+<li>接下来:厂商识别码(由中国物品编码中心分配);</li>
+<li>再接下来:商品项目代码(厂商自编);</li>
+<li>最后 1 位:<b>校验码</b>,由前 12 位计算得出,防止误读。</li>
+</ul>
+
+<div class="panel" style="margin:18px 0">
+<p style="margin:0"><b>👉 立即使用:</b><a href="../barcode/">在线条形码生成器</a> —— EAN-13 / EAN-8 / CODE128 / CODE39 / UPC 一键生成,可下载 PNG。</p>
+</div>
+
+<h2>三、常见问题</h2>
+<h3>电商详情页上的条码能随便生成吗?</h3>
+<p>条码图形可以随意生成,但<b>要真正在超市/电商正常流通,厂商识别码需要在「中国物品编码中心」注册</b>。自家打印标签、内部管理用自编码没问题。</p>
+<h3>怎么区分条形码和二维码?</h3>
+<p>一眼看:竖条纹的是条形码,方块矩阵的是二维码;条形码只能横着扫,二维码正着斜着都能扫。</p>
+<h3>没有注册编码,想给产品做个码怎么办?</h3>
+<p>可以用 CODE128 编码任意文本(如网址、SKU),打印在包装上供扫码查看,这是免费且合规的用途。</p>
+
+<p><i>总结:条形码存少、横着扫、用于商品;二维码存多、任意扫、用于交互。商品流通要注册编码,日常标签用生成器即可。</i></p>

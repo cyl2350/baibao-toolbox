@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>银行卡号怎么验证?Luhn 算法原理与卡 BIN 识别 | 百宝工具箱</title>
+<meta name="description" content="银行卡号最后一位是怎么算出来的?Luhn 校验算法原理、Visa/万事达/银联卡号规律,附在线校验工具。">
+<meta name="keywords" content="银行卡号验证,luhn算法,卡号校验,银行卡号规律,卡bin">
+<link rel="canonical" href="https://www.baibao-toolbox.example/articles/luhn-guide/">
+<meta property="og:title" content="银行卡号怎么验证?Luhn 算法原理与卡 BIN 识别 | 百宝工具箱">
+<meta property="og:description" content="银行卡号最后一位是怎么算出来的?Luhn 校验算法原理、Visa/万事达/银联卡号规律,附在线校验工具。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.baibao-toolbox.example/articles/luhn-guide/">
+<meta property="og:image" content="https://www.baibao-toolbox.example/og-image.png">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"银行卡号怎么验证?Luhn 算法原理与卡 BIN 识别","datePublished":"2025-01-10","description":"银行卡号最后一位是怎么算出来的?Luhn 校验算法原理、Visa/万事达/银联卡号规律,附在线校验工具。","url":"https://www.baibao-toolbox.example/articles/luhn-guide/","author":{"@type":"Organization","name":"百宝工具箱"}}</script>
+<script>window.SITE_CONFIG = {"name":"百宝工具箱","domain":"www.baibao-toolbox.example","monetization":{"adsenseClient":"","baiduAdUnit":"","taokeUrl":""}};</script>
+
+
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="../"><span class="logo-mark">百</span><span>百宝工具箱</span></a>
+    <nav class="nav-links"><a href="../qrcode/">二维码生成器</a><a href="../image-compress/">图片压缩</a><a href="../img-base64/">图片转 Base64</a><a href="../json-format/">JSON 格式化</a><a href="../timestamp/">时间戳转换</a><a href="../base64/">Base64 编解码</a><a href="../url-codec/">URL 编解码</a><a href="../md5/">MD5 加密</a><a href="../word-count/">字数统计</a><a href="../text-tools/">文本处理</a><a href="../text-diff/">文本对比</a><a href="../password/">随机密码生成</a><a href="../uuid/">UUID 生成器</a><a href="../regex-tester/">正则表达式测试</a><a href="../base-converter/">进制转换</a><a href="../color-converter/">颜色转换</a><a href="../markdown/">Markdown 编辑器</a><a href="../mortgage/">房贷计算器</a><a href="../bmi/">BMI 计算器</a><a href="../age/">年龄计算器</a><a href="../percentage/">百分比计算器</a><a href="../unit-converter/">单位换算</a><a href="../zodiac/">生肖星座查询</a><a href="../date-calculator/">日期计算器</a><a href="../rmb-upper/">人民币大写转换</a><a href="../random-picker/">随机抽取器</a><a href="../calori/">卡路里计算器</a><a href="../idcard/">身份证号码校验</a><a href="../caesar/">凯撒密码加密</a><a href="../morse/">摩斯电码转换</a><a href="../http-status/">HTTP 状态码速查</a><a href="../timezone/">世界时区转换</a><a href="../compound-interest/">复利计算器</a><a href="../url-parse/">URL 解析器</a><a href="../calculator/">在线计算器</a><a href="../barcode/">条形码生成器</a><a href="../luhn/">银行卡号校验</a><a href="../typing-test/">打字测速</a><a href="../tts/">文字转语音</a><a href="../random-name/">随机起名</a><a href="../emoji/">Emoji 大全</a><a href="../symbols/">特殊符号大全</a><a href="../kaomoji/">颜文字大全</a></nav>
+    <div class="header-actions">
+      <button class="theme-toggle" id="theme-toggle" title="切换主题" aria-label="切换主题">🌓</button>
+    </div>
+  </div>
+</header>
+<main class="container">
+
+<nav class="breadcrumb"><a href="../">首页</a> › <a href="../articles/">使用教程</a> › 银行卡号怎么验证?Luhn 算法原理与卡 BIN 识别</nav>
+<article class="content-page">
+  <h1>银行卡号怎么验证?Luhn 算法原理与卡 BIN 识别</h1>
+  <p style="color:var(--muted);font-size:13px">2025-01-10 · 生活工具</p>
+  <p>输入银行卡号时,网站是怎么在点「支付」前就发现你少打一位的?靠的就是 Luhn 算法——一个几十年前发明的简单校验规则。本文讲清原理,文末附在线校验工具。</p>
+
+<h2>一、Luhn 算法是什么?</h2>
+<p>Luhn(卢恩)算法,也叫「模 10 算法」,是银行卡、信用卡、部分身份证号通用的校验规则。它不能证明卡真实有效,但能快速发现<b>抄写错误</b>——比如少一位、两位对调。</p>
+<p>卡号的最后一位就是校验位,由前 N-1 位通过 Luhn 规则算出。</p>
+
+<h2>二、校验步骤(以 622202123456789X 为例)</h2>
+<ol>
+<li>从右往左数,<b>偶数位</b>(第 2、4、6…位)的数字乘以 2;</li>
+<li>乘完如果超过 9,减去 9(如 7×2=14 → 14−9=5);</li>
+<li>所有数字(含校验位)求和;</li>
+<li>如果总和能被 10 整除 → 卡号格式合法。</li>
+</ol>
+<p>反过来,前 15 位算完和 S,校验位 = (10 − S%10) % 10。</p>
+
+<div class="panel" style="margin:18px 0">
+<p style="margin:0"><b>👉 立即使用:</b><a href="../luhn/">在线银行卡号校验工具</a> —— Luhn 校验 + 识别 Visa / 万事达 / 银联 / 运通等卡组织。</p>
+</div>
+
+<h2>三、常见卡组织的卡号规律(BIN)</h2>
+<ul>
+<li><b>Visa</b>:以 4 开头,13/16/19 位;</li>
+<li><b>Mastercard 万事达</b>:以 51~55 或 2221~2720 开头,16 位;</li>
+<li><b>银联 UnionPay</b>:以 62 开头,16~19 位;</li>
+<li><b>美国运通</b>:以 34/37 开头,15 位;</li>
+<li><b>JCB</b>:以 35 开头,16~19 位。</li>
+</ul>
+<p>开头的 6 位叫 BIN(发卡行标识),可用于粗略判断卡组织与发卡行,但精确归属需银行系统查询。</p>
+
+<h2>四、常见问题</h2>
+<h3>Luhn 通过就等于卡能用吗?</h3>
+<p>不等于。Luhn 只验证格式;卡是否有效、有无余额、是否被冻结,只有支付通道能知道。</p>
+<h3>为什么校验失败我却确定没输错?</h3>
+<p>可能输错了卡号、把字母当数字,或这是测试环境生成的卡号。建议对照实体卡逐位核对。</p>
+<h3>这个算法能用来校验什么?</h3>
+<p>银行卡、信用卡、部分会员卡、IMEI 号都使用 Luhn,原理相同。</p>
+
+<p><i>总结:卡号最后一位是「防手滑」的校验位,Luhn 帮你秒级发现抄写错误;格式合法 ≠ 真实有效,支付前以通道校验为准。</i></p>
+
+</article>
+<div class="panel"><h3>更多教程</h3><div style="display:grid;gap:8px"><a href="../image-compress-guide/">图片太大怎么办?在线压缩图片的 5 个实用技巧</a><a href="../mortgage-guide/">房贷月供怎么算?等额本息和等额本金到底有什么区别</a><a href="../timestamp-guide/">时间戳是什么?Unix 时间戳入门与常见问题解答</a><a href="../bmi-guide/">BMI 多少算正常?中国成人标准对照表与常见误区</a><a href="../base64-guide/">Base64 是什么?编码原理、常见用途与在线转换</a></div></div>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-links">
+      <a href="../">首页</a>
+      <a href="../articles/">使用教程</a>
+      <a href="../about/">关于我们</a><a href="../privacy/">隐私政策</a><a href="../disclaimer/">免责声明</a>
+      <a href="mailto:contact@example.com">广告合作:contact@example.com</a>
+    </div>
+    <div>© 2026 百宝工具箱 · 免费、轻量、无广告弹窗的在线工具集</div>
+    
+  </div>
+</footer>
+<div id="toast"></div>
+<script src="../js/common.js"></script>
+
+
+</body>
+</html>

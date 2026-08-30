@@ -41,6 +41,9 @@
   <url><loc>https://www.baibao-toolbox.example/typing-test/</loc><lastmod>2026-08-30</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.baibao-toolbox.example/tts/</loc><lastmod>2026-08-30</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.baibao-toolbox.example/random-name/</loc><lastmod>2026-08-30</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.baibao-toolbox.example/emoji/</loc><lastmod>2026-08-30</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.baibao-toolbox.example/symbols/</loc><lastmod>2026-08-30</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.baibao-toolbox.example/kaomoji/</loc><lastmod>2026-08-30</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.baibao-toolbox.example/about/</loc><lastmod>2026-08-30</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.baibao-toolbox.example/privacy/</loc><lastmod>2026-08-30</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.baibao-toolbox.example/disclaimer/</loc><lastmod>2026-08-30</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
@@ -56,4 +59,9 @@
   <url><loc>https://www.baibao-toolbox.example/articles/random-picker-guide/</loc><lastmod>2026-08-30</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.baibao-toolbox.example/articles/calori-guide/</loc><lastmod>2026-08-30</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.baibao-toolbox.example/articles/idcard-guide/</loc><lastmod>2026-08-30</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.baibao-toolbox.example/articles/luhn-guide/</loc><lastmod>2026-08-30</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.baibao-toolbox.example/articles/barcode-guide/</loc><lastmod>2026-08-30</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.baibao-toolbox.example/articles/typing-guide/</loc><lastmod>2026-08-30</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.baibao-toolbox.example/articles/morse-guide/</loc><lastmod>2026-08-30</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.baibao-toolbox.example/articles/compound-interest-guide/</loc><lastmod>2026-08-30</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
 </urlset>
