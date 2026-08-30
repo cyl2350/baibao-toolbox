@@ -43,25 +43,26 @@ function wrapText(ctx, text, maxWidth) {
 }
 
 function drawHeader(ctx, title, subtitle) {
-  const grad = ctx.createLinearGradient(0, 0, W, 220)
+  const grad = ctx.createLinearGradient(0, 0, W, 250)
   grad.addColorStop(0, C.primary)
   grad.addColorStop(1, C.accent)
   ctx.fillStyle = grad
-  ctx.fillRect(0, 0, W, 220)
+  ctx.fillRect(0, 0, W, 250)
   font(ctx, 20)
   ctx.fillStyle = 'rgba(255,255,255,0.85)'
   ctx.fillText('百宝工具箱 · 原创出品', 40, 48)
-  const tSize = title.length > 12 ? 34 : 40
+  const tSize = title.length > 12 ? 30 : title.length > 8 ? 36 : 42
   font(ctx, tSize, 'bold')
   ctx.fillStyle = C.white
-  let ty = 92
-  for (const line of wrapText(ctx, title, W - 80)) {
+  let ty = 86
+  const titleLines = wrapText(ctx, title, W - 80).slice(0, 2)
+  for (const line of titleLines) {
     ctx.fillText(line, 40, ty)
-    ty += tSize + 10
+    ty += tSize + 8
   }
   font(ctx, 18)
   ctx.fillStyle = '#e8edff'
-  ctx.fillText(subtitle, 40, ty + 12)
+  ctx.fillText(subtitle, 40, ty + 8)
 }
 
 function drawFooter(ctx, pageLabel) {
@@ -87,20 +88,21 @@ function drawCardList(ctx, items, startY, maxRows, icon) {
     ctx.strokeStyle = C.line
     ctx.lineWidth = 1
     ctx.stroke()
-    // 序号圆
+    // 序号圆(数字在圆内水平垂直居中)
     ctx.fillStyle = C.primary
     ctx.beginPath()
     ctx.arc(72, y + 26, 15, 0, Math.PI * 2)
     ctx.fill()
     font(ctx, 15)
     ctx.fillStyle = C.white
-    ctx.fillText(String(item.num), 66, y + 31)
-    // 文本(截断两行)
+    const numStr = String(item.num)
+    ctx.fillText(numStr, 72 - ctx.measureText(numStr).width / 2, y + 32)
+    // 文本(截断两行;单行内容垂直居中)
     font(ctx, 15)
     ctx.fillStyle = C.dark
     const text = (item.lead ? item.lead + ':' : '') + item.rest
     const lines = wrapText(ctx, text, W - 80 - 60 - 20).slice(0, 2)
-    let ly = y + 20
+    let ly = y + (lines.length === 1 ? 29 : 21)
     for (const line of lines) {
       ctx.fillText(line, 100, ly)
       ly += 22
@@ -176,7 +178,7 @@ for (const p of products) {
     font(ctx, 22)
     ctx.fillStyle = '#e8edff'
     ctx.fillText(`${itemCount} 个即用模板 · 下载即用`, 50, ty + 30)
-    // 章节徽标
+    // 章节徽标(文字在圆角框内水平居中)
     let cx = 50
     const chipY = H - 320
     font(ctx, 18)
@@ -189,7 +191,7 @@ for (const p of products) {
       ctx.roundRect(cx, chipY, w, 44, 22)
       ctx.fill()
       ctx.fillStyle = C.white
-      ctx.fillText(label, cx + 22 - ctx.measureText(label).width / 2, chipY + 29)
+      ctx.fillText(label, cx + w / 2 - ctx.measureText(label).width / 2, chipY + 29)
       cx += w + 16
     })
     font(ctx, 20)
