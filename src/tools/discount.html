@@ -1,0 +1,19 @@
+<div class="field-row">
+  <div class="field" style="flex:1;min-width:130px">
+    <label for="dc-original">原价(元)</label>
+    <input type="number" id="dc-original" value="100" min="0" step="0.01" />
+  </div>
+  <div class="field" style="flex:1;min-width:130px">
+    <label for="dc-discount">折扣(如 8 折填 8,7.5 折填 7.5)</label>
+    <input type="number" id="dc-discount" value="8" min="0.1" max="10" step="0.1" />
+  </div>
+</div>
+<div class="field">
+  <label><input type="checkbox" id="dc-full" /> 满减:满 <input type="number" id="dc-full-threshold" value="300" style="width:80px;display:inline-block" /> 减 <input type="number" id="dc-full-cut" value="50" style="width:80px;display:inline-block" /> 元</label>
+</div>
+<div class="field-row">
+  <button class="btn" id="dc-run">计算</button>
+  <button class="btn secondary" id="dc-demo">填个示例</button>
+</div>
+<div class="result-box" id="dc-out" style="margin-top:14px;white-space:normal">输入参数后点击计算</div>
+<p class="tip">支持「先打折后满减」与「先满减后打折」两种算法对比,双十一比价不迷路。</p>

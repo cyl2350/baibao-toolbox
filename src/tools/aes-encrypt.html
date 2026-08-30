@@ -1,0 +1,18 @@
+<div class="field">
+  <label for="aes-in">输入要加密/解密的文本</label>
+  <textarea id="aes-in" placeholder="粘贴文本或密文" style="min-height:100px"></textarea>
+</div>
+<div class="field">
+  <label for="aes-pass">密码短语(加密和解密必须一致)</label>
+  <input type="password" id="aes-pass" placeholder="设置一个强密码" />
+</div>
+<div class="field-row">
+  <button class="btn" id="aes-enc">🔒 加密</button>
+  <button class="btn secondary" id="aes-dec">🔓 解密</button>
+  <button class="btn secondary" id="aes-copy">复制结果</button>
+</div>
+<div class="field" style="margin-top:14px">
+  <label for="aes-out">结果</label>
+  <textarea id="aes-out" readonly style="min-height:100px"></textarea>
+</div>
+<p class="tip">使用 AES-256-GCM(浏览器原生 WebCrypto)+ PBKDF2 派生密钥,加密在本地完成不上传。忘记密码将无法解密,请妥善保管。</p>
