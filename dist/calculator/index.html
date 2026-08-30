@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>在线计算器 - 免费在线使用 | 百宝工具箱</title>
+<meta name="description" content="免费在线科学计算器,支持加减乘除、括号、百分比与小数点,可用键盘直接输入,适合日常计算与公式验证。">
+<meta name="keywords" content="计算器,在线计算器,科学计算器,计算器在线使用">
+<link rel="canonical" href="https://www.baibao-toolbox.example/calculator/">
+<meta property="og:title" content="在线计算器 - 免费在线使用 | 百宝工具箱">
+<meta property="og:description" content="免费在线科学计算器,支持加减乘除、括号、百分比与小数点,可用键盘直接输入,适合日常计算与公式验证。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.baibao-toolbox.example/calculator/">
+<meta property="og:image" content="https://www.baibao-toolbox.example/og-image.png">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"在线计算器 - 百宝工具箱","url":"https://www.baibao-toolbox.example/calculator/","description":"免费在线科学计算器,支持加减乘除、括号、百分比与小数点,可用键盘直接输入,适合日常计算与公式验证。","applicationCategory":"UtilityApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"CNY"}}</script>
+<script>window.SITE_CONFIG = {"name":"百宝工具箱","domain":"www.baibao-toolbox.example","monetization":{"adsenseClient":"","baiduAdUnit":"","taokeUrl":""}};</script>
+
+
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="../"><span class="logo-mark">百</span><span>百宝工具箱</span></a>
+    <nav class="nav-links"><a href="../qrcode/">二维码生成器</a><a href="../image-compress/">图片压缩</a><a href="../img-base64/">图片转 Base64</a><a href="../json-format/">JSON 格式化</a><a href="../timestamp/">时间戳转换</a><a href="../base64/">Base64 编解码</a><a href="../url-codec/">URL 编解码</a><a href="../md5/">MD5 加密</a><a href="../word-count/">字数统计</a><a href="../text-tools/">文本处理</a><a href="../text-diff/">文本对比</a><a href="../password/">随机密码生成</a><a href="../uuid/">UUID 生成器</a><a href="../regex-tester/">正则表达式测试</a><a href="../base-converter/">进制转换</a><a href="../color-converter/">颜色转换</a><a href="../markdown/">Markdown 编辑器</a><a href="../mortgage/">房贷计算器</a><a href="../bmi/">BMI 计算器</a><a href="../age/">年龄计算器</a><a href="../percentage/">百分比计算器</a><a href="../unit-converter/">单位换算</a><a href="../zodiac/">生肖星座查询</a><a href="../date-calculator/">日期计算器</a><a href="../rmb-upper/">人民币大写转换</a><a href="../random-picker/">随机抽取器</a><a href="../calori/">卡路里计算器</a><a href="../idcard/">身份证号码校验</a><a href="../caesar/">凯撒密码加密</a><a href="../morse/">摩斯电码转换</a><a href="../http-status/">HTTP 状态码速查</a><a href="../timezone/">世界时区转换</a><a href="../compound-interest/">复利计算器</a><a href="../url-parse/">URL 解析器</a><a href="../calculator/">在线计算器</a><a href="../barcode/">条形码生成器</a><a href="../luhn/">银行卡号校验</a><a href="../typing-test/">打字测速</a><a href="../tts/">文字转语音</a><a href="../random-name/">随机起名</a></nav>
+    <div class="header-actions">
+      <button class="theme-toggle" id="theme-toggle" title="切换主题" aria-label="切换主题">🌓</button>
+    </div>
+  </div>
+</header>
+<main class="container">
+
+<nav class="breadcrumb"><a href="../">首页</a> › 在线计算器</nav>
+<div class="tool-page">
+  <h1>在线计算器</h1>
+  <p class="tool-desc">免费在线科学计算器,支持加减乘除、括号、百分比与小数点,可用键盘直接输入,适合日常计算与公式验证。</p>
+  <div class="ad-slot" data-ad="banner" data-slot="3234567890" data-label="工具顶部横幅"></div>
+  <div class="panel"><div class="tool-body"><div class="field">
+  <input type="text" id="calc-display" value="0" readonly style="text-align:right;font-size:24px;font-weight:700;background:var(--card);border:1px solid var(--border);padding:14px 12px;border-radius:10px" />
+</div>
+<div class="calc-grid" id="calc-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px">
+  <button class="btn secondary" data-k="C">C</button><button class="btn secondary" data-k="⌫">⌫</button><button class="btn secondary" data-k="%">%</button><button class="btn secondary" data-k="÷">÷</button>
+  <button class="btn secondary" data-k="7">7</button><button class="btn secondary" data-k="8">8</button><button class="btn secondary" data-k="9">9</button><button class="btn secondary" data-k="×">×</button>
+  <button class="btn secondary" data-k="4">4</button><button class="btn secondary" data-k="5">5</button><button class="btn secondary" data-k="6">6</button><button class="btn secondary" data-k="−">−</button>
+  <button class="btn secondary" data-k="1">1</button><button class="btn secondary" data-k="2">2</button><button class="btn secondary" data-k="3">3</button><button class="btn secondary" data-k="+">+</button>
+  <button class="btn secondary" data-k="(">(</button><button class="btn secondary" data-k="0">0</button><button class="btn secondary" data-k=".">.</button><button class="btn" data-k="=">=</button>
+</div>
+<p class="tip">支持键盘输入(数字、运算符、回车、退格、Esc 清空)。「%」为当前值除以 100。</p>
+</div></div>
+  <div class="ad-slot" data-ad="banner" data-slot="4234567890" data-label="工具底部横幅"></div>
+  <div class="panel"><h3>相关工具</h3><div class="tool-grid" style="grid-template-columns:repeat(auto-fill,minmax(180px,1fr))"><a class="tool-card" href="../mortgage/"><span class="t-icon">🏠</span><span class="t-name">房贷计算器</span></a><a class="tool-card" href="../bmi/"><span class="t-icon">⚖</span><span class="t-name">BMI 计算器</span></a><a class="tool-card" href="../age/"><span class="t-icon">🎂</span><span class="t-name">年龄计算器</span></a><a class="tool-card" href="../percentage/"><span class="t-icon">％</span><span class="t-name">百分比计算器</span></a><a class="tool-card" href="../unit-converter/"><span class="t-icon">📏</span><span class="t-name">单位换算</span></a><a class="tool-card" href="../zodiac/"><span class="t-icon">🐲</span><span class="t-name">生肖星座查询</span></a></div></div>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-links">
+      <a href="../">首页</a>
+      <a href="../articles/">使用教程</a>
+      <a href="../about/">关于我们</a><a href="../privacy/">隐私政策</a><a href="../disclaimer/">免责声明</a>
+      <a href="mailto:contact@example.com">广告合作:contact@example.com</a>
+    </div>
+    <div>© 2026 百宝工具箱 · 免费、轻量、无广告弹窗的在线工具集</div>
+    
+  </div>
+</footer>
+<div id="toast"></div>
+<script src="../js/common.js"></script>
+<script>;(function () {
+  'use strict'
+  var display = document.getElementById('calc-display')
+  var expr = ''
+  var lastResult = null
+
+  function show(v) { display.value = v === '' ? '0' : String(v) }
+  function render() { display.value = expr === '' ? (lastResult !== null ? lastResult : '0') : expr }
+
+  // 简易四则运算解析器(支持 + - * / % 与括号)
+  function evaluate(str) {
+    var s = str.replace(/×/g, '*').replace(/÷/g, '/').replace(/−/g, '-').replace(/%/g, '/100')
+    if (!/^[0-9+\-*/().\s]+$/.test(s)) throw new Error('bad')
+    var tokens = []
+    var i = 0
+    while (i < s.length) {
+      var ch = s[i]
+      if (ch === ' ') { i++; continue }
+      if ('+-*/()'.indexOf(ch) > -1) { tokens.push(ch); i++; continue }
+      var num = ''
+      while (i < s.length && /[0-9.]/.test(s[i])) { num += s[i]; i++ }
+      if (!num) throw new Error('bad')
+      tokens.push(num)
+    }
+    // 中缀转后缀(调度场算法)
+    var out = [], stack = []
+    var prec = { '+': 1, '-': 1, '*': 2, '/': 2 }
+    var isOp = function (t) { return prec[t] !== undefined }
+    for (var j = 0; j < tokens.length; j++) {
+      var t = tokens[j]
+      if (!isOp(t) && t !== '(' && t !== ')') { out.push(t); continue }
+      if (t === '(') { stack.push(t); continue }
+      if (t === ')') {
+        while (stack.length && stack[stack.length - 1] !== '(') out.push(stack.pop())
+        if (!stack.length) throw new Error('bad')
+        stack.pop()
+        continue
+      }
+      while (stack.length && isOp(stack[stack.length - 1]) && prec[stack[stack.length - 1]] >= prec[t]) out.push(stack.pop())
+      stack.push(t)
+    }
+    while (stack.length) {
+      if (stack[stack.length - 1] === '(') throw new Error('bad')
+      out.push(stack.pop())
+    }
+    // 计算后缀
+    var vals = []
+    for (var k = 0; k < out.length; k++) {
+      var tk = out[k]
+      if (isOp(tk)) {
+        var b = vals.pop(), a = vals.pop()
+        if (a === undefined || b === undefined) throw new Error('bad')
+        if (tk === '+') vals.push(a + b)
+        else if (tk === '-') vals.push(a - b)
+        else if (tk === '*') vals.push(a * b)
+        else if (tk === '/') { if (b === 0) throw new Error('div0'); vals.push(a / b) }
+      } else vals.push(parseFloat(tk))
+    }
+    if (vals.length !== 1) throw new Error('bad')
+    var r = vals[0]
+    return Math.abs(r) < 1e-12 ? 0 : Math.round(r * 1e10) / 1e10
+  }
+
+  function press(k) {
+    if (k === 'C') { expr = ''; lastResult = null; render(); return }
+    if (k === '⌫') { expr = expr.slice(0, -1); render(); return }
+    if (k === '=') {
+      if (!expr) return
+      try {
+        var r = evaluate(expr)
+        lastResult = r
+        expr = ''
+        show(r)
+      } catch (e) {
+        display.value = e.message === 'div0' ? '错误:除数不能为 0' : '错误:表达式不完整'
+        expr = ''
+        setTimeout(function () { render() }, 1500)
+      }
+      return
+    }
+    // 连续按数字时从结果继续
+    if (lastResult !== null && /[0-9]/.test(k)) { expr = String(lastResult); lastResult = null }
+    else if (lastResult !== null && '+-×÷%'.indexOf(k) > -1) { expr = String(lastResult); lastResult = null }
+    expr += k
+    render()
+  }
+
+  document.getElementById('calc-grid').addEventListener('click', function (e) {
+    var btn = e.target.closest('button')
+    if (btn && btn.getAttribute('data-k')) press(btn.getAttribute('data-k'))
+  })
+
+  document.addEventListener('keydown', function (e) {
+    var k = e.key
+    if (/[0-9+\-*/().%]/.test(k)) { press(k === '*' ? '×' : k === '/' ? '÷' : k === '-' ? '−' : k); e.preventDefault() }
+    else if (k === 'Enter') { press('='); e.preventDefault() }
+    else if (k === 'Backspace') { press('⌫'); e.preventDefault() }
+    else if (k === 'Escape') { press('C'); e.preventDefault() }
+  })
+})()
+</script>
+
+</body>
+</html>

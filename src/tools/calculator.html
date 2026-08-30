@@ -1,0 +1,11 @@
+<div class="field">
+  <input type="text" id="calc-display" value="0" readonly style="text-align:right;font-size:24px;font-weight:700;background:var(--card);border:1px solid var(--border);padding:14px 12px;border-radius:10px" />
+</div>
+<div class="calc-grid" id="calc-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px">
+  <button class="btn secondary" data-k="C">C</button><button class="btn secondary" data-k="⌫">⌫</button><button class="btn secondary" data-k="%">%</button><button class="btn secondary" data-k="÷">÷</button>
+  <button class="btn secondary" data-k="7">7</button><button class="btn secondary" data-k="8">8</button><button class="btn secondary" data-k="9">9</button><button class="btn secondary" data-k="×">×</button>
+  <button class="btn secondary" data-k="4">4</button><button class="btn secondary" data-k="5">5</button><button class="btn secondary" data-k="6">6</button><button class="btn secondary" data-k="−">−</button>
+  <button class="btn secondary" data-k="1">1</button><button class="btn secondary" data-k="2">2</button><button class="btn secondary" data-k="3">3</button><button class="btn secondary" data-k="+">+</button>
+  <button class="btn secondary" data-k="(">(</button><button class="btn secondary" data-k="0">0</button><button class="btn secondary" data-k=".">.</button><button class="btn" data-k="=">=</button>
+</div>
+<p class="tip">支持键盘输入(数字、运算符、回车、退格、Esc 清空)。「%」为当前值除以 100。</p>

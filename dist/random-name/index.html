@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>随机起名 - 免费在线使用 | 百宝工具箱</title>
+<meta name="description" content="免费在线随机起名工具,内置百家姓与男女风格字库,支持单字/双字、按性别生成,一键批量生成多个候选名,宝宝起名与网名创作都能用。">
+<meta name="keywords" content="随机起名,名字生成器,宝宝起名,起名工具,取名">
+<link rel="canonical" href="https://www.baibao-toolbox.example/random-name/">
+<meta property="og:title" content="随机起名 - 免费在线使用 | 百宝工具箱">
+<meta property="og:description" content="免费在线随机起名工具,内置百家姓与男女风格字库,支持单字/双字、按性别生成,一键批量生成多个候选名,宝宝起名与网名创作都能用。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.baibao-toolbox.example/random-name/">
+<meta property="og:image" content="https://www.baibao-toolbox.example/og-image.png">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"随机起名 - 百宝工具箱","url":"https://www.baibao-toolbox.example/random-name/","description":"免费在线随机起名工具,内置百家姓与男女风格字库,支持单字/双字、按性别生成,一键批量生成多个候选名,宝宝起名与网名创作都能用。","applicationCategory":"UtilityApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"CNY"}}</script>
+<script>window.SITE_CONFIG = {"name":"百宝工具箱","domain":"www.baibao-toolbox.example","monetization":{"adsenseClient":"","baiduAdUnit":"","taokeUrl":""}};</script>
+
+
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="../"><span class="logo-mark">百</span><span>百宝工具箱</span></a>
+    <nav class="nav-links"><a href="../qrcode/">二维码生成器</a><a href="../image-compress/">图片压缩</a><a href="../img-base64/">图片转 Base64</a><a href="../json-format/">JSON 格式化</a><a href="../timestamp/">时间戳转换</a><a href="../base64/">Base64 编解码</a><a href="../url-codec/">URL 编解码</a><a href="../md5/">MD5 加密</a><a href="../word-count/">字数统计</a><a href="../text-tools/">文本处理</a><a href="../text-diff/">文本对比</a><a href="../password/">随机密码生成</a><a href="../uuid/">UUID 生成器</a><a href="../regex-tester/">正则表达式测试</a><a href="../base-converter/">进制转换</a><a href="../color-converter/">颜色转换</a><a href="../markdown/">Markdown 编辑器</a><a href="../mortgage/">房贷计算器</a><a href="../bmi/">BMI 计算器</a><a href="../age/">年龄计算器</a><a href="../percentage/">百分比计算器</a><a href="../unit-converter/">单位换算</a><a href="../zodiac/">生肖星座查询</a><a href="../date-calculator/">日期计算器</a><a href="../rmb-upper/">人民币大写转换</a><a href="../random-picker/">随机抽取器</a><a href="../calori/">卡路里计算器</a><a href="../idcard/">身份证号码校验</a><a href="../caesar/">凯撒密码加密</a><a href="../morse/">摩斯电码转换</a><a href="../http-status/">HTTP 状态码速查</a><a href="../timezone/">世界时区转换</a><a href="../compound-interest/">复利计算器</a><a href="../url-parse/">URL 解析器</a><a href="../calculator/">在线计算器</a><a href="../barcode/">条形码生成器</a><a href="../luhn/">银行卡号校验</a><a href="../typing-test/">打字测速</a><a href="../tts/">文字转语音</a><a href="../random-name/">随机起名</a></nav>
+    <div class="header-actions">
+      <button class="theme-toggle" id="theme-toggle" title="切换主题" aria-label="切换主题">🌓</button>
+    </div>
+  </div>
+</header>
+<main class="container">
+
+<nav class="breadcrumb"><a href="../">首页</a> › 随机起名</nav>
+<div class="tool-page">
+  <h1>随机起名</h1>
+  <p class="tool-desc">免费在线随机起名工具,内置百家姓与男女风格字库,支持单字/双字、按性别生成,一键批量生成多个候选名,宝宝起名与网名创作都能用。</p>
+  <div class="ad-slot" data-ad="banner" data-slot="3234567890" data-label="工具顶部横幅"></div>
+  <div class="panel"><div class="tool-body"><div class="field-row">
+  <div class="field" style="flex:1;min-width:130px">
+    <label for="rn-surname">姓氏</label>
+    <select id="rn-surname"><option value="">(随机百家姓)</option></select>
+  </div>
+  <div class="field" style="flex:1;min-width:130px">
+    <label for="rn-gender">风格</label>
+    <select id="rn-gender">
+      <option value="m">偏男孩名</option>
+      <option value="f">偏女孩名</option>
+      <option value="n">中性</option>
+    </select>
+  </div>
+  <div class="field" style="flex:1;min-width:130px">
+    <label for="rn-style">名字类型</label>
+    <select id="rn-style">
+      <option value="both" selected>单双字混合</option>
+      <option value="single">单字名</option>
+      <option value="double">双字名</option>
+    </select>
+  </div>
+  <div class="field" style="flex:1;min-width:100px">
+    <label for="rn-count">生成数量</label>
+    <input type="number" id="rn-count" value="10" min="1" max="30" />
+  </div>
+</div>
+<div class="field-row">
+  <button class="btn" id="rn-run">生成名字</button>
+</div>
+<div class="result-box" id="rn-out" style="margin-top:14px;white-space:normal;font-size:18px">点击「生成名字」</div>
+<p class="tip">字库为常用吉祥字集合,仅供参考与灵感;正式取名建议结合生辰与家族字辈。</p>
+</div></div>
+  <div class="ad-slot" data-ad="banner" data-slot="4234567890" data-label="工具底部横幅"></div>
+  <div class="panel"><h3>相关工具</h3><div class="tool-grid" style="grid-template-columns:repeat(auto-fill,minmax(180px,1fr))"><a class="tool-card" href="../idcard/"><span class="t-icon">🪪</span><span class="t-name">身份证号码校验</span></a><a class="tool-card" href="../luhn/"><span class="t-icon">💳</span><span class="t-name">银行卡号校验</span></a><a class="tool-card" href="../tts/"><span class="t-icon">🔊</span><span class="t-name">文字转语音</span></a></div></div>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-links">
+      <a href="../">首页</a>
+      <a href="../articles/">使用教程</a>
+      <a href="../about/">关于我们</a><a href="../privacy/">隐私政策</a><a href="../disclaimer/">免责声明</a>
+      <a href="mailto:contact@example.com">广告合作:contact@example.com</a>
+    </div>
+    <div>© 2026 百宝工具箱 · 免费、轻量、无广告弹窗的在线工具集</div>
+    
+  </div>
+</footer>
+<div id="toast"></div>
+<script src="../js/common.js"></script>
+<script>;(function () {
+  'use strict'
+  var surnameEl = document.getElementById('rn-surname')
+  var genderEl = document.getElementById('rn-gender')
+  var styleEl = document.getElementById('rn-style')
+  var countEl = document.getElementById('rn-count')
+  var outEl = document.getElementById('rn-out')
+
+  var SURNAMES = '赵钱孙李周吴郑王冯陈褚卫蒋沈韩杨朱秦尤许何吕施张孔曹严华金魏陶姜戚谢邹喻柏水窦章云苏潘葛奚范彭郎鲁韦昌马苗凤花方俞任袁柳酆鲍史唐费廉岑薛雷贺倪汤滕殷罗毕郝邬安常乐于时傅皮卞齐康伍余元卜顾孟平黄和穆萧尹'.split('')
+
+  var MALE = '浩然宇轩铭泽睿辰子墨一鸣俊杰鹏飞泽洋凯文建强志远天翔博文思远嘉懿煜城懿轩哲瀚靖琪明轩'.split('')
+  var FEMALE = '欣怡诗涵梦琪雅静思彤雨桐语嫣婉婷梓萱雪晴悦心芷若若曦晓月琳琳佳怡慧敏静香'.split('')
+  var NEUTRAL = '安之亦然乐山清和沐阳澄怀明理知秋云舒星河晚舟晨露'.split('')
+
+  // 填充姓氏下拉
+  surnameEl.innerHTML = '<option value="">(随机百家姓)</option>' + SURNAMES.map(function (s) {
+    return '<option value="' + s + '">' + s + '</option>'
+  }).join('')
+
+  function pick(arr) { return arr[Math.floor(Math.random() * arr.length)] }
+
+  document.getElementById('rn-run').addEventListener('click', function () {
+    var surname = surnameEl.value || pick(SURNAMES)
+    var gender = genderEl.value
+    var style = styleEl.value
+    var count = parseInt(countEl.value, 10) || 10
+    count = Math.max(1, Math.min(30, count))
+    countEl.value = count
+
+    var pool
+    if (gender === 'm') pool = MALE.concat(NEUTRAL)
+    else if (gender === 'f') pool = FEMALE.concat(NEUTRAL)
+    else pool = MALE.concat(FEMALE, NEUTRAL)
+
+    var names = []
+    for (var i = 0; i < count; i++) {
+      var given
+      if (style === 'single') given = pick(pool)
+      else if (style === 'double') given = pick(pool) + pick(pool)
+      else given = Math.random() < 0.5 ? pick(pool) : pick(pool) + pick(pool)
+      names.push(surname + given)
+    }
+    outEl.innerHTML = names.map(function (n, i) {
+      return '<b style="color:var(--primary)">' + n + '</b>' + (i < names.length - 1 ? '　' : '')
+    }).join('')
+    window.bbToast('已生成 ' + count + ' 个名字')
+  })
+})()
+</script>
+
+</body>
+</html>

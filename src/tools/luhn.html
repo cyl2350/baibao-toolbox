@@ -1,0 +1,10 @@
+<div class="field">
+  <label for="luhn-in">输入卡号(通常 13~19 位数字)</label>
+  <input type="text" id="luhn-in" placeholder="如 6222021234567890" maxlength="19" />
+</div>
+<div class="field-row">
+  <button class="btn" id="luhn-run">校验</button>
+  <button class="btn secondary" id="luhn-demo">填一个测试号</button>
+</div>
+<div class="result-box" id="luhn-out" style="margin-top:14px;white-space:normal">输入卡号后点击校验</div>
+<p class="tip">Luhn 算法可验证卡号「是否格式合法」(防输错),不代表卡真实有效。BIN 识别仅按公开号段规则判断,非官方数据。</p>

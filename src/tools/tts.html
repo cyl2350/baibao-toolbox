@@ -1,0 +1,24 @@
+<div class="field">
+  <label for="tts-in">输入要朗读的文字</label>
+  <textarea id="tts-in" placeholder="粘贴要朗读的文字……" style="min-height:120px">欢迎使用百宝工具箱文字转语音工具,在这里输入文字,点击朗读即可。</textarea>
+</div>
+<div class="field-row">
+  <div class="field" style="flex:1;min-width:150px">
+    <label for="tts-voice">音色</label>
+    <select id="tts-voice"></select>
+  </div>
+  <div class="field" style="flex:1;min-width:120px">
+    <label for="tts-rate">语速: <span id="tts-rate-label">1.0</span></label>
+    <input type="range" id="tts-rate" min="0.5" max="2" step="0.1" value="1" style="width:100%" />
+  </div>
+  <div class="field" style="flex:1;min-width:120px">
+    <label for="tts-pitch">音调: <span id="tts-pitch-label">1.0</span></label>
+    <input type="range" id="tts-pitch" min="0.5" max="2" step="0.1" value="1" style="width:100%" />
+  </div>
+</div>
+<div class="field-row">
+  <button class="btn" id="tts-speak">🔊 朗读</button>
+  <button class="btn secondary" id="tts-stop">⏹ 停止</button>
+</div>
+<div class="result-box" id="tts-status" style="margin-top:14px;white-space:normal">语音合成在浏览器本地完成,不上传服务器。</div>
+<p class="tip">支持的音色取决于浏览器与系统(Chrome/Edge 自带多款中文音色);建议用 Chrome/Edge 获得最佳体验。</p>
