@@ -167,4 +167,22 @@ export const articles = [
     keywords: '番茄工作法,番茄钟怎么用,专注力训练,时间管理,25分钟专注',
     tool: 'countdown-timer',
   },
+  {
+    id: 'id-photo-guide',
+    title: '证件照尺寸怎么选?一寸二寸护照签证尺寸对照表',
+    category: '生活工具',
+    date: '2025-01-10',
+    desc: '一寸、二寸、护照、签证照片到底多大?厘米与像素对照表,拍摄前先查清楚不返工。',
+    keywords: '证件照尺寸,一寸照片多大,二寸照片尺寸,护照照片尺寸,证件照像素',
+    tool: 'id-photo-size',
+  },
+  {
+    id: 'citation-guide',
+    title: '参考文献格式怎么写?GB/T 7714 引用格式指南(附生成器)',
+    category: '学习工具',
+    date: '2025-01-10',
+    desc: '论文参考文献格式完全指南:GB/T 7714-2015 规则、期刊/图书/网页各类型写法,附在线生成器。',
+    keywords: '参考文献格式,参考文献怎么写,gb7714格式,论文引用格式,参考文献标注',
+    tool: 'citation',
+  },
 ]

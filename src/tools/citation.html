@@ -1,0 +1,27 @@
+<div class="field">
+  <label for="ct-type">文献类型</label>
+  <select id="ct-type">
+    <option value="journal">期刊论文</option>
+    <option value="book">图书</option>
+    <option value="thesis">学位论文</option>
+    <option value="web">网页/电子资源</option>
+  </select>
+</div>
+<div class="field-row">
+  <div class="field" style="flex:1;min-width:140px"><label for="ct-authors">作者(多名用逗号分隔)</label><input type="text" id="ct-authors" placeholder="张三, 李四" /></div>
+  <div class="field" style="flex:1;min-width:140px"><label for="ct-year">年份</label><input type="text" id="ct-year" value="2024" /></div>
+</div>
+<div class="field" id="ct-title-row">
+  <label for="ct-title">题名</label>
+  <input type="text" id="ct-title" placeholder="论文/图书/网页标题" />
+</div>
+<div class="field" id="ct-extra">
+  <label id="ct-extra-label">期刊名</label>
+  <input type="text" id="ct-extra-input" placeholder="按类型填写" />
+</div>
+<div class="field-row">
+  <button class="btn" id="ct-run">生成引用</button>
+  <button class="btn secondary" id="ct-copy">复制</button>
+</div>
+<div class="result-box" id="ct-out" style="margin-top:14px;white-space:normal">填写信息后点击生成</div>
+<p class="tip">按 GB/T 7714-2015 格式生成(作者. 题名[J]. 期刊, 年, 卷(期): 页码.),用于毕业论文参考文献。</p>
