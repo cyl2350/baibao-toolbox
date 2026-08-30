@@ -6,7 +6,7 @@ export const site = {
   shortName: '百宝',
   slogan: '免费、轻量、无广告弹窗的在线工具集',
   // 部署后换成你的真实域名(不带 https:// 前缀,如 www.example.com)
-  domain: 'www.baibao-toolbox.example',
+  domain: 'cyl2350.github.io/baibao-toolbox',
   // 备案号(国内服务器部署时填写,如 京ICP备XXXXXXXX号;海外托管可不填)
   icp: '',
   // 版权年份
