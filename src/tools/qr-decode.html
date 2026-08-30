@@ -1,0 +1,13 @@
+<div class="field">
+  <label for="qd-file">选择二维码图片(PNG / JPG / WebP)</label>
+  <input type="file" id="qd-file" accept="image/*" />
+</div>
+<div class="field-row">
+  <button class="btn" id="qd-run">识别二维码</button>
+  <button class="btn secondary" id="qd-copy">复制内容</button>
+</div>
+<div class="result-box" id="qd-out" style="margin-top:14px;white-space:normal">选择图片后点击识别</div>
+<div class="field" style="margin-top:12px;text-align:center">
+  <img id="qd-preview" alt="二维码预览" style="max-width:240px;max-height:240px;display:none;border-radius:8px;border:1px solid var(--border)" />
+</div>
+<p class="tip">解码完全在浏览器本地完成,图片内容不会上传。识别失败时尝试:更清晰的图片、避免反光、放大裁剪后再试。</p>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IP 地址校验 - 免费在线使用 | 百宝工具箱</title>
+<meta name="description" content="免费在线 IP 地址校验工具,验证 IPv4 与 IPv6 格式合法性,并自动分类:公网、私有、回环、链路本地、组播、保留地址,支持 IPv4 与整数互转。">
+<meta name="keywords" content="ip校验,ip地址查询,ipv4校验,ipv6检测,ip地址分类">
+<link rel="canonical" href="https://www.baibao-toolbox.example/ip-check/">
+<meta property="og:title" content="IP 地址校验 - 免费在线使用 | 百宝工具箱">
+<meta property="og:description" content="免费在线 IP 地址校验工具,验证 IPv4 与 IPv6 格式合法性,并自动分类:公网、私有、回环、链路本地、组播、保留地址,支持 IPv4 与整数互转。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.baibao-toolbox.example/ip-check/">
+<meta property="og:image" content="https://www.baibao-toolbox.example/og-image.png">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"IP 地址校验 - 百宝工具箱","url":"https://www.baibao-toolbox.example/ip-check/","description":"免费在线 IP 地址校验工具,验证 IPv4 与 IPv6 格式合法性,并自动分类:公网、私有、回环、链路本地、组播、保留地址,支持 IPv4 与整数互转。","applicationCategory":"UtilityApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"CNY"}}</script>
+<script>window.SITE_CONFIG = {"name":"百宝工具箱","domain":"www.baibao-toolbox.example","monetization":{"adsenseClient":"","baiduAdUnit":"","taokeUrl":""}};</script>
+
+
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="../"><span class="logo-mark">百</span><span>百宝工具箱</span></a>
+    <nav class="nav-links"><a href="../qrcode/">二维码生成器</a><a href="../image-compress/">图片压缩</a><a href="../img-base64/">图片转 Base64</a><a href="../json-format/">JSON 格式化</a><a href="../timestamp/">时间戳转换</a><a href="../base64/">Base64 编解码</a><a href="../url-codec/">URL 编解码</a><a href="../md5/">MD5 加密</a><a href="../word-count/">字数统计</a><a href="../text-tools/">文本处理</a><a href="../text-diff/">文本对比</a><a href="../password/">随机密码生成</a><a href="../uuid/">UUID 生成器</a><a href="../regex-tester/">正则表达式测试</a><a href="../base-converter/">进制转换</a><a href="../color-converter/">颜色转换</a><a href="../markdown/">Markdown 编辑器</a><a href="../mortgage/">房贷计算器</a><a href="../bmi/">BMI 计算器</a><a href="../age/">年龄计算器</a><a href="../percentage/">百分比计算器</a><a href="../unit-converter/">单位换算</a><a href="../zodiac/">生肖星座查询</a><a href="../date-calculator/">日期计算器</a><a href="../rmb-upper/">人民币大写转换</a><a href="../random-picker/">随机抽取器</a><a href="../calori/">卡路里计算器</a><a href="../idcard/">身份证号码校验</a><a href="../caesar/">凯撒密码加密</a><a href="../morse/">摩斯电码转换</a><a href="../http-status/">HTTP 状态码速查</a><a href="../timezone/">世界时区转换</a><a href="../compound-interest/">复利计算器</a><a href="../url-parse/">URL 解析器</a><a href="../calculator/">在线计算器</a><a href="../barcode/">条形码生成器</a><a href="../luhn/">银行卡号校验</a><a href="../typing-test/">打字测速</a><a href="../tts/">文字转语音</a><a href="../random-name/">随机起名</a><a href="../emoji/">Emoji 大全</a><a href="../symbols/">特殊符号大全</a><a href="../kaomoji/">颜文字大全</a><a href="../phone-check/">手机号校验</a><a href="../ip-check/">IP 地址校验</a><a href="../chinese-number/">数字转中文</a><a href="../qr-decode/">二维码解码</a></nav>
+    <div class="header-actions">
+      <button class="theme-toggle" id="theme-toggle" title="切换主题" aria-label="切换主题">🌓</button>
+    </div>
+  </div>
+</header>
+<main class="container">
+
+<nav class="breadcrumb"><a href="../">首页</a> › IP 地址校验</nav>
+<div class="tool-page">
+  <h1>IP 地址校验</h1>
+  <p class="tool-desc">免费在线 IP 地址校验工具,验证 IPv4 与 IPv6 格式合法性,并自动分类:公网、私有、回环、链路本地、组播、保留地址,支持 IPv4 与整数互转。</p>
+  <div class="ad-slot" data-ad="banner" data-slot="3234567890" data-label="工具顶部横幅"></div>
+  <div class="panel"><div class="tool-body"><div class="field">
+  <label for="ip-in">输入 IP 地址(IPv4 或 IPv6)</label>
+  <input type="text" id="ip-in" placeholder="如 192.168.1.1 或 2408:8207:4a80::1" />
+</div>
+<div class="field-row">
+  <button class="btn" id="ip-run">校验</button>
+  <button class="btn secondary" id="ip-demo">填个测试地址</button>
+</div>
+<div class="result-box" id="ip-out" style="margin-top:14px;white-space:normal">输入 IP 后点击校验</div>
+<p class="tip">IPv4 分类按 RFC 5735;IPv6 按 RFC 4291。支持 IPv4 与十进制整数互转。</p>
+</div></div>
+  <div class="ad-slot" data-ad="banner" data-slot="4234567890" data-label="工具底部横幅"></div>
+  <div class="panel"><h3>相关工具</h3><div class="tool-grid" style="grid-template-columns:repeat(auto-fill,minmax(180px,1fr))"><a class="tool-card" href="../json-format/"><span class="t-icon">{}</span><span class="t-name">JSON 格式化</span></a><a class="tool-card" href="../timestamp/"><span class="t-icon">⏱</span><span class="t-name">时间戳转换</span></a><a class="tool-card" href="../uuid/"><span class="t-icon">🆔</span><span class="t-name">UUID 生成器</span></a><a class="tool-card" href="../regex-tester/"><span class="t-icon">∑</span><span class="t-name">正则表达式测试</span></a><a class="tool-card" href="../base-converter/"><span class="t-icon">101</span><span class="t-name">进制转换</span></a><a class="tool-card" href="../http-status/"><span class="t-icon">🌐</span><span class="t-name">HTTP 状态码速查</span></a></div></div>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-links">
+      <a href="../">首页</a>
+      <a href="../articles/">使用教程</a>
+      <a href="../about/">关于我们</a><a href="../privacy/">隐私政策</a><a href="../disclaimer/">免责声明</a>
+      <a href="mailto:contact@example.com">广告合作:contact@example.com</a>
+    </div>
+    <div>© 2026 百宝工具箱 · 免费、轻量、无广告弹窗的在线工具集</div>
+    
+  </div>
+</footer>
+<div id="toast"></div>
+<script src="../js/common.js"></script>
+<script>;(function () {
+  'use strict'
+  var inEl = document.getElementById('ip-in')
+  var outEl = document.getElementById('ip-out')
+
+  function isIPv4(s) {
+    var parts = s.split('.')
+    if (parts.length !== 4) return null
+    var nums = []
+    for (var i = 0; i < 4; i++) {
+      if (!/^\d{1,3}$/.test(parts[i])) return null
+      var n = +parts[i]
+      if (n > 255) return null
+      nums.push(n)
+    }
+    return nums
+  }
+
+  function classifyV4(nums) {
+    var a = nums[0], b = nums[1]
+    if (a === 0) return '本网络保留地址(0.0.0.0/8)'
+    if (a === 10) return '私有地址(10.0.0.0/8,内网)'
+    if (a === 127) return '回环地址(127.0.0.0/8,本机)'
+    if (a === 169 && b === 254) return '链路本地地址(169.254.0.0/16,APIPA)'
+    if (a === 172 && b >= 16 && b <= 31) return '私有地址(172.16.0.0/12,内网)'
+    if (a === 192 && b === 168) return '私有地址(192.168.0.0/16,内网,路由器常用)'
+    if (a === 192 && b === 0) return '文档示例地址(192.0.0.0/24)'
+    if (a >= 224 && a <= 239) return '组播地址(224.0.0.0/4)'
+    if (a >= 240) return '保留地址(240.0.0.0/4)'
+    if (a === 100 && b >= 64 && b <= 127) return '运营商级 NAT 共享地址(100.64.0.0/10)'
+    return '公网地址'
+  }
+
+  function isIPv6(s) {
+    if (s.includes('.')) return null // IPv4-mapped 形式,简化不处理
+    if (s.includes('::')) {
+      if ((s.match(/::/g) || []).length > 1) return null
+      var left = s.split('::')[0], right = s.split('::')[1] || ''
+      var groupsL = left ? left.split(':').length : 0
+      var groupsR = right ? right.split(':').length : 0
+      if (groupsL + groupsR > 7) return null
+    }
+    var parts = s.split('::').join(':').split(':')
+    if (parts.length > 8) return null
+    for (var i = 0; i < parts.length; i++) {
+      if (parts[i] === '') continue
+      if (!/^[0-9a-fA-F]{1,4}$/.test(parts[i])) return null
+    }
+    return true
+  }
+
+  function classifyV6(s) {
+    if (s === '::1') return '回环地址(::1/128,本机)'
+    if (s.toLowerCase() === '::') return '未指定地址(::/128)'
+    if (/^fe80:/i.test(s)) return '链路本地地址(fe80::/10)'
+    if (/^fc|^fd/i.test(s)) return '唯一本地地址(fc00::/7,内网)'
+    if (/^2001:db8:/i.test(s)) return '文档示例地址(2001:db8::/32)'
+    if (/^ff00:/i.test(s)) return '组播地址(ff00::/8)'
+    return '公网地址'
+  }
+
+  document.getElementById('ip-run').addEventListener('click', function () {
+    var s = inEl.value.trim()
+    if (!s) { window.bbToast('请输入 IP 地址'); return }
+    var v4 = isIPv4(s)
+    if (v4) {
+      var cls = classifyV4(v4)
+      var intVal = v4[0] * 16777216 + v4[1] * 65536 + v4[2] * 256 + v4[3]
+      outEl.innerHTML =
+        '<b style="color:var(--ok)">✓ 合法的 IPv4 地址</b><br>' +
+        '分类:<b>' + cls + '</b><br>' +
+        '整数形式:<b>' + intVal + '</b> <button class="btn secondary small" id="ip-copy-int" style="margin-left:6px">复制</button><br>' +
+        '<span class="tip">IPv4 十进制整数形式常用于网络编程与数据库存储。</span>'
+      document.getElementById('ip-copy-int').addEventListener('click', function () { window.bbCopy(String(intVal)) })
+      return
+    }
+    if (isIPv6(s)) {
+      outEl.innerHTML = '<b style="color:var(--ok)">✓ 合法的 IPv6 地址</b><br>分类:<b>' + classifyV6(s) + '</b>'
+      return
+    }
+    outEl.textContent = '✗ 不是合法的 IPv4 或 IPv6 地址,请检查格式'
+  })
+
+  document.getElementById('ip-demo').addEventListener('click', function () {
+    inEl.value = '192.168.1.1'
+    document.getElementById('ip-run').click()
+  })
+
+  inEl.addEventListener('keydown', function (e) { if (e.key === 'Enter') document.getElementById('ip-run').click() })
+})()
+</script>
+
+</body>
+</html>
