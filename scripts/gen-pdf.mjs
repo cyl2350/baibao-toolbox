@@ -1,6 +1,7 @@
 // ============================================================
-// 生成《AI 提示词实战手册》成品 PDF(可直接在闲鱼/小红书出售)
-// 用法: node scripts/gen-handbook-pdf.mjs
+// 通用 PDF 生成器:把结构化 Markdown 转成可售卖的成品 PDF
+// 用法: node scripts/gen-pdf.mjs <输入.md> <输出.pdf> [标题] [副标题]
+// 格式约定: # 文档标题 / ## 章节 / > 提示 / 1. 条目(**加粗**开头为高亮标题)
 // 依赖: npm i -D pdfkit; 系统字体 C:\Windows\Fonts\simhei.ttf
 // ============================================================
 import { readFileSync, writeFileSync, existsSync } from 'node:fs'
@@ -9,10 +10,14 @@ import { fileURLToPath } from 'node:url'
 import PDFDocument from 'pdfkit'
 
 const root = dirname(fileURLToPath(import.meta.url)) + '/..'
-const mdPath = join(root, 'docs/产品/AI提示词实战手册.md')
-const outPath = join(root, 'docs/产品/AI提示词实战手册.pdf')
+const [, , mdArg, outArg, titleArg, subtitleArg] = process.argv
+if (!mdArg || !outArg) {
+  console.error('用法: node scripts/gen-pdf.mjs <输入.md> <输出.pdf> [标题] [副标题]')
+  process.exit(1)
+}
+const mdPath = join(root, mdArg)
+const outPath = join(root, outArg)
 
-// ---------- 字体(按优先级查找) ----------
 const fontCandidates = [
   'C:/Windows/Fonts/simhei.ttf',
   '/System/Library/Fonts/PingFang.ttc',
@@ -24,17 +29,11 @@ if (!fontPath) {
   process.exit(1)
 }
 
-// ---------- 配色 ----------
 const C = {
-  primary: '#4f6ef7',
-  accent: '#8b5cf6',
-  dark: '#1f2430',
-  muted: '#6b7280',
-  lightBg: '#f2f5ff',
-  line: '#e5e7eb',
+  primary: '#4f6ef7', accent: '#8b5cf6', dark: '#1f2430', muted: '#6b7280',
+  lightBg: '#f2f5ff', line: '#e5e7eb',
 }
 
-// ---------- Markdown 解析(针对本手册格式) ----------
 function parseMd(text) {
   const blocks = []
   for (const line of text.split(/\r?\n/)) {
@@ -50,47 +49,31 @@ function parseMd(text) {
   return blocks
 }
 
-// 提取行首加粗段:"**公众号文章**:" -> { lead: '公众号文章', rest: ': 请写一篇……' }
 function splitLead(text) {
   const m = text.match(/^\*\*([^*]+)\*\*(.*)$/)
   return m ? { lead: m[1], rest: m[2] } : { lead: null, rest: text }
 }
 
-// ---------- 主流程 ----------
 const doc = new PDFDocument({ size: 'A4', margin: 0, bufferPages: true, autoFirstPage: false })
 const chunks = []
 doc.on('data', (c) => chunks.push(c))
 doc.registerFont('hei', fontPath)
 doc.font('hei')
 
-const PW = 595.28 // A4 宽
-const PH = 841.89 // A4 高
-const ML = 56
+const PW = 595.28, PH = 841.89, ML = 56
 const CONTENT_W = PW - ML * 2
-const BODY = 15.5
-const BODY_LH = 31
-const NOTE_LH = 26
-const SECTION_LH = 40
+const BODY = 15.5, BODY_LH = 31, NOTE_LH = 26, SECTION_LH = 40
 
-// 测量辅助:必须先设置字体与字号
-function measure(text, size) {
-  doc.font('hei').fontSize(size)
-  return doc.widthOfString(text)
-}
+function measure(text, size) { doc.font('hei').fontSize(size); return doc.widthOfString(text) }
 
-// 按字符换行(中文安全)
 function wrap(text, maxWidth, size) {
   const lines = []
   for (const raw of String(text).split('\n')) {
     if (raw === '') { lines.push(''); continue }
     let line = ''
     for (const ch of raw) {
-      if (measure(line + ch, size) > maxWidth && line !== '') {
-        lines.push(line)
-        line = ch
-      } else {
-        line += ch
-      }
+      if (measure(line + ch, size) > maxWidth && line !== '') { lines.push(line); line = ch }
+      else line += ch
     }
     lines.push(line)
   }
@@ -98,8 +81,12 @@ function wrap(text, maxWidth, size) {
 }
 
 const blocks = parseMd(readFileSync(mdPath, 'utf8'))
+const docTitle = titleArg || (blocks.find((b) => b.type === 'title') || {}).text || '资料手册'
+const sectionTitles = blocks.filter((b) => b.type === 'section').map((b) => b.text)
+const itemCount = blocks.filter((b) => b.type === 'item').length
+const subtitle = subtitleArg || `${itemCount} 个可直接套用的模板 · 即拿即用`
 
-// 第一遍:渲染内容页(封面=0,目录=1),记录各 section 所在页
+// 第一遍:渲染内容页
 doc.addPage({ size: 'A4', margin: 0 })
 doc.addPage({ size: 'A4', margin: 0 })
 let y = 0
@@ -107,18 +94,11 @@ let currentPage = 2
 const contentPageStart = 2
 const sectionPages = []
 
-function newPage() {
-  doc.addPage({ size: 'A4', margin: 0 })
-  currentPage++
-  y = 60
-}
-function ensureSpace(need) {
-  if (y + need > PH - 64) newPage()
-}
+function newPage() { doc.addPage({ size: 'A4', margin: 0 }); currentPage++; y = 60 }
+function ensureSpace(need) { if (y + need > PH - 64) newPage() }
 
 for (const b of blocks) {
   if (b.type === 'title') continue
-
   if (b.type === 'section') {
     ensureSpace(90)
     y += 14
@@ -130,17 +110,14 @@ for (const b of blocks) {
     y += 6
     continue
   }
-
   if (b.type === 'item') {
     const { lead, rest } = splitLead(b.text)
     const badgeR = 12
     const tx = ML + badgeR * 2 + 12
     const lines = wrap(rest, CONTENT_W - badgeR * 2 - 12, BODY)
     ensureSpace(lines.length * BODY_LH + 14)
-    // 序号徽标
     doc.circle(ML + badgeR, y + badgeR, badgeR).fill(C.primary)
     doc.font('hei').fontSize(10).fillColor('#ffffff').text(String(b.num), ML + badgeR - 4, y + badgeR - 6, { width: 8, align: 'center' })
-    // 文本行
     let ly = y
     lines.forEach((line, i) => {
       if (i === 0 && lead) {
@@ -154,7 +131,6 @@ for (const b of blocks) {
     y = ly + 3
     continue
   }
-
   if (b.type === 'note') {
     const text = b.text.replace(/^\*.*\*/, '')
     const lines = wrap(text, CONTENT_W - 20, 11.5)
@@ -168,7 +144,6 @@ for (const b of blocks) {
     y = ly + 8
     continue
   }
-
   if (b.type === 'para') {
     const { lead, rest } = splitLead(b.text)
     const lines = wrap(rest, CONTENT_W - (lead ? measure(lead, 13) : 0), 13)
@@ -187,25 +162,28 @@ for (const b of blocks) {
   }
 }
 
-// 内容页统一加页脚
+// 页脚
+const footerText = `百宝工具箱 出品 · ${docTitle}`
 for (let p = contentPageStart; p < currentPage; p++) {
   doc.switchToPage(p)
   doc.font('hei').fontSize(9).fillColor(C.muted)
-  doc.text('百宝工具箱 出品 · AI 提示词实战手册', ML, PH - 38, { width: CONTENT_W, align: 'left' })
+  doc.text(footerText, ML, PH - 38, { width: CONTENT_W, align: 'left' })
   doc.text(`第 ${p - 1} 页`, ML, PH - 38, { width: CONTENT_W, align: 'right' })
 }
 
-// ---------- 封面(第 0 页) ----------
+// ---------- 封面 ----------
 doc.switchToPage(0)
 doc.rect(0, 0, PW, PH).fill('#ffffff')
 const grad = doc.linearGradient(0, 0, PW, 260)
 grad.stop(0, C.primary).stop(1, C.accent)
 doc.rect(0, 0, PW, 260).fill(grad)
 doc.font('hei').fontSize(11).fillColor('#ffffff').text('百宝工具箱 · 原创出品', ML, 40)
-doc.font('hei').fontSize(44).fillColor('#ffffff').text('AI 提示词实战手册', ML, 100, { width: CONTENT_W })
-doc.font('hei').fontSize(15).fillColor('#e8edff').text('60 个可直接复制的提示词模板 · 即拿即用', ML, 180, { width: CONTENT_W })
-// 六大场景徽标
-const chips = ['写作', '职场', '学习', '编程', '营销', '生活']
+// 标题(超长自动缩小)
+const titleSize = docTitle.length > 14 ? 34 : 44
+doc.font('hei').fontSize(titleSize).fillColor('#ffffff').text(docTitle, ML, 100, { width: CONTENT_W })
+doc.font('hei').fontSize(15).fillColor('#e8edff').text(subtitle, ML, 180, { width: CONTENT_W })
+// 章节徽标(最多 6 个)
+const chips = sectionTitles.slice(0, 6).map((s) => s.replace(/^[一二三四五六七八九十]+、/, '').slice(0, 4))
 let cx = ML
 const chipY = 330
 chips.forEach((c) => {
@@ -215,27 +193,24 @@ chips.forEach((c) => {
   cx += w + 14
 })
 doc.font('hei').fontSize(13.5).fillColor(C.dark)
-doc.text('每类 10 个高质量模板', ML, chipY + 60)
+doc.text(`共 ${sectionTitles.length} 大章节 · ${itemCount} 个即用模板`, ML, chipY + 60)
 doc.text('每条含:标题 + 完整可替换模板 + 使用要点', ML, chipY + 92)
-doc.text('附赠:5 个让 AI 输出更好的进阶技巧', ML, chipY + 124)
-doc.roundedRect(ML, chipY + 160, 260, 46, 8).fill(C.primary)
-doc.font('hei').fontSize(15).fillColor('#ffffff').text('立即获取 · 高效工作', ML + 130, chipY + 176, { width: 200, align: 'center' })
+doc.roundedRect(ML, chipY + 128, 260, 46, 8).fill(C.primary)
+doc.font('hei').fontSize(15).fillColor('#ffffff').text('立即获取 · 高效工作', ML + 130, chipY + 144, { width: 200, align: 'center' })
 doc.font('hei').fontSize(10).fillColor(C.muted).text('版本 v1.0 · 2025 · 可自由用于个人与商用', ML, PH - 60)
 
-// ---------- 目录(第 1 页) ----------
+// ---------- 目录 ----------
 doc.switchToPage(1)
 doc.font('hei').fontSize(26).fillColor(C.dark).text('目录', ML, 60)
 doc.moveTo(ML, 98).lineTo(PW - ML, 98).lineWidth(1).strokeColor(C.primary).stroke()
 let ty = 122
 for (const s of sectionPages) {
-  const title = s.title
-  const pageStr = String(s.page)
-  doc.font('hei').fontSize(13.5).fillColor(C.dark).text(title, ML, ty)
-  const pageW = measure(pageStr, 13.5)
-  doc.font('hei').fontSize(13.5).fillColor(C.primary).text(pageStr, PW - ML - pageW, ty)
+  doc.font('hei').fontSize(13.5).fillColor(C.dark).text(s.title, ML, ty)
+  const pageW = measure(String(s.page), 13.5)
+  doc.font('hei').fontSize(13.5).fillColor(C.primary).text(String(s.page), PW - ML - pageW, ty)
   ty += 36
 }
-doc.font('hei').fontSize(12).fillColor(C.muted).text('提示:把【】中的内容替换成你的具体情况,发给任意主流 AI 即可。', ML, ty + 10, { width: CONTENT_W })
+doc.font('hei').fontSize(12).fillColor(C.muted).text('提示:把【】中的内容替换成你的具体情况即可使用。', ML, ty + 10, { width: CONTENT_W })
 
 doc.flushPages()
 doc.end()
@@ -246,6 +221,5 @@ doc.on('end', () => {
   const kb = (buf.length / 1024).toFixed(1)
   const str = buf.toString('latin1')
   const pages = (str.match(/\/Type\s*\/Page\b(?!s)/g) || []).length
-  console.log(`✔ 已生成 PDF: ${outPath}`)
-  console.log(`  大小 ${kb} KB · 页面 ${pages}`)
+  console.log(`✔ ${outPath}  大小 ${kb} KB · ${pages} 页`)
 })

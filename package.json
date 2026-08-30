@@ -6,7 +6,9 @@
   "private": true,
   "scripts": {
     "build": "node build.mjs",
-    "pdf": "node scripts/gen-handbook-pdf.mjs",
+    "pdf:handbook": "node scripts/gen-pdf.mjs \"docs/产品/AI提示词实战手册.md\" \"docs/产品/AI提示词实战手册.pdf\"",
+    "pdf:xhs": "node scripts/gen-pdf.mjs \"docs/产品/小红书爆款文案模板库.md\" \"docs/产品/小红书爆款文案模板库.pdf\"",
+    "pdf:resume": "node scripts/gen-pdf.mjs \"docs/产品/简历模板+面试话术包.md\" \"docs/产品/简历模板+面试话术包.pdf\"",
     "preview": "node build.mjs && node server.mjs",
     "serve": "node server.mjs"
   },

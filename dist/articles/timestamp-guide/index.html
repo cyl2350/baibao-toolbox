@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>时间戳是什么?Unix 时间戳入门与常见问题解答 | 百宝工具箱</title>
+<meta name="description" content="程序员必懂的时间戳:什么是 Unix 时间戳、秒和毫秒怎么区分、为什么用 1970 年,附在线转换工具。">
+<meta name="keywords" content="时间戳是什么,unix时间戳,时间戳换算,13位时间戳">
+<link rel="canonical" href="https://www.baibao-toolbox.example/articles/timestamp-guide/">
+<meta property="og:title" content="时间戳是什么?Unix 时间戳入门与常见问题解答 | 百宝工具箱">
+<meta property="og:description" content="程序员必懂的时间戳:什么是 Unix 时间戳、秒和毫秒怎么区分、为什么用 1970 年,附在线转换工具。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.baibao-toolbox.example/articles/timestamp-guide/">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"时间戳是什么?Unix 时间戳入门与常见问题解答","datePublished":"2025-01-10","description":"程序员必懂的时间戳:什么是 Unix 时间戳、秒和毫秒怎么区分、为什么用 1970 年,附在线转换工具。","url":"https://www.baibao-toolbox.example/articles/timestamp-guide/","author":{"@type":"Organization","name":"百宝工具箱"}}</script>
+<script>window.SITE_CONFIG = {"name":"百宝工具箱","domain":"www.baibao-toolbox.example","monetization":{"adsenseClient":"","baiduAdUnit":"","taokeUrl":""}};</script>
+
+
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="../"><span class="logo-mark">百</span><span>百宝工具箱</span></a>
+    <nav class="nav-links"><a href="../qrcode/">二维码生成器</a><a href="../image-compress/">图片压缩</a><a href="../img-base64/">图片转 Base64</a><a href="../json-format/">JSON 格式化</a><a href="../timestamp/">时间戳转换</a><a href="../base64/">Base64 编解码</a><a href="../url-codec/">URL 编解码</a><a href="../md5/">MD5 加密</a><a href="../word-count/">字数统计</a><a href="../text-tools/">文本处理</a><a href="../text-diff/">文本对比</a><a href="../password/">随机密码生成</a><a href="../uuid/">UUID 生成器</a><a href="../regex-tester/">正则表达式测试</a><a href="../base-converter/">进制转换</a><a href="../color-converter/">颜色转换</a><a href="../markdown/">Markdown 编辑器</a><a href="../mortgage/">房贷计算器</a><a href="../bmi/">BMI 计算器</a><a href="../age/">年龄计算器</a><a href="../percentage/">百分比计算器</a><a href="../unit-converter/">单位换算</a><a href="../zodiac/">生肖星座查询</a></nav>
+    <div class="header-actions">
+      <button class="theme-toggle" id="theme-toggle" title="切换主题" aria-label="切换主题">🌓</button>
+    </div>
+  </div>
+</header>
+<main class="container">
+
+<nav class="breadcrumb"><a href="../">首页</a> › <a href="../articles/">使用教程</a> › 时间戳是什么?Unix 时间戳入门与常见问题解答</nav>
+<article class="content-page">
+  <h1>时间戳是什么?Unix 时间戳入门与常见问题解答</h1>
+  <p style="color:var(--muted);font-size:13px">2025-01-10 · 开发工具</p>
+  <p>做开发的你一定见过类似 <code>1700000000</code> 或 <code>1700000000000</code> 的一串数字,这就是 Unix 时间戳。它是什么?为什么到处都在用?本文一次讲清楚。</p>
+
+<h2>一、时间戳是什么?</h2>
+<p>Unix 时间戳(Unix Timestamp)表示<b>从 1970 年 1 月 1 日 00:00:00 UTC 到某个时刻经过的秒数</b>(或毫秒数)。1970 年被称为 Unix 元年,是所有 Unix/Linux 系统的时间起点。</p>
+<p>比如北京时间 2025 年 1 月 1 日 08:00:00,对应的 Unix 时间戳就是 1735689600(秒)。</p>
+
+<h2>二、为什么程序喜欢用时间戳?</h2>
+<ul>
+<li><b>无时区歧义</b>:时间戳基于 UTC,不随服务器位置变化,全球统一;</li>
+<li><b>方便比较</b>:就是一个整数,大于/小于直接判断,排序、区间查询都简单;</li>
+<li><b>存储高效</b>:整数比日期字符串省空间,索引更快;</li>
+<li><b>计算方便</b>:加减 86400 就是加减一天,没有跨月跨年问题。</li>
+</ul>
+
+<h2>三、秒还是毫秒?最容易踩的坑</h2>
+<p>时间戳有秒级(10 位)和毫秒级(13 位)两种:<b>10 位是秒,13 位是毫秒</b>。后端返回 13 位毫秒给前端时,前端如果按秒处理,时间就会「多出 1000 倍」——这是联调中最常见的 bug 之一。转换时先看位数,再决定是否除以 1000。</p>
+
+<div class="panel" style="margin:18px 0">
+<p style="margin:0"><b>👉 立即使用:</b><a href="../timestamp/">在线时间戳转换工具</a> —— 自动识别秒/毫秒,北京时间与 UTC 互转,一键获取当前时间戳。</p>
+</div>
+
+<h2>四、常见问题</h2>
+<h3>2038 年问题是什么?</h3>
+<p>早期 32 位系统用有符号 32 位整数存秒数,最大值约 2038 年 1 月 19 日。现代 64 位系统早已不受此限制,但在嵌入式老设备上仍可能遇到。</p>
+<h3>时间戳能表示未来的时间吗?</h3>
+<p>可以,时间戳只是整数,理论上可表示任意未来时刻(受存储位数限制)。</p>
+<h3>北京时间怎么换算?</h3>
+<p>北京时间 = UTC + 8 小时。也就是说,时间戳对应的 UTC 时间加 8 小时就是北京时间。</p>
+<h3>负数时间戳存在吗?</h3>
+<p>存在。1970 年之前的时刻用负数表示,比如 1969 年就是 -86400 秒。</p>
+
+<p><i>总结:时间戳是程序世界的通用时钟,秒级 10 位、毫秒级 13 位,换算注意时区与位数,联调时多看一眼就不会翻车。</i></p>
+
+</article>
+<div class="panel"><h3>更多教程</h3><div style="display:grid;gap:8px"><a href="../image-compress-guide/">图片太大怎么办?在线压缩图片的 5 个实用技巧</a><a href="../mortgage-guide/">房贷月供怎么算?等额本息和等额本金到底有什么区别</a><a href="../bmi-guide/">BMI 多少算正常?中国成人标准对照表与常见误区</a><a href="../base64-guide/">Base64 是什么?编码原理、常见用途与在线转换</a><a href="../qrcode-guide/">二维码是怎么生成的?免费在线生成二维码的 3 种方法</a></div></div>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-links">
+      <a href="../">首页</a>
+      <a href="../articles/">使用教程</a>
+      <a href="../about/">关于我们</a><a href="../privacy/">隐私政策</a><a href="../disclaimer/">免责声明</a>
+      <a href="mailto:contact@example.com">广告合作:contact@example.com</a>
+    </div>
+    <div>© 2026 百宝工具箱 · 免费、轻量、无广告弹窗的在线工具集</div>
+    
+  </div>
+</footer>
+<div id="toast"></div>
+<script src="../js/common.js"></script>
+
+
+</body>
+</html>

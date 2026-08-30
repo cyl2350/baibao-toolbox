@@ -8,6 +8,7 @@ import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { site, pages } from './config/site.mjs'
 import { tools } from './config/tools.mjs'
+import { articles } from './config/articles.mjs'
 
 const root = dirname(fileURLToPath(import.meta.url))
 const dist = join(root, 'dist')
@@ -18,6 +19,7 @@ const commonJs = readFileSync(join(root, 'src/js/common.js'), 'utf8')
 const vendorCache = {}
 const toolHtml = {}
 const toolJs = {}
+const articleHtml = {}
 for (const t of tools) {
   toolHtml[t.id] = readFileSync(join(root, `src/tools/${t.id}.html`), 'utf8')
   toolJs[t.id] = readFileSync(join(root, `src/tools/${t.id}.js`), 'utf8')
@@ -25,6 +27,10 @@ for (const t of tools) {
     if (!vendorCache[v]) vendorCache[v] = readFileSync(join(root, `vendor/${v}`), 'utf8')
   }
 }
+for (const a of articles) {
+  articleHtml[a.id] = readFileSync(join(root, `src/articles/${a.id}.html`), 'utf8')
+}
+const toolById = Object.fromEntries(tools.map((t) => [t.id, t]))
 
 // ---------------- 工具函数 ----------------
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
@@ -96,6 +102,7 @@ function footer(depth) {
   <div class="footer-inner">
     <div class="footer-links">
       <a href="${r}">首页</a>
+      <a href="${r}articles/">使用教程</a>
       ${pageLinks}
       <a href="mailto:${site.email}">广告合作:${site.email}</a>
     </div>
@@ -167,6 +174,15 @@ function homePage() {
 ${adSlot(0, '1234567890', '首页顶部横幅')}
 ${catsHtml}
 ${adSlot(0, '2234567890', '首页中部横幅')}
+<div class="panel">
+  <h2>使用教程与干货</h2>
+  <div style="display:grid;gap:10px">
+    ${articles.map((a) => `<a href="articles/${a.id}/" style="display:block;padding:10px 12px;border:1px solid var(--border);border-radius:10px;background:var(--bg)">
+      <b style="color:var(--text)">${esc(a.title)}</b>
+      <div style="font-size:12px;color:var(--muted);margin-top:2px">${esc(a.desc)}</div>
+    </a>`).join('')}
+  </div>
+</div>
 <div class="panel">
   <h2>为什么选择百宝工具箱?</h2>
   <p>所有工具均为纯前端实现,数据只在您的设备上处理,不会上传到服务器,私密又安全。页面轻量、打开即用,兼容手机与电脑浏览器。</p>
@@ -272,6 +288,62 @@ function contentPage(p) {
   }))
 }
 
+// ---------------- 文章页 ----------------
+function articlePage(a) {
+  const tool = toolById[a.tool]
+  const others = articles.filter((x) => x.id !== a.id).slice(0, 5)
+  const otherList = others.length
+    ? `<div class="panel"><h3>更多教程</h3><div style="display:grid;gap:8px">` +
+      others.map((x) => `<a href="../${x.id}/">${esc(x.title)}</a>`).join('') +
+      `</div></div>`
+    : ''
+  const body = `
+<nav class="breadcrumb"><a href="../">首页</a> › <a href="../articles/">使用教程</a> › ${esc(a.title)}</nav>
+<article class="content-page">
+  <h1>${esc(a.title)}</h1>
+  <p style="color:var(--muted);font-size:13px">${a.date} · ${esc(a.category)}</p>
+  ${articleHtml[a.id]}
+</article>
+${otherList}`
+  const jsonld = `<script type="application/ld+json">${JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: a.title,
+    datePublished: a.date,
+    description: a.desc,
+    url: `https://${site.domain}/articles/${a.id}/`,
+    author: { '@type': 'Organization', name: site.name },
+  })}</script>`
+  writePage(`articles/${a.id}/index.html`, layout({
+    depth: 1, path: `/articles/${a.id}/`,
+    title: `${a.title} | ${site.name}`,
+    desc: a.desc, keywords: a.keywords,
+    body, jsonld,
+  }))
+}
+
+function articlesIndexPage() {
+  const list = articles
+    .map((a) => `<a class="tool-card" href="${a.id}/" style="display:block">
+      <span style="flex:1"><span class="t-name">${esc(a.title)}</span><div class="t-summary">${esc(a.desc)}</div><div style="font-size:12px;color:var(--muted);margin-top:4px">${a.date} · ${esc(a.category)}</div></span>
+    </a>`)
+    .join('')
+  const body = `
+<nav class="breadcrumb"><a href="../">首页</a> › 使用教程</nav>
+<div class="content-page">
+  <h1>使用教程与干货文章</h1>
+  <p>工具使用方法、原理科普与实用技巧,与本站工具一一对应。</p>
+  <div class="tool-grid" style="grid-template-columns:1fr">${list}</div>
+</div>`
+  writePage('articles/index.html', layout({
+    depth: 1, path: '/articles/',
+    title: `使用教程与干货文章 | ${site.name}`,
+    desc: '百宝工具箱使用教程:图片压缩技巧、房贷月供计算、时间戳原理、Base64 科普等实用干货。',
+    keywords: '在线工具教程,图片压缩技巧,房贷计算,时间戳,base64,二维码生成',
+    body,
+  }))
+}
+
 // ---------------- 404 ----------------
 function notFoundPage() {
   writePage('404.html', layout({
@@ -288,6 +360,8 @@ function sitemap() {
   const urls = ['/']
   for (const t of tools) urls.push(`/${t.id}/`)
   for (const p of pages) urls.push(`/${p.id}/`)
+  urls.push('/articles/')
+  for (const a of articles) urls.push(`/articles/${a.id}/`)
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls.map((u) => `  <url><loc>https://${site.domain}${u}</loc><lastmod>${today}</lastmod><changefreq>weekly</changefreq><priority>${u === '/' ? '1.0' : '0.8'}</priority></url>`).join('\n')}
@@ -324,6 +398,9 @@ console.log('生成工具页…')
 for (const t of tools) toolPage(t)
 console.log('生成内容页…')
 for (const p of pages) contentPage(p)
+console.log('生成文章页…')
+for (const a of articles) articlePage(a)
+articlesIndexPage()
 console.log('生成 404 / sitemap / robots…')
 notFoundPage()
 sitemap()
