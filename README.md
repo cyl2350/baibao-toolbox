@@ -1,6 +1,6 @@
 # 百宝工具箱 (baibao-toolbox)
 
-一个**免费在线工具集**静态网站,包含 17 款纯前端小工具(二维码、图片压缩、JSON 格式化、时间戳转换、Base64、Markdown 编辑器等),所有工具在浏览器本地运行,不上传任何数据。
+一个**免费在线工具集**静态网站,包含 23 款纯前端小工具(二维码、图片压缩、房贷计算、BMI、JSON 格式化、时间戳转换、Base64、Markdown 编辑器等),所有工具在浏览器本地运行,不上传任何数据。
 
 项目定位:**零服务器成本的轻量内容站**,通过广告联盟(Google AdSense / 百度联盟)、淘宝客推荐位、以及后续高级功能变现。已内置 SEO(每个工具独立页面 + sitemap + JSON-LD 结构化数据)与广告位框架,改两个配置即可上线。
 
@@ -24,10 +24,12 @@ src/css/style.css     # 全局样式
 src/js/common.js      # 公共脚本(主题/复制/广告位渲染)
 src/tools/<id>.html   # 每个工具的面板 HTML
 src/tools/<id>.js     # 每个工具的逻辑
+scripts/gen-handbook-pdf.mjs  # 生成《AI提示词实战手册》成品 PDF(npm run pdf)
 vendor/               # 本地化前端库(qrcode / marked / md5 / diff)
 build.mjs             # 静态站点生成器(含 sitemap/robots/JSON-LD)
 server.mjs            # 本地预览服务器
 docs/运营变现手册.md   # ★ 部署 / 变现 / SEO 完整执行指南(必读)
+docs/产品/            # ★ 可售数字产品(PDF + 闲鱼上架文案)
 ```
 
 ## 配置上线(3 步)

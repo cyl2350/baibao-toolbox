@@ -1,0 +1,32 @@
+<div class="field-row">
+  <div class="field" style="flex:1;min-width:120px">
+    <label for="uc-category">类别</label>
+    <select id="uc-category">
+      <option value="length">长度</option>
+      <option value="weight">重量</option>
+      <option value="temperature">温度</option>
+      <option value="area">面积</option>
+      <option value="volume">体积</option>
+      <option value="speed">速度</option>
+      <option value="storage">数据存储</option>
+      <option value="time">时间</option>
+    </select>
+  </div>
+  <div class="field" style="flex:1;min-width:120px">
+    <label for="uc-from">从</label>
+    <select id="uc-from"></select>
+  </div>
+  <div class="field" style="flex:1;min-width:120px">
+    <label for="uc-to">到</label>
+    <select id="uc-to"></select>
+  </div>
+</div>
+<div class="field-row">
+  <div class="field" style="flex:1;min-width:140px">
+    <label for="uc-value">数值</label>
+    <input type="number" id="uc-value" value="1" step="any" />
+  </div>
+  <button class="btn" id="uc-run" style="align-self:flex-end">换算</button>
+</div>
+<div class="result-box" id="uc-out" style="margin-top:14px;white-space:normal">选择类别与单位后点击换算</div>
+<p class="tip">温度换算使用公式计算(摄氏/华氏/开氏);其余单位按标准换算系数,结果保留 6 位小数。</p>

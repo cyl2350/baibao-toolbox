@@ -1,0 +1,23 @@
+<div class="field">
+  <label for="pct-mode">计算模式</label>
+  <select id="pct-mode">
+    <option value="of">X 的 Y% 是多少</option>
+    <option value="ratio">X 占 Y 的百分之几</option>
+    <option value="change">X 增加/减少 Y% 后是多少</option>
+  </select>
+</div>
+<div class="field-row">
+  <div class="field" style="flex:1;min-width:130px">
+    <label id="pct-label1" for="pct-in1">数值 X</label>
+    <input type="number" id="pct-in1" value="100" step="any" />
+  </div>
+  <div class="field" style="flex:1;min-width:130px">
+    <label id="pct-label2" for="pct-in2">百分比 Y(%)</label>
+    <input type="number" id="pct-in2" value="20" step="any" />
+  </div>
+</div>
+<div class="field-row">
+  <button class="btn" id="pct-run">计算</button>
+</div>
+<div class="result-box" id="pct-out" style="margin-top:14px;white-space:normal">输入数值后点击计算</div>
+<p class="tip">「增加」模式直接输入正数,「减少」模式输入负数(如 -15 表示减少 15%)。</p>
