@@ -15,7 +15,7 @@ export const site = {
   email: 'contact@example.com',
   // 站点描述(首页 meta)
   description:
-    '百宝工具箱提供二维码生成、图片压缩、房贷计算、BMI计算、JSON格式化、时间戳转换、Base64编解码、Markdown编辑器等 23 款免费在线工具,无需注册下载,打开即用。',
+    '百宝工具箱提供二维码生成、图片压缩、房贷计算、日期计算、人民币大写、BMI计算、JSON格式化、时间戳转换、Base64编解码、Markdown编辑器等 26 款免费在线工具,无需注册下载,打开即用。',
 
   // ---------------- 变现配置 ----------------
   monetization: {

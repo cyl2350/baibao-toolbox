@@ -1,0 +1,22 @@
+<div class="field-row">
+  <div class="field" style="flex:1;min-width:180px">
+    <label for="rmb-in">输入金额(数字)</label>
+    <input type="text" id="rmb-in" placeholder="如 123456.78" value="123456.78" />
+  </div>
+</div>
+<div class="field-row">
+  <button class="btn" id="rmb-run">转换为大写</button>
+  <button class="btn secondary" id="rmb-copy">复制</button>
+</div>
+<div class="result-box" id="rmb-out" style="margin-top:14px;white-space:normal;font-size:18px">输入金额后点击转换</div>
+<div class="field" style="margin-top:14px">
+  <label>常用金额快速填入</label>
+  <div class="field-row">
+    <button class="btn secondary small" data-v="100">壹佰圆整</button>
+    <button class="btn secondary small" data-v="1000">壹仟圆整</button>
+    <button class="btn secondary small" data-v="10000">壹万圆整</button>
+    <button class="btn secondary small" data-v="5000.5">伍仟圆伍角</button>
+    <button class="btn secondary small" data-v="100000.01">壹拾万圆零壹分</button>
+  </div>
+</div>
+<p class="tip">支持到分位,自动处理「零」的规则,符合财务票据大写规范。</p>

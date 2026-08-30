@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>随机抽取器 - 免费在线使用 | 百宝工具箱</title>
+<meta name="description" content="免费在线随机抽取工具,输入名单即可抽奖/点名,可设置抽取人数与是否允许重复,另附随机整数生成功能。">
+<meta name="keywords" content="随机抽取,抽奖工具,点名器,随机数生成器,随机选择">
+<link rel="canonical" href="https://www.baibao-toolbox.example/random-picker/">
+<meta property="og:title" content="随机抽取器 - 免费在线使用 | 百宝工具箱">
+<meta property="og:description" content="免费在线随机抽取工具,输入名单即可抽奖/点名,可设置抽取人数与是否允许重复,另附随机整数生成功能。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.baibao-toolbox.example/random-picker/">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"随机抽取器 - 百宝工具箱","url":"https://www.baibao-toolbox.example/random-picker/","description":"免费在线随机抽取工具,输入名单即可抽奖/点名,可设置抽取人数与是否允许重复,另附随机整数生成功能。","applicationCategory":"UtilityApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"CNY"}}</script>
+<script>window.SITE_CONFIG = {"name":"百宝工具箱","domain":"www.baibao-toolbox.example","monetization":{"adsenseClient":"","baiduAdUnit":"","taokeUrl":""}};</script>
+
+
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="../"><span class="logo-mark">百</span><span>百宝工具箱</span></a>
+    <nav class="nav-links"><a href="../qrcode/">二维码生成器</a><a href="../image-compress/">图片压缩</a><a href="../img-base64/">图片转 Base64</a><a href="../json-format/">JSON 格式化</a><a href="../timestamp/">时间戳转换</a><a href="../base64/">Base64 编解码</a><a href="../url-codec/">URL 编解码</a><a href="../md5/">MD5 加密</a><a href="../word-count/">字数统计</a><a href="../text-tools/">文本处理</a><a href="../text-diff/">文本对比</a><a href="../password/">随机密码生成</a><a href="../uuid/">UUID 生成器</a><a href="../regex-tester/">正则表达式测试</a><a href="../base-converter/">进制转换</a><a href="../color-converter/">颜色转换</a><a href="../markdown/">Markdown 编辑器</a><a href="../mortgage/">房贷计算器</a><a href="../bmi/">BMI 计算器</a><a href="../age/">年龄计算器</a><a href="../percentage/">百分比计算器</a><a href="../unit-converter/">单位换算</a><a href="../zodiac/">生肖星座查询</a><a href="../date-calculator/">日期计算器</a><a href="../rmb-upper/">人民币大写转换</a><a href="../random-picker/">随机抽取器</a></nav>
+    <div class="header-actions">
+      <button class="theme-toggle" id="theme-toggle" title="切换主题" aria-label="切换主题">🌓</button>
+    </div>
+  </div>
+</header>
+<main class="container">
+
+<nav class="breadcrumb"><a href="../">首页</a> › 随机抽取器</nav>
+<div class="tool-page">
+  <h1>随机抽取器</h1>
+  <p class="tool-desc">免费在线随机抽取工具,输入名单即可抽奖/点名,可设置抽取人数与是否允许重复,另附随机整数生成功能。</p>
+  <div class="ad-slot" data-ad="banner" data-slot="3234567890" data-label="工具顶部横幅"></div>
+  <div class="panel"><div class="tool-body"><div class="field">
+  <label for="rp-list">名单(每行一个)</label>
+  <textarea id="rp-list" placeholder="张三&#10;李四&#10;王五&#10;赵六" style="min-height:140px">张三
+李四
+王五
+赵六
+钱七
+孙八
+周九
+吴十</textarea>
+</div>
+<div class="field-row">
+  <div class="field" style="flex:1;min-width:120px">
+    <label for="rp-count">抽取人数</label>
+    <input type="number" id="rp-count" value="1" min="1" max="50" />
+  </div>
+  <div class="field" style="flex:1;min-width:150px">
+    <label><input type="checkbox" id="rp-repeat" /> 允许重复抽取</label>
+  </div>
+</div>
+<div class="field-row">
+  <button class="btn" id="rp-run">开始抽取</button>
+  <button class="btn secondary" id="rp-reset">重置</button>
+</div>
+<div class="result-box" id="rp-out" style="margin-top:14px;white-space:normal;font-size:20px">点击「开始抽取」</div>
+<div class="panel" style="margin-top:16px">
+  <h3 style="margin-top:0">随机整数</h3>
+  <div class="field-row">
+    <div class="field" style="flex:1;min-width:100px"><label for="rp-min">最小值</label><input type="number" id="rp-min" value="1" /></div>
+    <div class="field" style="flex:1;min-width:100px"><label for="rp-max">最大值</label><input type="number" id="rp-max" value="100" /></div>
+    <button class="btn secondary" id="rp-rand" style="align-self:flex-end">生成</button>
+  </div>
+  <div class="result-box" id="rp-rand-out" style="margin-top:10px">点击「生成」</div>
+</div>
+<p class="tip">使用密码学安全随机源,抽取结果完全随机、不可预测。</p>
+</div></div>
+  <div class="ad-slot" data-ad="banner" data-slot="4234567890" data-label="工具底部横幅"></div>
+  <div class="panel"><h3>相关工具</h3><div class="tool-grid" style="grid-template-columns:repeat(auto-fill,minmax(180px,1fr))"><a class="tool-card" href="../mortgage/"><span class="t-icon">🏠</span><span class="t-name">房贷计算器</span></a><a class="tool-card" href="../bmi/"><span class="t-icon">⚖</span><span class="t-name">BMI 计算器</span></a><a class="tool-card" href="../age/"><span class="t-icon">🎂</span><span class="t-name">年龄计算器</span></a><a class="tool-card" href="../percentage/"><span class="t-icon">％</span><span class="t-name">百分比计算器</span></a><a class="tool-card" href="../unit-converter/"><span class="t-icon">📏</span><span class="t-name">单位换算</span></a><a class="tool-card" href="../zodiac/"><span class="t-icon">🐲</span><span class="t-name">生肖星座查询</span></a></div></div>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-links">
+      <a href="../">首页</a>
+      <a href="../articles/">使用教程</a>
+      <a href="../about/">关于我们</a><a href="../privacy/">隐私政策</a><a href="../disclaimer/">免责声明</a>
+      <a href="mailto:contact@example.com">广告合作:contact@example.com</a>
+    </div>
+    <div>© 2026 百宝工具箱 · 免费、轻量、无广告弹窗的在线工具集</div>
+    
+  </div>
+</footer>
+<div id="toast"></div>
+<script src="../js/common.js"></script>
+<script>;(function () {
+  'use strict'
+  var listEl = document.getElementById('rp-list')
+  var countEl = document.getElementById('rp-count')
+  var repeatEl = document.getElementById('rp-repeat')
+  var outEl = document.getElementById('rp-out')
+
+  function randInt(max) {
+    var buf = new Uint32Array(1)
+    var limit = Math.floor(0x100000000 / max) * max
+    var x
+    do { crypto.getRandomValues(buf); x = buf[0] } while (x >= limit)
+    return x % max
+  }
+
+  document.getElementById('rp-run').addEventListener('click', function () {
+    var names = listEl.value.split(/\r?\n/).map(function (s) { return s.trim() }).filter(Boolean)
+    var count = parseInt(countEl.value, 10) || 1
+    if (!names.length) { window.bbToast('请输入名单'); return }
+    if (!repeatEl.checked && count > names.length) {
+      window.bbToast('不重复抽取时人数不能超过名单数量')
+      return
+    }
+    var picked = []
+    var pool = names.slice()
+    for (var i = 0; i < count; i++) {
+      if (!pool.length) pool = names.slice()
+      var idx = randInt(pool.length)
+      picked.push(pool[idx])
+      if (!repeatEl.checked) pool.splice(idx, 1)
+    }
+    outEl.innerHTML = picked.map(function (n, i) {
+      return '<b style="font-size:24px;color:var(--primary)">' + n + '</b>' + (i < picked.length - 1 ? '　' : '')
+    }).join('')
+    window.bbToast('抽取完成')
+  })
+
+  document.getElementById('rp-reset').addEventListener('click', function () {
+    outEl.textContent = '点击「开始抽取」'
+  })
+
+  document.getElementById('rp-rand').addEventListener('click', function () {
+    var min = parseInt(document.getElementById('rp-min').value, 10) || 1
+    var max = parseInt(document.getElementById('rp-max').value, 10) || 100
+    if (max <= min) { document.getElementById('rp-rand-out').textContent = '最大值必须大于最小值'; return }
+    var span = max - min + 1
+    document.getElementById('rp-rand-out').textContent = '结果:' + (min + randInt(span))
+  })
+})()
+</script>
+
+</body>
+</html>

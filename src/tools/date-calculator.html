@@ -1,0 +1,32 @@
+<div class="field">
+  <label for="dc-mode">计算模式</label>
+  <select id="dc-mode">
+    <option value="diff">两个日期相隔多少天</option>
+    <option value="add">某日期加/减 N 天</option>
+  </select>
+</div>
+<div class="field-row" id="dc-diff-row">
+  <div class="field" style="flex:1;min-width:150px">
+    <label for="dc-d1">开始日期</label>
+    <input type="date" id="dc-d1" value="2025-01-01" />
+  </div>
+  <div class="field" style="flex:1;min-width:150px">
+    <label for="dc-d2">结束日期</label>
+    <input type="date" id="dc-d2" value="2025-03-15" />
+  </div>
+</div>
+<div class="field-row" id="dc-add-row" style="display:none">
+  <div class="field" style="flex:1;min-width:150px">
+    <label for="dc-base">起始日期</label>
+    <input type="date" id="dc-base" value="2025-01-01" />
+  </div>
+  <div class="field" style="flex:1;min-width:130px">
+    <label for="dc-days">天数(负数为减)</label>
+    <input type="number" id="dc-days" value="90" />
+  </div>
+</div>
+<div class="field-row">
+  <button class="btn" id="dc-run">计算</button>
+</div>
+<div class="result-box" id="dc-out" style="margin-top:14px;white-space:normal">选择日期后点击计算</div>
+<p class="tip">天数按自然日计算(不含起始日);工作日为周一至周五,不含法定节假日调整。</p>

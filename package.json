@@ -9,6 +9,7 @@
     "pdf:handbook": "node scripts/gen-pdf.mjs \"docs/产品/AI提示词实战手册.md\" \"docs/产品/AI提示词实战手册.pdf\"",
     "pdf:xhs": "node scripts/gen-pdf.mjs \"docs/产品/小红书爆款文案模板库.md\" \"docs/产品/小红书爆款文案模板库.pdf\"",
     "pdf:resume": "node scripts/gen-pdf.mjs \"docs/产品/简历模板+面试话术包.md\" \"docs/产品/简历模板+面试话术包.pdf\"",
+    "img": "node scripts/gen-listing-images.mjs",
     "preview": "node build.mjs && node server.mjs",
     "serve": "node server.mjs"
   },
@@ -16,6 +17,7 @@
     "node": ">=18"
   },
   "devDependencies": {
+    "@napi-rs/canvas": "^1.0.8",
     "pdfjs-dist": "^6.3.289",
     "pdfkit": "^0.20.2"
   }

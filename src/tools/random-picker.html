@@ -1,0 +1,35 @@
+<div class="field">
+  <label for="rp-list">名单(每行一个)</label>
+  <textarea id="rp-list" placeholder="张三&#10;李四&#10;王五&#10;赵六" style="min-height:140px">张三
+李四
+王五
+赵六
+钱七
+孙八
+周九
+吴十</textarea>
+</div>
+<div class="field-row">
+  <div class="field" style="flex:1;min-width:120px">
+    <label for="rp-count">抽取人数</label>
+    <input type="number" id="rp-count" value="1" min="1" max="50" />
+  </div>
+  <div class="field" style="flex:1;min-width:150px">
+    <label><input type="checkbox" id="rp-repeat" /> 允许重复抽取</label>
+  </div>
+</div>
+<div class="field-row">
+  <button class="btn" id="rp-run">开始抽取</button>
+  <button class="btn secondary" id="rp-reset">重置</button>
+</div>
+<div class="result-box" id="rp-out" style="margin-top:14px;white-space:normal;font-size:20px">点击「开始抽取」</div>
+<div class="panel" style="margin-top:16px">
+  <h3 style="margin-top:0">随机整数</h3>
+  <div class="field-row">
+    <div class="field" style="flex:1;min-width:100px"><label for="rp-min">最小值</label><input type="number" id="rp-min" value="1" /></div>
+    <div class="field" style="flex:1;min-width:100px"><label for="rp-max">最大值</label><input type="number" id="rp-max" value="100" /></div>
+    <button class="btn secondary" id="rp-rand" style="align-self:flex-end">生成</button>
+  </div>
+  <div class="result-box" id="rp-rand-out" style="margin-top:10px">点击「生成」</div>
+</div>
+<p class="tip">使用密码学安全随机源,抽取结果完全随机、不可预测。</p>
