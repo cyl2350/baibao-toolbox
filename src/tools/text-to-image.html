@@ -1,0 +1,33 @@
+<div class="field">
+  <label for="ti-text">输入文字(支持换行)</label>
+  <textarea id="ti-text" placeholder="输入要生成卡片的文字……" style="min-height:90px">做自己喜欢的事,
+什么时候都不晚。</textarea>
+</div>
+<div class="field-row">
+  <div class="field" style="flex:1;min-width:110px">
+    <label for="ti-style">风格</label>
+    <select id="ti-style">
+      <option value="sunset">日落渐变</option>
+      <option value="ocean">海洋蓝</option>
+      <option value="forest">森林绿</option>
+      <option value="dark">暗夜金</option>
+      <option value="blush">温柔粉</option>
+    </select>
+  </div>
+  <div class="field" style="flex:1;min-width:100px">
+    <label for="ti-size">尺寸</label>
+    <select id="ti-size">
+      <option value="1080,1080">正方形 1080</option>
+      <option value="1080,1920">竖版 1080×1920</option>
+      <option value="1200,630">横版 1200×630</option>
+    </select>
+  </div>
+</div>
+<div class="field-row">
+  <button class="btn" id="ti-gen">🖼 生成卡片</button>
+  <button class="btn secondary" id="ti-download">下载 PNG</button>
+</div>
+<div class="field" style="margin-top:14px;text-align:center">
+  <canvas id="ti-canvas" style="max-width:100%;max-height:420px;border-radius:12px;border:1px solid var(--border)"></canvas>
+</div>
+<p class="tip">文字自动换行居中排版,适合语录、通知、文案配图。本地生成,不上传。</p>

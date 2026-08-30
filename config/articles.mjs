@@ -221,4 +221,13 @@ export const articles = [
     keywords: '双色球怎么选号,彩票选号技巧,机选自选区别,大乐透选号,理性购彩',
     tool: 'lottery-numbers',
   },
+  {
+    id: 'nine-grid-guide',
+    title: '朋友圈九宫格怎么切怎么发?切图技巧与排版教程',
+    category: '图片处理',
+    date: '2025-01-10',
+    desc: '九宫格切图全教程:适合什么场景、切图技巧、按顺序发布的正确姿势,附免费在线九宫格切图工具。',
+    keywords: '朋友圈九宫格,九宫格切图,九宫格怎么发,切图教程,九张图排版',
+    tool: 'nine-grid',
+  },
 ]
