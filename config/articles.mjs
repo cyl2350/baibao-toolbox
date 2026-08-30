@@ -149,4 +149,22 @@ export const articles = [
     keywords: '复利是什么意思,复利公式,72法则,定投的力量,复利计算',
     tool: 'compound-interest',
   },
+  {
+    id: 'calculator-guide',
+    title: '在线计算器怎么用?百分比、括号与四则运算技巧',
+    category: '生活计算',
+    date: '2025-01-10',
+    desc: '计算器使用技巧:运算优先级、百分比怎么按、括号妙用、常见计算错误,附免费在线科学计算器。',
+    keywords: '计算器怎么用,百分比怎么算,运算优先级,在线科学计算器,计算技巧',
+    tool: 'calculator',
+  },
+  {
+    id: 'pomodoro-guide',
+    title: '番茄工作法是什么?25 分钟专注法实操与常见误区',
+    category: '学习工具',
+    date: '2025-01-10',
+    desc: '番茄工作法完整指南:原理、25/5 节奏、使用步骤、常见误区,附免费在线番茄钟。',
+    keywords: '番茄工作法,番茄钟怎么用,专注力训练,时间管理,25分钟专注',
+    tool: 'countdown-timer',
+  },
 ]
