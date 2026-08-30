@@ -119,11 +119,14 @@ function layout({ depth, title, desc, keywords, path, body, jsonld, extraHead = 
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
+<meta name="theme-color" content="#4f6ef7">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(desc)}">
 <meta name="keywords" content="${esc(keywords || '')}">
 <link rel="canonical" href="${canonical}">
+<link rel="manifest" href="${r}manifest.json">
+<link rel="apple-touch-icon" href="${r}apple-touch-icon.png">
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(desc)}">
 <meta property="og:type" content="website">
@@ -390,9 +393,14 @@ writeFileSync(join(dist, 'js/common.js'), commonJs, 'utf8')
 for (const [name, content] of Object.entries(vendorCache)) {
   writeFileSync(join(dist, 'vendor', name), content, 'utf8')
 }
-// og:image(社交分享图)
+// og:image(社交分享图)与 PWA 资源
 const ogSrc = join(root, 'src/og-image.png')
 if (existsSync(ogSrc)) copyFileSync(ogSrc, join(dist, 'og-image.png'))
+const pwaFiles = ['manifest.json', 'icon-192.png', 'icon-512.png', 'apple-touch-icon.png']
+for (const f of pwaFiles) {
+  const p = join(root, 'src', f)
+  if (existsSync(p)) copyFileSync(p, join(dist, f))
+}
 // favicon
 writeFileSync(join(dist, 'favicon.svg'), `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4f6ef7"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient></defs><rect width="64" height="64" rx="14" fill="url(#g)"/><text x="32" y="44" font-size="34" font-weight="bold" fill="#fff" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif">百</text></svg>`, 'utf8')
 

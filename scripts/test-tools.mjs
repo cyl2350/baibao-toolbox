@@ -148,3 +148,31 @@ if (fail) {
   failures.forEach((f) => console.log('  ❌ ' + f.id))
   process.exit(1)
 }
+
+// ---------- 文章页检查 ----------
+console.log('\n【文章页检查】')
+const artDir = join(dist, 'articles')
+let artPass = 0, artFail = 0
+if (existsSync(artDir)) {
+  const articleDirs = readdirSync(artDir).filter((n) => {
+    const p = join(artDir, n)
+    return statSync(p).isDirectory() && existsSync(join(p, 'index.html'))
+  }).filter((n) => !only || n === only)
+  for (const id of articleDirs) {
+    const html = readFileSync(join(artDir, id, 'index.html'), 'utf8')
+    const issues = []
+    if (!html.includes('<article') && !html.includes('content-page')) issues.push('缺少正文容器')
+    const bodyLen = html.replace(/<[^>]+>/g, '').length
+    if (bodyLen < 500) issues.push('正文过短(' + bodyLen + ' 字)')
+    if (!html.includes('breadcrumb')) issues.push('缺少面包屑')
+    if (issues.length) {
+      artFail++
+      console.log(`❌ articles/${id}: ${issues.join(', ')}`)
+    } else {
+      artPass++
+      console.log(`✅ articles/${id}(${bodyLen}字)`)
+    }
+  }
+}
+console.log(`\n========== 文章页:通过 ${artPass} / 失败 ${artFail} ==========`)
+if (artFail) process.exit(1)

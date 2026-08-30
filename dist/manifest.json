@@ -1,0 +1,14 @@
+{
+  "name": "百宝工具箱 - 免费在线工具集",
+  "short_name": "百宝工具箱",
+  "description": "47+ 款免费在线工具:二维码、图片压缩、房贷计算、卡路里、身份证校验等,打开即用,无需注册下载。",
+  "lang": "zh-CN",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f6f7fb",
+  "theme_color": "#4f6ef7",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

@@ -1,0 +1,28 @@
+<div class="field-row">
+  <div class="field" style="flex:1;min-width:120px">
+    <label for="cd-preset">预设</label>
+    <select id="cd-preset">
+      <option value="25" selected>专注 25 分钟</option>
+      <option value="5">短休息 5 分钟</option>
+      <option value="10">长休息 10 分钟</option>
+      <option value="custom">自定义</option>
+    </select>
+  </div>
+  <div class="field" style="flex:1;min-width:120px">
+    <label for="cd-min">自定义分钟</label>
+    <input type="number" id="cd-min" value="25" min="1" max="120" />
+  </div>
+</div>
+<div class="field" style="text-align:center;margin:18px 0">
+  <div id="cd-display" style="font-size:64px;font-weight:800;font-family:ui-monospace,Consolas,monospace;letter-spacing:2px">25:00</div>
+  <div id="cd-state" class="tip" style="margin-top:4px">未开始 · 选择一个时长后开始</div>
+</div>
+<div style="height:10px;background:var(--bg);border-radius:5px;overflow:hidden;margin-bottom:16px">
+  <div id="cd-bar" style="height:100%;width:0%;background:linear-gradient(90deg,var(--primary),#8b5cf6);transition:width 0.3s"></div>
+</div>
+<div class="field-row">
+  <button class="btn" id="cd-start">▶ 开始</button>
+  <button class="btn secondary" id="cd-pause">⏸ 暂停</button>
+  <button class="btn secondary" id="cd-reset">↺ 重置</button>
+</div>
+<p class="tip">番茄工作法:专注 25 分钟 → 休息 5 分钟,循环 4 轮后长休息。到点会响铃提醒(需浏览器允许声音)。</p>

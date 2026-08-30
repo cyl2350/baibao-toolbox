@@ -1,0 +1,20 @@
+<div class="field-row">
+  <div class="field" style="flex:1;min-width:120px">
+    <label for="rc-style">配色风格</label>
+    <select id="rc-style">
+      <option value="bright">明亮</option>
+      <option value="pastel">柔和</option>
+      <option value="dark">暗色</option>
+    </select>
+  </div>
+  <div class="field" style="flex:1;min-width:100px">
+    <label for="rc-count">生成数量</label>
+    <input type="number" id="rc-count" value="6" min="1" max="20" />
+  </div>
+</div>
+<div class="field-row">
+  <button class="btn" id="rc-run">生成配色</button>
+  <button class="btn secondary" id="rc-copy-all">复制全部 HEX</button>
+</div>
+<div id="rc-palette" style="margin-top:14px;display:grid;gap:10px"></div>
+<p class="tip">点击色块可复制该颜色的 HEX;「复制全部 HEX」复制整组颜色,方便直接用于设计稿。</p>

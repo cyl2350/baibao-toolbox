@@ -1,0 +1,10 @@
+<div class="field">
+  <label for="vin-in">输入 17 位车辆识别码 VIN</label>
+  <input type="text" id="vin-in" placeholder="如 LSVAA49J172000001" maxlength="17" />
+</div>
+<div class="field-row">
+  <button class="btn" id="vin-run">校验</button>
+  <button class="btn secondary" id="vin-demo">填个测试号</button>
+</div>
+<div class="result-box" id="vin-out" style="margin-top:14px;white-space:normal">输入 VIN 后点击校验</div>
+<p class="tip">VIN 由 WMI(1-3 位,制造商)+ VDS(4-9 位,车型信息,第 9 位校验码)+ VIS(10-17 位,序列号与年份)组成。禁止 I、O、Q 三个字母。</p>

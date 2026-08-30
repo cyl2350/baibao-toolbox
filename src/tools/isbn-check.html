@@ -1,0 +1,10 @@
+<div class="field">
+  <label for="isbn-in">输入 ISBN(10 位或 13 位,可含连字符)</label>
+  <input type="text" id="isbn-in" placeholder="如 9787111213826 或 0-306-40615-2" />
+</div>
+<div class="field-row">
+  <button class="btn" id="isbn-run">校验</button>
+  <button class="btn secondary" id="isbn-demo">填个测试号</button>
+</div>
+<div class="result-box" id="isbn-out" style="margin-top:14px;white-space:normal">输入 ISBN 后点击校验</div>
+<p class="tip">ISBN-13 校验位 = (10 − 加权和%10)%10,权重 1、3 交替;ISBN-10 校验位用模 11,末位可为 X。</p>
