@@ -1,0 +1,23 @@
+<div class="field">
+  <label for="tt-in">输入文本(每行一条)</label>
+  <textarea id="tt-in" placeholder="每行一条数据,粘贴到这里" style="min-height:150px"></textarea>
+</div>
+<div class="field">
+  <label>处理选项</label>
+  <div class="field-row">
+    <label style="font-size:13px"><input type="checkbox" id="tt-trim" checked /> 去除首尾空格</label>
+    <label style="font-size:13px"><input type="checkbox" id="tt-empty" checked /> 删除空行</label>
+    <label style="font-size:13px"><input type="checkbox" id="tt-dedup" /> 去重</label>
+    <label style="font-size:13px"><input type="checkbox" id="tt-sort" /> 排序</label>
+    <label style="font-size:13px"><input type="checkbox" id="tt-sort-desc" /> 倒序</label>
+    <label style="font-size:13px"><input type="checkbox" id="tt-upper" /> 转大写</label>
+    <label style="font-size:13px"><input type="checkbox" id="tt-lower" /> 转小写</label>
+  </div>
+</div>
+<div class="field-row">
+  <button class="btn" id="tt-run">开始处理</button>
+  <button class="btn secondary" id="tt-copy">复制结果</button>
+</div>
+<div class="field" style="margin-top:14px">
+  <textarea id="tt-out" readonly style="min-height:150px" placeholder="处理结果"></textarea>
+</div>

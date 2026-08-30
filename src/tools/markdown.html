@@ -1,0 +1,35 @@
+<div class="split">
+  <div class="field">
+    <label for="md-in">Markdown 源码</label>
+    <textarea id="md-in" style="min-height:320px"># 欢迎使用 Markdown 编辑器
+
+支持 **加粗**、*斜体*、~~删除线~~ 与 `行内代码`。
+
+## 列表
+- 第一项
+- 第二项
+
+## 表格
+| 功能 | 说明 |
+| ---- | ---- |
+| 预览 | 右侧实时渲染 |
+| 导出 | 复制 HTML |
+
+> 引用一段话。
+
+\`\`\`js
+console.log('代码块')
+\`\`\`
+</textarea>
+  </div>
+  <div class="field">
+    <label for="md-out">实时预览</label>
+    <div class="md-preview" id="md-out"></div>
+  </div>
+</div>
+<div class="field-row" style="margin-top:12px">
+  <button class="btn" id="md-copy-html">复制 HTML</button>
+  <button class="btn secondary" id="md-clear">清空</button>
+  <button class="btn secondary" id="md-download">下载 .md</button>
+</div>
+<p class="tip">预览前会过滤 script 标签与事件属性,请勿在预览中粘贴不可信内容。</p>

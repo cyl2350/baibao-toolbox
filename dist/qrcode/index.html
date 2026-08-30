@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>二维码生成器 - 免费在线使用 | 百宝工具箱</title>
+<meta name="description" content="免费在线二维码生成器,输入文字或网址即可生成二维码,支持选择尺寸与容错等级,可下载 PNG 图片,无需注册。">
+<meta name="keywords" content="二维码生成器,二维码在线生成,QR码生成,网址转二维码,wifi二维码">
+<link rel="canonical" href="https://www.baibao-toolbox.example/qrcode/">
+<meta property="og:title" content="二维码生成器 - 免费在线使用 | 百宝工具箱">
+<meta property="og:description" content="免费在线二维码生成器,输入文字或网址即可生成二维码,支持选择尺寸与容错等级,可下载 PNG 图片,无需注册。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.baibao-toolbox.example/qrcode/">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"二维码生成器 - 百宝工具箱","url":"https://www.baibao-toolbox.example/qrcode/","description":"免费在线二维码生成器,输入文字或网址即可生成二维码,支持选择尺寸与容错等级,可下载 PNG 图片,无需注册。","applicationCategory":"UtilityApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"CNY"}}</script>
+<script>window.SITE_CONFIG = {"name":"百宝工具箱","domain":"www.baibao-toolbox.example","monetization":{"adsenseClient":"","baiduAdUnit":"","taokeUrl":""}};</script>
+
+
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="../"><span class="logo-mark">百</span><span>百宝工具箱</span></a>
+    <nav class="nav-links"><a href="../qrcode/">二维码生成器</a><a href="../image-compress/">图片压缩</a><a href="../img-base64/">图片转 Base64</a><a href="../json-format/">JSON 格式化</a><a href="../timestamp/">时间戳转换</a><a href="../base64/">Base64 编解码</a><a href="../url-codec/">URL 编解码</a><a href="../md5/">MD5 加密</a><a href="../word-count/">字数统计</a><a href="../text-tools/">文本处理</a><a href="../text-diff/">文本对比</a><a href="../password/">随机密码生成</a><a href="../uuid/">UUID 生成器</a><a href="../regex-tester/">正则表达式测试</a><a href="../base-converter/">进制转换</a><a href="../color-converter/">颜色转换</a><a href="../markdown/">Markdown 编辑器</a></nav>
+    <div class="header-actions">
+      <button class="theme-toggle" id="theme-toggle" title="切换主题" aria-label="切换主题">🌓</button>
+    </div>
+  </div>
+</header>
+<main class="container">
+
+<nav class="breadcrumb"><a href="../">首页</a> › 二维码生成器</nav>
+<div class="tool-page">
+  <h1>二维码生成器</h1>
+  <p class="tool-desc">免费在线二维码生成器,输入文字或网址即可生成二维码,支持选择尺寸与容错等级,可下载 PNG 图片,无需注册。</p>
+  <div class="ad-slot" data-ad="banner" data-slot="3234567890" data-label="工具顶部横幅"></div>
+  <div class="panel"><div class="tool-body"><div class="field">
+  <label for="qr-text">文本 / 网址 / WiFi 配置</label>
+  <input type="text" id="qr-text" placeholder="粘贴网址或文字,如 https://www.example.com" />
+</div>
+<div class="field-row">
+  <div class="field" style="flex:1;min-width:120px">
+    <label for="qr-size">尺寸(px)</label>
+    <select id="qr-size">
+      <option value="200">200</option>
+      <option value="300" selected>300</option>
+      <option value="400">400</option>
+      <option value="500">500</option>
+    </select>
+  </div>
+  <div class="field" style="flex:1;min-width:120px">
+    <label for="qr-ec">容错等级</label>
+    <select id="qr-ec">
+      <option value="L">L (7%)</option>
+      <option value="M" selected>M (15%)</option>
+      <option value="Q">Q (25%)</option>
+      <option value="H">H (30%)</option>
+    </select>
+  </div>
+</div>
+<div class="field-row">
+  <button class="btn" id="qr-generate">生成二维码</button>
+  <button class="btn secondary" id="qr-download">下载 PNG</button>
+</div>
+<div class="field" style="margin-top:16px;text-align:center">
+  <canvas id="qr-canvas" style="max-width:100%;image-rendering:pixelated"></canvas>
+</div>
+<p class="tip">提示:容错等级越高,二维码越耐脏/耐遮挡;网址请带 https:// 前缀。</p>
+</div></div>
+  <div class="ad-slot" data-ad="banner" data-slot="4234567890" data-label="工具底部横幅"></div>
+  <div class="panel"><h3>相关工具</h3><div class="tool-grid" style="grid-template-columns:repeat(auto-fill,minmax(180px,1fr))"><a class="tool-card" href="../image-compress/"><span class="t-icon">🖼</span><span class="t-name">图片压缩</span></a><a class="tool-card" href="../img-base64/"><span class="t-icon">⇄</span><span class="t-name">图片转 Base64</span></a></div></div>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-links">
+      <a href="../">首页</a>
+      <a href="../about/">关于我们</a><a href="../privacy/">隐私政策</a><a href="../disclaimer/">免责声明</a>
+      <a href="mailto:contact@example.com">广告合作:contact@example.com</a>
+    </div>
+    <div>© 2026 百宝工具箱 · 免费、轻量、无广告弹窗的在线工具集</div>
+    
+  </div>
+</footer>
+<div id="toast"></div>
+<script src="../js/common.js"></script>
+<script src="../vendor/qrcode.js"></script><script>;(function () {
+  'use strict'
+  var textEl = document.getElementById('qr-text')
+  var sizeEl = document.getElementById('qr-size')
+  var ecEl = document.getElementById('qr-ec')
+  var canvas = document.getElementById('qr-canvas')
+  var lastSvg = null
+
+  function generate() {
+    var value = textEl.value.trim()
+    if (!value) { window.bbToast('请先输入内容'); return }
+    try {
+      var qr = qrcode(0, ecEl.value)
+      qr.addData(value)
+      qr.make()
+      var size = parseInt(sizeEl.value, 10)
+      var modCount = qr.getModuleCount()
+      var px = Math.floor(size / modCount)
+      if (px < 1) px = 1
+      var total = modCount * px
+      canvas.width = total
+      canvas.height = total
+      var ctx = canvas.getContext('2d')
+      ctx.fillStyle = '#ffffff'
+      ctx.fillRect(0, 0, total, total)
+      ctx.fillStyle = '#000000'
+      for (var r = 0; r < modCount; r++) {
+        for (var c = 0; c < modCount; c++) {
+          if (qr.isDark(r, c)) ctx.fillRect(c * px, r * px, px, px)
+        }
+      }
+      lastSvg = qr.createSvgTag({ cellSize: 4, margin: 4, scalable: true })
+      window.bbToast('二维码已生成')
+    } catch (e) {
+      window.bbToast('生成失败:' + e.message)
+    }
+  }
+
+  document.getElementById('qr-generate').addEventListener('click', generate)
+  textEl.addEventListener('keydown', function (e) { if (e.key === 'Enter') generate() })
+  document.getElementById('qr-download').addEventListener('click', function () {
+    if (!canvas.width) { window.bbToast('请先生成二维码'); return }
+    canvas.toBlob(function (blob) {
+      if (blob) window.bbDownload('qrcode.png', blob, 'image/png')
+    }, 'image/png')
+  })
+})()
+</script>
+
+</body>
+</html>

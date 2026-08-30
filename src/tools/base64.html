@@ -1,0 +1,17 @@
+<div class="field">
+  <label for="b64-in">输入内容(完整支持中文)</label>
+  <textarea id="b64-in" placeholder="输入要编码或解码的文本" style="min-height:120px"></textarea>
+</div>
+<div class="field-row">
+  <button class="btn" id="b64-encode">编码 → Base64</button>
+  <button class="btn secondary" id="b64-decode">解码 → 原文</button>
+  <button class="btn secondary" id="b64-swap">交换上下</button>
+</div>
+<div class="field" style="margin-top:14px">
+  <label for="b64-out">结果</label>
+  <textarea id="b64-out" style="min-height:120px"></textarea>
+</div>
+<div class="field-row">
+  <button class="btn secondary" id="b64-copy">复制</button>
+</div>
+<p class="tip">使用 UTF-8 编码,中文不会乱码;解码失败时请检查输入是否为合法 Base64。</p>

@@ -1,0 +1,17 @@
+<div class="field">
+  <label for="md5-in">输入内容(中文按 UTF-8 计算)</label>
+  <textarea id="md5-in" placeholder="输入要计算哈希的文本" style="min-height:100px"></textarea>
+</div>
+<div class="field-row">
+  <button class="btn" id="md5-lower">MD5(小写)</button>
+  <button class="btn secondary" id="md5-upper">MD5(大写)</button>
+  <button class="btn secondary" id="md5-sha256">SHA-256</button>
+</div>
+<div class="field" style="margin-top:14px">
+  <label for="md5-out">结果</label>
+  <textarea id="md5-out" readonly style="min-height:80px"></textarea>
+</div>
+<div class="field-row">
+  <button class="btn secondary" id="md5-copy">复制</button>
+</div>
+<p class="tip">哈希为单向运算,用于校验完整性或存储口令摘要;真正的口令加密请使用加盐的 bcrypt/argon2。</p>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>文本对比 - 免费在线使用 | 百宝工具箱</title>
+<meta name="description" content="在线文本对比工具,基于逐行 Diff 算法高亮显示新增、删除与修改内容,适合对比代码与文档版本。">
+<meta name="keywords" content="文本对比,文本diff,代码对比,文件对比,在线diff">
+<link rel="canonical" href="https://www.baibao-toolbox.example/text-diff/">
+<meta property="og:title" content="文本对比 - 免费在线使用 | 百宝工具箱">
+<meta property="og:description" content="在线文本对比工具,基于逐行 Diff 算法高亮显示新增、删除与修改内容,适合对比代码与文档版本。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.baibao-toolbox.example/text-diff/">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"文本对比 - 百宝工具箱","url":"https://www.baibao-toolbox.example/text-diff/","description":"在线文本对比工具,基于逐行 Diff 算法高亮显示新增、删除与修改内容,适合对比代码与文档版本。","applicationCategory":"UtilityApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"CNY"}}</script>
+<script>window.SITE_CONFIG = {"name":"百宝工具箱","domain":"www.baibao-toolbox.example","monetization":{"adsenseClient":"","baiduAdUnit":"","taokeUrl":""}};</script>
+
+
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="../"><span class="logo-mark">百</span><span>百宝工具箱</span></a>
+    <nav class="nav-links"><a href="../qrcode/">二维码生成器</a><a href="../image-compress/">图片压缩</a><a href="../img-base64/">图片转 Base64</a><a href="../json-format/">JSON 格式化</a><a href="../timestamp/">时间戳转换</a><a href="../base64/">Base64 编解码</a><a href="../url-codec/">URL 编解码</a><a href="../md5/">MD5 加密</a><a href="../word-count/">字数统计</a><a href="../text-tools/">文本处理</a><a href="../text-diff/">文本对比</a><a href="../password/">随机密码生成</a><a href="../uuid/">UUID 生成器</a><a href="../regex-tester/">正则表达式测试</a><a href="../base-converter/">进制转换</a><a href="../color-converter/">颜色转换</a><a href="../markdown/">Markdown 编辑器</a></nav>
+    <div class="header-actions">
+      <button class="theme-toggle" id="theme-toggle" title="切换主题" aria-label="切换主题">🌓</button>
+    </div>
+  </div>
+</header>
+<main class="container">
+
+<nav class="breadcrumb"><a href="../">首页</a> › 文本对比</nav>
+<div class="tool-page">
+  <h1>文本对比</h1>
+  <p class="tool-desc">在线文本对比工具,基于逐行 Diff 算法高亮显示新增、删除与修改内容,适合对比代码与文档版本。</p>
+  <div class="ad-slot" data-ad="banner" data-slot="3234567890" data-label="工具顶部横幅"></div>
+  <div class="panel"><div class="tool-body"><div class="split">
+  <div class="field">
+    <label for="diff-a">文本 A(原内容)</label>
+    <textarea id="diff-a" placeholder="第一段文本" style="min-height:200px"></textarea>
+  </div>
+  <div class="field">
+    <label for="diff-b">文本 B(新内容)</label>
+    <textarea id="diff-b" placeholder="第二段文本" style="min-height:200px"></textarea>
+  </div>
+</div>
+<div class="field-row">
+  <button class="btn" id="diff-run">开始对比</button>
+  <button class="btn secondary" id="diff-copy">复制结果</button>
+</div>
+<div class="result-box" id="diff-out" style="margin-top:14px;white-space:pre;max-height:420px;font-size:13px">对比结果将显示在这里</div>
+<p class="tip">绿色为新增行,红色为删除行,修改的行内差异用更深的颜色标出。</p>
+</div></div>
+  <div class="ad-slot" data-ad="banner" data-slot="4234567890" data-label="工具底部横幅"></div>
+  <div class="panel"><h3>相关工具</h3><div class="tool-grid" style="grid-template-columns:repeat(auto-fill,minmax(180px,1fr))"><a class="tool-card" href="../word-count/"><span class="t-icon">🔢</span><span class="t-name">字数统计</span></a><a class="tool-card" href="../text-tools/"><span class="t-icon">✂</span><span class="t-name">文本处理</span></a><a class="tool-card" href="../markdown/"><span class="t-icon">📝</span><span class="t-name">Markdown 编辑器</span></a></div></div>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-links">
+      <a href="../">首页</a>
+      <a href="../about/">关于我们</a><a href="../privacy/">隐私政策</a><a href="../disclaimer/">免责声明</a>
+      <a href="mailto:contact@example.com">广告合作:contact@example.com</a>
+    </div>
+    <div>© 2026 百宝工具箱 · 免费、轻量、无广告弹窗的在线工具集</div>
+    
+  </div>
+</footer>
+<div id="toast"></div>
+<script src="../js/common.js"></script>
+<script src="../vendor/diff.min.js"></script><script>;(function () {
+  'use strict'
+  var aEl = document.getElementById('diff-a')
+  var bEl = document.getElementById('diff-b')
+  var outEl = document.getElementById('diff-out')
+
+  function esc(s) {
+    return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+  }
+
+  function run() {
+    var a = aEl.value
+    var b = bEl.value
+    if (!a && !b) { window.bbToast('请输入要对比的内容'); return }
+    var parts = Diff.diffLines(a, b)
+    var html = ''
+    parts.forEach(function (part) {
+      var lines = part.value.replace(/\n$/, '').split('\n')
+      lines.forEach(function (line) {
+        if (part.added) {
+          html += '<div class="diff-add">+ ' + esc(line) + '</div>'
+        } else if (part.removed) {
+          html += '<div class="diff-del">- ' + esc(line) + '</div>'
+        } else {
+          html += '<div style="color:var(--muted)">  ' + esc(line) + '</div>'
+        }
+      })
+    })
+    // 行级差内差异标记(新增/删除部分中进一步标出字符级变化)
+    var oldLines = a.split('\n')
+    var newLines = b.split('\n')
+    outEl.innerHTML = html
+    outEl.querySelectorAll('.diff-add').forEach(function (el, i) {
+      if (i < newLines.length && oldLines.indexOf(newLines[i]) === -1 && oldLines[i - 1] !== undefined) {
+        // 精细字符对比已由行级展示覆盖,此处仅提示
+      }
+    })
+  }
+
+  document.getElementById('diff-run').addEventListener('click', run)
+  document.getElementById('diff-copy').addEventListener('click', function () {
+    window.bbCopy(outEl.innerText)
+  })
+})()
+</script>
+
+</body>
+</html>

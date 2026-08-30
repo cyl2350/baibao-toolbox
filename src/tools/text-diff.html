@@ -1,0 +1,16 @@
+<div class="split">
+  <div class="field">
+    <label for="diff-a">文本 A(原内容)</label>
+    <textarea id="diff-a" placeholder="第一段文本" style="min-height:200px"></textarea>
+  </div>
+  <div class="field">
+    <label for="diff-b">文本 B(新内容)</label>
+    <textarea id="diff-b" placeholder="第二段文本" style="min-height:200px"></textarea>
+  </div>
+</div>
+<div class="field-row">
+  <button class="btn" id="diff-run">开始对比</button>
+  <button class="btn secondary" id="diff-copy">复制结果</button>
+</div>
+<div class="result-box" id="diff-out" style="margin-top:14px;white-space:pre;max-height:420px;font-size:13px">对比结果将显示在这里</div>
+<p class="tip">绿色为新增行,红色为删除行,修改的行内差异用更深的颜色标出。</p>

@@ -1,0 +1,15 @@
+<div class="field-row">
+  <div class="field" style="flex:2;min-width:180px">
+    <label for="cc-in">输入颜色(HEX / RGB / HSL)</label>
+    <input type="text" id="cc-in" placeholder="如 #4f6ef7 或 rgb(79,110,247) 或 hsl(230,91%,64%)" />
+  </div>
+  <div class="field" style="flex:1;min-width:120px">
+    <label for="cc-picker">取色器</label>
+    <input type="color" id="cc-picker" value="#4f6ef7" style="width:100%;height:40px;border:1px solid var(--border);border-radius:8px;background:var(--bg)" />
+  </div>
+</div>
+<div class="field" style="text-align:center">
+  <div id="cc-preview" style="height:70px;border-radius:10px;border:1px solid var(--border);background:#4f6ef7"></div>
+</div>
+<div class="result-box" id="cc-out" style="white-space:normal">颜色结果将显示在这里</div>
+<p class="tip">支持 #rgb / #rrggbb / #rrggbbaa / rgb() / rgba() / hsl() / hsla() 格式,输入即转换。</p>

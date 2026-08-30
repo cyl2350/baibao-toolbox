@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>正则表达式测试 - 免费在线使用 | 百宝工具箱</title>
+<meta name="description" content="免费在线正则表达式测试工具,输入正则与文本实时高亮匹配位置,支持 g/i/m/s 修饰符,含常用正则示例。">
+<meta name="keywords" content="正则表达式测试,正则在线,regex测试,正则匹配,常用正则">
+<link rel="canonical" href="https://www.baibao-toolbox.example/regex-tester/">
+<meta property="og:title" content="正则表达式测试 - 免费在线使用 | 百宝工具箱">
+<meta property="og:description" content="免费在线正则表达式测试工具,输入正则与文本实时高亮匹配位置,支持 g/i/m/s 修饰符,含常用正则示例。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.baibao-toolbox.example/regex-tester/">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"正则表达式测试 - 百宝工具箱","url":"https://www.baibao-toolbox.example/regex-tester/","description":"免费在线正则表达式测试工具,输入正则与文本实时高亮匹配位置,支持 g/i/m/s 修饰符,含常用正则示例。","applicationCategory":"UtilityApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"CNY"}}</script>
+<script>window.SITE_CONFIG = {"name":"百宝工具箱","domain":"www.baibao-toolbox.example","monetization":{"adsenseClient":"","baiduAdUnit":"","taokeUrl":""}};</script>
+
+
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="../"><span class="logo-mark">百</span><span>百宝工具箱</span></a>
+    <nav class="nav-links"><a href="../qrcode/">二维码生成器</a><a href="../image-compress/">图片压缩</a><a href="../img-base64/">图片转 Base64</a><a href="../json-format/">JSON 格式化</a><a href="../timestamp/">时间戳转换</a><a href="../base64/">Base64 编解码</a><a href="../url-codec/">URL 编解码</a><a href="../md5/">MD5 加密</a><a href="../word-count/">字数统计</a><a href="../text-tools/">文本处理</a><a href="../text-diff/">文本对比</a><a href="../password/">随机密码生成</a><a href="../uuid/">UUID 生成器</a><a href="../regex-tester/">正则表达式测试</a><a href="../base-converter/">进制转换</a><a href="../color-converter/">颜色转换</a><a href="../markdown/">Markdown 编辑器</a></nav>
+    <div class="header-actions">
+      <button class="theme-toggle" id="theme-toggle" title="切换主题" aria-label="切换主题">🌓</button>
+    </div>
+  </div>
+</header>
+<main class="container">
+
+<nav class="breadcrumb"><a href="../">首页</a> › 正则表达式测试</nav>
+<div class="tool-page">
+  <h1>正则表达式测试</h1>
+  <p class="tool-desc">免费在线正则表达式测试工具,输入正则与文本实时高亮匹配位置,支持 g/i/m/s 修饰符,含常用正则示例。</p>
+  <div class="ad-slot" data-ad="banner" data-slot="3234567890" data-label="工具顶部横幅"></div>
+  <div class="panel"><div class="tool-body"><div class="field">
+  <label for="rx-preset">常用正则速查</label>
+  <select id="rx-preset">
+    <option value="">(选择后自动填充)</option>
+    <option value="[0-9]+">数字</option>
+    <option value="\d{11}">11 位手机号(宽松)</option>
+    <option value="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">邮箱</option>
+    <option value="https?://[^\s]+">网址</option>
+    <option value="\b\d{17}[\dXx]\b">身份证号(18 位)</option>
+    <option value="[^\u4e00-\u9fff]">非中文字符</option>
+  </select>
+</div>
+<div class="field-row">
+  <div class="field" style="flex:2;min-width:180px">
+    <label for="rx-pattern">正则表达式</label>
+    <input type="text" id="rx-pattern" placeholder="如 \d+" />
+  </div>
+  <div class="field" style="flex:1;min-width:100px">
+    <label for="rx-flags">修饰符</label>
+    <input type="text" id="rx-flags" value="g" placeholder="gims" />
+  </div>
+</div>
+<div class="field">
+  <label for="rx-text">测试文本</label>
+  <textarea id="rx-text" placeholder="粘贴要匹配的文本" style="min-height:120px"></textarea>
+</div>
+<div class="field-row">
+  <button class="btn" id="rx-run">测试</button>
+  <button class="btn secondary" id="rx-clear">清空</button>
+</div>
+<div class="result-box" id="rx-highlight" style="margin-top:14px;white-space:pre-wrap;min-height:80px;max-height:240px"></div>
+<div id="rx-msg" class="tip"></div>
+</div></div>
+  <div class="ad-slot" data-ad="banner" data-slot="4234567890" data-label="工具底部横幅"></div>
+  <div class="panel"><h3>相关工具</h3><div class="tool-grid" style="grid-template-columns:repeat(auto-fill,minmax(180px,1fr))"><a class="tool-card" href="../json-format/"><span class="t-icon">{}</span><span class="t-name">JSON 格式化</span></a><a class="tool-card" href="../timestamp/"><span class="t-icon">⏱</span><span class="t-name">时间戳转换</span></a><a class="tool-card" href="../uuid/"><span class="t-icon">🆔</span><span class="t-name">UUID 生成器</span></a><a class="tool-card" href="../base-converter/"><span class="t-icon">101</span><span class="t-name">进制转换</span></a></div></div>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-links">
+      <a href="../">首页</a>
+      <a href="../about/">关于我们</a><a href="../privacy/">隐私政策</a><a href="../disclaimer/">免责声明</a>
+      <a href="mailto:contact@example.com">广告合作:contact@example.com</a>
+    </div>
+    <div>© 2026 百宝工具箱 · 免费、轻量、无广告弹窗的在线工具集</div>
+    
+  </div>
+</footer>
+<div id="toast"></div>
+<script src="../js/common.js"></script>
+<script>;(function () {
+  'use strict'
+  var patternEl = document.getElementById('rx-pattern')
+  var flagsEl = document.getElementById('rx-flags')
+  var textEl = document.getElementById('rx-text')
+  var hlEl = document.getElementById('rx-highlight')
+  var msgEl = document.getElementById('rx-msg')
+
+  document.getElementById('rx-preset').addEventListener('change', function () {
+    if (this.value) patternEl.value = this.value
+  })
+
+  function esc(s) {
+    return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+  }
+
+  document.getElementById('rx-run').addEventListener('click', function () {
+    var pattern = patternEl.value
+    var flags = flagsEl.value || ''
+    var text = textEl.value
+    if (!pattern) { window.bbToast('请输入正则表达式'); return }
+    var re
+    try {
+      re = new RegExp(pattern, flags)
+    } catch (e) {
+      msgEl.className = 'error-text'
+      msgEl.textContent = '正则表达式错误:' + e.message
+      return
+    }
+    if (text === '') { msgEl.className = 'tip'; msgEl.textContent = '请粘贴测试文本'; return }
+
+    var matches = []
+    var highlighted = ''
+    var last = 0
+    var count = 0
+    // 重建带高亮的文本
+    var re2 = new RegExp(pattern, flags.indexOf('g') > -1 ? flags : flags + 'g')
+    var m
+    while ((m = re2.exec(text)) !== null) {
+      count++
+      matches.push({ value: m[0], index: m.index })
+      highlighted += esc(text.slice(last, m.index)) + '<span class="hl-match">' + esc(m[0]) + '</span>'
+      last = m.index + m[0].length
+      if (m[0].length === 0) re2.lastIndex++
+      if (count > 5000) break
+    }
+    highlighted += esc(text.slice(last))
+
+    if (count === 0) {
+      hlEl.innerHTML = esc(text)
+      msgEl.className = 'tip'
+      msgEl.textContent = '未找到匹配项'
+      return
+    }
+    hlEl.innerHTML = highlighted
+    var detail = matches.slice(0, 50).map(function (x) { return '[' + x.index + '] ' + x.value }).join('\n')
+    msgEl.className = 'ok-text'
+    msgEl.textContent = '共匹配 ' + count + ' 处' + (count > 50 ? '(仅显示前 50 处)' : '') + '\n' + detail
+  })
+
+  document.getElementById('rx-clear').addEventListener('click', function () {
+    patternEl.value = ''
+    flagsEl.value = 'g'
+    textEl.value = ''
+    hlEl.textContent = ''
+    msgEl.textContent = ''
+  })
+})()
+</script>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "name": "baibao-toolbox",
+  "version": "1.0.0",
+  "description": "百宝工具箱 —— 免费在线工具集(静态站,广告/联盟变现)",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "node build.mjs",
+    "preview": "node build.mjs && node server.mjs",
+    "serve": "node server.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

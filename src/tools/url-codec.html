@@ -1,0 +1,17 @@
+<div class="field">
+  <label for="uc-in">输入内容</label>
+  <textarea id="uc-in" placeholder="如:https://example.com/搜索?q=在线工具 或 %E5%9C%A8%E7%BA%BF%E5%B7%A5%E5%85%B7" style="min-height:100px"></textarea>
+</div>
+<div class="field-row">
+  <button class="btn" id="uc-encode">URL 编码</button>
+  <button class="btn secondary" id="uc-decode">URL 解码</button>
+  <button class="btn secondary" id="uc-component">编码(组件级)</button>
+</div>
+<div class="field" style="margin-top:14px">
+  <label for="uc-out">结果</label>
+  <textarea id="uc-out" style="min-height:100px"></textarea>
+</div>
+<div class="field-row">
+  <button class="btn secondary" id="uc-copy">复制</button>
+</div>
+<p class="tip">「编码」使用 encodeURI(保留 URL 结构),「编码(组件级)」使用 encodeURIComponent(适合编码单个参数值)。</p>

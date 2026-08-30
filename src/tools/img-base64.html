@@ -1,0 +1,16 @@
+<div class="field">
+  <label for="b64-file">选择图片(PNG / JPG / WebP / GIF / SVG)</label>
+  <input type="file" id="b64-file" accept="image/*" />
+</div>
+<div class="field">
+  <label><input type="checkbox" id="b64-raw" /> 去掉 data:image/xxx;base64, 前缀(仅保留 Base64 字符)</label>
+</div>
+<button class="btn" id="b64-convert">转换为 Base64</button>
+<div class="field" style="margin-top:14px">
+  <textarea id="b64-out" readonly placeholder="转换结果将显示在这里" style="min-height:160px"></textarea>
+</div>
+<div class="field-row">
+  <button class="btn secondary" id="b64-copy">复制</button>
+  <button class="btn secondary" id="b64-download">下载 .txt</button>
+</div>
+<p class="tip">转换在浏览器本地完成,不上传。Base64 字符串可直接用于 CSS background 或 <img src="data:...">。</p>

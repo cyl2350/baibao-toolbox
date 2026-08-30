@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MD5 加密 - 免费在线使用 | 百宝工具箱</title>
+<meta name="description" content="免费在线 MD5 加密工具,正确按 UTF-8 计算中文 MD5,同时提供 SHA-256,结果支持大写与小写。">
+<meta name="keywords" content="md5加密,md5在线,md5计算,md5解密校验,sha256">
+<link rel="canonical" href="https://www.baibao-toolbox.example/md5/">
+<meta property="og:title" content="MD5 加密 - 免费在线使用 | 百宝工具箱">
+<meta property="og:description" content="免费在线 MD5 加密工具,正确按 UTF-8 计算中文 MD5,同时提供 SHA-256,结果支持大写与小写。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.baibao-toolbox.example/md5/">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"MD5 加密 - 百宝工具箱","url":"https://www.baibao-toolbox.example/md5/","description":"免费在线 MD5 加密工具,正确按 UTF-8 计算中文 MD5,同时提供 SHA-256,结果支持大写与小写。","applicationCategory":"UtilityApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"CNY"}}</script>
+<script>window.SITE_CONFIG = {"name":"百宝工具箱","domain":"www.baibao-toolbox.example","monetization":{"adsenseClient":"","baiduAdUnit":"","taokeUrl":""}};</script>
+
+
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="../"><span class="logo-mark">百</span><span>百宝工具箱</span></a>
+    <nav class="nav-links"><a href="../qrcode/">二维码生成器</a><a href="../image-compress/">图片压缩</a><a href="../img-base64/">图片转 Base64</a><a href="../json-format/">JSON 格式化</a><a href="../timestamp/">时间戳转换</a><a href="../base64/">Base64 编解码</a><a href="../url-codec/">URL 编解码</a><a href="../md5/">MD5 加密</a><a href="../word-count/">字数统计</a><a href="../text-tools/">文本处理</a><a href="../text-diff/">文本对比</a><a href="../password/">随机密码生成</a><a href="../uuid/">UUID 生成器</a><a href="../regex-tester/">正则表达式测试</a><a href="../base-converter/">进制转换</a><a href="../color-converter/">颜色转换</a><a href="../markdown/">Markdown 编辑器</a></nav>
+    <div class="header-actions">
+      <button class="theme-toggle" id="theme-toggle" title="切换主题" aria-label="切换主题">🌓</button>
+    </div>
+  </div>
+</header>
+<main class="container">
+
+<nav class="breadcrumb"><a href="../">首页</a> › MD5 加密</nav>
+<div class="tool-page">
+  <h1>MD5 加密</h1>
+  <p class="tool-desc">免费在线 MD5 加密工具,正确按 UTF-8 计算中文 MD5,同时提供 SHA-256,结果支持大写与小写。</p>
+  <div class="ad-slot" data-ad="banner" data-slot="3234567890" data-label="工具顶部横幅"></div>
+  <div class="panel"><div class="tool-body"><div class="field">
+  <label for="md5-in">输入内容(中文按 UTF-8 计算)</label>
+  <textarea id="md5-in" placeholder="输入要计算哈希的文本" style="min-height:100px"></textarea>
+</div>
+<div class="field-row">
+  <button class="btn" id="md5-lower">MD5(小写)</button>
+  <button class="btn secondary" id="md5-upper">MD5(大写)</button>
+  <button class="btn secondary" id="md5-sha256">SHA-256</button>
+</div>
+<div class="field" style="margin-top:14px">
+  <label for="md5-out">结果</label>
+  <textarea id="md5-out" readonly style="min-height:80px"></textarea>
+</div>
+<div class="field-row">
+  <button class="btn secondary" id="md5-copy">复制</button>
+</div>
+<p class="tip">哈希为单向运算,用于校验完整性或存储口令摘要;真正的口令加密请使用加盐的 bcrypt/argon2。</p>
+</div></div>
+  <div class="ad-slot" data-ad="banner" data-slot="4234567890" data-label="工具底部横幅"></div>
+  <div class="panel"><h3>相关工具</h3><div class="tool-grid" style="grid-template-columns:repeat(auto-fill,minmax(180px,1fr))"><a class="tool-card" href="../base64/"><span class="t-icon">🔡</span><span class="t-name">Base64 编解码</span></a><a class="tool-card" href="../url-codec/"><span class="t-icon">🔗</span><span class="t-name">URL 编解码</span></a></div></div>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-links">
+      <a href="../">首页</a>
+      <a href="../about/">关于我们</a><a href="../privacy/">隐私政策</a><a href="../disclaimer/">免责声明</a>
+      <a href="mailto:contact@example.com">广告合作:contact@example.com</a>
+    </div>
+    <div>© 2026 百宝工具箱 · 免费、轻量、无广告弹窗的在线工具集</div>
+    
+  </div>
+</footer>
+<div id="toast"></div>
+<script src="../js/common.js"></script>
+<script src="../vendor/md5.min.js"></script><script>;(function () {
+  'use strict'
+  var inEl = document.getElementById('md5-in')
+  var outEl = document.getElementById('md5-out')
+
+  function hex(bytes) {
+    return Array.prototype.map.call(bytes, function (b) {
+      return ('0' + b.toString(16)).slice(-2)
+    }).join('')
+  }
+
+  function sha256(text) {
+    return crypto.subtle.digest('SHA-256', new TextEncoder().encode(text)).then(function (buf) {
+      return hex(new Uint8Array(buf))
+    })
+  }
+
+  document.getElementById('md5-lower').addEventListener('click', function () {
+    var v = inEl.value
+    if (!v) { window.bbToast('请输入内容'); return }
+    try { outEl.value = window.md5(v); window.bbToast('计算完成') } catch (e) { window.bbToast('计算失败:' + e.message) }
+  })
+  document.getElementById('md5-upper').addEventListener('click', function () {
+    var v = inEl.value
+    if (!v) { window.bbToast('请输入内容'); return }
+    try { outEl.value = window.md5(v).toUpperCase(); window.bbToast('计算完成') } catch (e) { window.bbToast('计算失败:' + e.message) }
+  })
+  document.getElementById('md5-sha256').addEventListener('click', function () {
+    var v = inEl.value
+    if (!v) { window.bbToast('请输入内容'); return }
+    sha256(v).then(function (h) { outEl.value = h; window.bbToast('计算完成') })
+      .catch(function () { window.bbToast('计算失败') })
+  })
+  document.getElementById('md5-copy').addEventListener('click', function () {
+    if (outEl.value) window.bbCopy(outEl.value)
+  })
+})()
+</script>
+
+</body>
+</html>

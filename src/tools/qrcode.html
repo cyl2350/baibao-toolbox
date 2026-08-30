@@ -1,0 +1,32 @@
+<div class="field">
+  <label for="qr-text">文本 / 网址 / WiFi 配置</label>
+  <input type="text" id="qr-text" placeholder="粘贴网址或文字,如 https://www.example.com" />
+</div>
+<div class="field-row">
+  <div class="field" style="flex:1;min-width:120px">
+    <label for="qr-size">尺寸(px)</label>
+    <select id="qr-size">
+      <option value="200">200</option>
+      <option value="300" selected>300</option>
+      <option value="400">400</option>
+      <option value="500">500</option>
+    </select>
+  </div>
+  <div class="field" style="flex:1;min-width:120px">
+    <label for="qr-ec">容错等级</label>
+    <select id="qr-ec">
+      <option value="L">L (7%)</option>
+      <option value="M" selected>M (15%)</option>
+      <option value="Q">Q (25%)</option>
+      <option value="H">H (30%)</option>
+    </select>
+  </div>
+</div>
+<div class="field-row">
+  <button class="btn" id="qr-generate">生成二维码</button>
+  <button class="btn secondary" id="qr-download">下载 PNG</button>
+</div>
+<div class="field" style="margin-top:16px;text-align:center">
+  <canvas id="qr-canvas" style="max-width:100%;image-rendering:pixelated"></canvas>
+</div>
+<p class="tip">提示:容错等级越高,二维码越耐脏/耐遮挡;网址请带 https:// 前缀。</p>

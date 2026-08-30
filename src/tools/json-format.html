@@ -1,0 +1,16 @@
+<div class="field">
+  <label for="json-in">输入 JSON</label>
+  <textarea id="json-in" placeholder='{"name":"百宝工具箱","tools":17,"free":true}' style="min-height:160px"></textarea>
+</div>
+<div class="field-row">
+  <button class="btn" id="json-format">格式化</button>
+  <button class="btn secondary" id="json-compress">压缩</button>
+  <button class="btn secondary" id="json-validate">仅校验</button>
+  <button class="btn secondary" id="json-copy">复制结果</button>
+</div>
+<div class="field" style="margin-top:14px">
+  <label for="json-out">结果</label>
+  <textarea id="json-out" readonly style="min-height:200px"></textarea>
+</div>
+<div id="json-msg" class="tip"></div>
+<p class="tip">支持标准 JSON;校验失败时会提示错误位置,便于快速定位。</p>

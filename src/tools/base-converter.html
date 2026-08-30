@@ -1,0 +1,20 @@
+<div class="field-row">
+  <div class="field" style="flex:2;min-width:180px">
+    <label for="bc-in">输入数值(支持超大整数)</label>
+    <input type="text" id="bc-in" placeholder="如 255 或 FF" />
+  </div>
+  <div class="field" style="flex:1;min-width:100px">
+    <label for="bc-from">输入进制</label>
+    <select id="bc-from">
+      <option value="2">二进制 (2)</option>
+      <option value="8">八进制 (8)</option>
+      <option value="10" selected>十进制 (10)</option>
+      <option value="16">十六进制 (16)</option>
+    </select>
+  </div>
+</div>
+<div class="field-row">
+  <button class="btn" id="bc-run">转换</button>
+</div>
+<div class="result-box" id="bc-out" style="margin-top:14px;white-space:normal">转换结果将显示在这里</div>
+<p class="tip">使用 BigInt 计算,任意大整数均不丢失精度,结果实时显示四种进制。</p>

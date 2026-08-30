@@ -1,0 +1,33 @@
+<div class="field">
+  <label for="img-file">选择图片(JPG / PNG / WebP)</label>
+  <input type="file" id="img-file" accept="image/*" />
+</div>
+<div class="field-row">
+  <div class="field" style="flex:1;min-width:140px">
+    <label for="img-quality">压缩质量: <span id="img-quality-label">0.7</span></label>
+    <input type="range" id="img-quality" min="0.1" max="1" step="0.05" value="0.7" style="width:100%" />
+  </div>
+  <div class="field" style="flex:1;min-width:140px">
+    <label for="img-maxw">最长边(px,0=原尺寸)</label>
+    <input type="number" id="img-maxw" value="0" min="0" step="100" />
+  </div>
+  <div class="field" style="flex:1;min-width:140px">
+    <label for="img-format">输出格式</label>
+    <select id="img-format">
+      <option value="image/jpeg">JPEG</option>
+      <option value="image/webp">WebP</option>
+      <option value="image/png">PNG</option>
+    </select>
+  </div>
+</div>
+<div class="field-row">
+  <button class="btn" id="img-compress">开始压缩</button>
+  <button class="btn secondary" id="img-download" disabled>下载压缩图</button>
+</div>
+<div class="field-row" style="margin-top:12px">
+  <div class="result-box" id="img-info" style="flex:1">未选择图片。</div>
+</div>
+<div class="field" style="margin-top:10px;text-align:center">
+  <img id="img-preview" alt="预览" style="max-width:100%;max-height:280px;display:none;border-radius:8px;border:1px solid var(--border)" />
+</div>
+<p class="tip">所有处理都在您的浏览器本地完成,图片不会上传到任何服务器。</p>

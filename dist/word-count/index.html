@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>字数统计 - 免费在线使用 | 百宝工具箱</title>
+<meta name="description" content="免费在线字数统计工具,实时统计中文字数、字符数(含/不含空格)、英文单词数、行数、段落数,适合写作与投稿。">
+<meta name="keywords" content="字数统计,在线字数,中文字数统计,文章字数,字符统计">
+<link rel="canonical" href="https://www.baibao-toolbox.example/word-count/">
+<meta property="og:title" content="字数统计 - 免费在线使用 | 百宝工具箱">
+<meta property="og:description" content="免费在线字数统计工具,实时统计中文字数、字符数(含/不含空格)、英文单词数、行数、段落数,适合写作与投稿。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.baibao-toolbox.example/word-count/">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"字数统计 - 百宝工具箱","url":"https://www.baibao-toolbox.example/word-count/","description":"免费在线字数统计工具,实时统计中文字数、字符数(含/不含空格)、英文单词数、行数、段落数,适合写作与投稿。","applicationCategory":"UtilityApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"CNY"}}</script>
+<script>window.SITE_CONFIG = {"name":"百宝工具箱","domain":"www.baibao-toolbox.example","monetization":{"adsenseClient":"","baiduAdUnit":"","taokeUrl":""}};</script>
+
+
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="../"><span class="logo-mark">百</span><span>百宝工具箱</span></a>
+    <nav class="nav-links"><a href="../qrcode/">二维码生成器</a><a href="../image-compress/">图片压缩</a><a href="../img-base64/">图片转 Base64</a><a href="../json-format/">JSON 格式化</a><a href="../timestamp/">时间戳转换</a><a href="../base64/">Base64 编解码</a><a href="../url-codec/">URL 编解码</a><a href="../md5/">MD5 加密</a><a href="../word-count/">字数统计</a><a href="../text-tools/">文本处理</a><a href="../text-diff/">文本对比</a><a href="../password/">随机密码生成</a><a href="../uuid/">UUID 生成器</a><a href="../regex-tester/">正则表达式测试</a><a href="../base-converter/">进制转换</a><a href="../color-converter/">颜色转换</a><a href="../markdown/">Markdown 编辑器</a></nav>
+    <div class="header-actions">
+      <button class="theme-toggle" id="theme-toggle" title="切换主题" aria-label="切换主题">🌓</button>
+    </div>
+  </div>
+</header>
+<main class="container">
+
+<nav class="breadcrumb"><a href="../">首页</a> › 字数统计</nav>
+<div class="tool-page">
+  <h1>字数统计</h1>
+  <p class="tool-desc">免费在线字数统计工具,实时统计中文字数、字符数(含/不含空格)、英文单词数、行数、段落数,适合写作与投稿。</p>
+  <div class="ad-slot" data-ad="banner" data-slot="3234567890" data-label="工具顶部横幅"></div>
+  <div class="panel"><div class="tool-body"><div class="field">
+  <label for="wc-in">输入或粘贴文本(实时统计)</label>
+  <textarea id="wc-in" placeholder="在此输入文本……" style="min-height:180px"></textarea>
+</div>
+<div class="result-box" id="wc-out" style="white-space:normal">等待输入……</div>
+<p class="tip">中文按字统计,英文按空格分隔的单词统计;适合公众号投稿、论文与文案检查。</p>
+</div></div>
+  <div class="ad-slot" data-ad="banner" data-slot="4234567890" data-label="工具底部横幅"></div>
+  <div class="panel"><h3>相关工具</h3><div class="tool-grid" style="grid-template-columns:repeat(auto-fill,minmax(180px,1fr))"><a class="tool-card" href="../text-tools/"><span class="t-icon">✂</span><span class="t-name">文本处理</span></a><a class="tool-card" href="../text-diff/"><span class="t-icon">⇵</span><span class="t-name">文本对比</span></a><a class="tool-card" href="../markdown/"><span class="t-icon">📝</span><span class="t-name">Markdown 编辑器</span></a></div></div>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-links">
+      <a href="../">首页</a>
+      <a href="../about/">关于我们</a><a href="../privacy/">隐私政策</a><a href="../disclaimer/">免责声明</a>
+      <a href="mailto:contact@example.com">广告合作:contact@example.com</a>
+    </div>
+    <div>© 2026 百宝工具箱 · 免费、轻量、无广告弹窗的在线工具集</div>
+    
+  </div>
+</footer>
+<div id="toast"></div>
+<script src="../js/common.js"></script>
+<script>;(function () {
+  'use strict'
+  var inEl = document.getElementById('wc-in')
+  var outEl = document.getElementById('wc-out')
+
+  function count(text) {
+    var chars = text.length
+    var charsNoSpace = text.replace(/\s/g, '').length
+    var chinese = (text.match(/[\u4e00-\u9fff\u3400-\u4dbf]/g) || []).length
+    var words = (text.match(/[A-Za-z0-9_]+(?:['-][A-Za-z0-9_]+)*/g) || []).length
+    var digits = (text.match(/[0-9]/g) || []).length
+    var lines = text === '' ? 0 : text.split(/\r\n|\r|\n/).length
+    var paras = text.split(/\n\s*\n/).filter(function (p) { return p.trim() }).length
+    return { chars: chars, charsNoSpace: charsNoSpace, chinese: chinese, words: words, digits: digits, lines: lines, paras: paras }
+  }
+
+  function render() {
+    var c = count(inEl.value)
+    outEl.innerHTML =
+      '字符数(含空格):<b>' + c.chars + '</b>　字符数(不含空格):<b>' + c.charsNoSpace + '</b>　中文字数:<b>' + c.chinese +
+      '</b><br>英文单词数:<b>' + c.words + '</b>　数字个数:<b>' + c.digits + '</b>　行数:<b>' + c.lines + '</b>　段落数:<b>' + c.paras + '</b>'
+  }
+
+  inEl.addEventListener('input', render)
+  render()
+})()
+</script>
+
+</body>
+</html>

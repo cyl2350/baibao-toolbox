@@ -1,0 +1,14 @@
+<h3 style="margin-top:0">时间戳 → 日期</h3>
+<div class="field-row">
+  <input type="number" id="ts-in" placeholder="输入时间戳,如 1700000000 或 1700000000000" style="flex:1" />
+  <button class="btn" id="ts-convert">转换</button>
+  <button class="btn secondary" id="ts-now">获取当前时间戳</button>
+</div>
+<div class="result-box" id="ts-out" style="margin-top:12px">结果将显示在这里</div>
+<h3>日期 → 时间戳</h3>
+<div class="field-row">
+  <input type="datetime-local" id="ts-dt" style="flex:1" />
+  <button class="btn" id="ts-reverse">转换为时间戳</button>
+</div>
+<div class="result-box" id="ts-out2" style="margin-top:12px">结果将显示在这里</div>
+<p class="tip">10 位数字按秒处理,13 位按毫秒处理;时间显示包含北京时间与 UTC。</p>

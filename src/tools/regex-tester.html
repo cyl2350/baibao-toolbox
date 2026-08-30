@@ -1,0 +1,32 @@
+<div class="field">
+  <label for="rx-preset">常用正则速查</label>
+  <select id="rx-preset">
+    <option value="">(选择后自动填充)</option>
+    <option value="[0-9]+">数字</option>
+    <option value="\d{11}">11 位手机号(宽松)</option>
+    <option value="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">邮箱</option>
+    <option value="https?://[^\s]+">网址</option>
+    <option value="\b\d{17}[\dXx]\b">身份证号(18 位)</option>
+    <option value="[^\u4e00-\u9fff]">非中文字符</option>
+  </select>
+</div>
+<div class="field-row">
+  <div class="field" style="flex:2;min-width:180px">
+    <label for="rx-pattern">正则表达式</label>
+    <input type="text" id="rx-pattern" placeholder="如 \d+" />
+  </div>
+  <div class="field" style="flex:1;min-width:100px">
+    <label for="rx-flags">修饰符</label>
+    <input type="text" id="rx-flags" value="g" placeholder="gims" />
+  </div>
+</div>
+<div class="field">
+  <label for="rx-text">测试文本</label>
+  <textarea id="rx-text" placeholder="粘贴要匹配的文本" style="min-height:120px"></textarea>
+</div>
+<div class="field-row">
+  <button class="btn" id="rx-run">测试</button>
+  <button class="btn secondary" id="rx-clear">清空</button>
+</div>
+<div class="result-box" id="rx-highlight" style="margin-top:14px;white-space:pre-wrap;min-height:80px;max-height:240px"></div>
+<div id="rx-msg" class="tip"></div>

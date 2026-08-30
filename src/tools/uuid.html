@@ -1,0 +1,22 @@
+<div class="field-row">
+  <div class="field" style="flex:1;min-width:120px">
+    <label for="uuid-count">生成数量</label>
+    <input type="number" id="uuid-count" value="5" min="1" max="100" />
+  </div>
+  <div class="field" style="flex:1;min-width:120px">
+    <label for="uuid-format">格式</label>
+    <select id="uuid-format">
+      <option value="lower">小写(标准)</option>
+      <option value="upper">大写</option>
+      <option value="nodash">去横线</option>
+    </select>
+  </div>
+</div>
+<div class="field-row">
+  <button class="btn" id="uuid-gen">生成 UUID</button>
+  <button class="btn secondary" id="uuid-copy">复制全部</button>
+</div>
+<div class="field" style="margin-top:14px">
+  <textarea id="uuid-out" readonly style="min-height:160px" placeholder="生成的 UUID 列表"></textarea>
+</div>
+<p class="tip">基于 crypto.randomUUID 生成 UUID v4,可用于接口联调、订单号、主键等场景。</p>
