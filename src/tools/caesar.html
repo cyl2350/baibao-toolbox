@@ -1,0 +1,23 @@
+<div class="field">
+  <label for="cs-in">输入文本(支持英文字母与中文,位移只作用于字母)</label>
+  <textarea id="cs-in" placeholder="HELLO WORLD" style="min-height:90px"></textarea>
+</div>
+<div class="field-row">
+  <div class="field" style="flex:1;min-width:120px">
+    <label for="cs-shift">位移数(1~25)</label>
+    <input type="number" id="cs-shift" value="3" min="1" max="25" />
+  </div>
+  <div class="field" style="flex:1;min-width:120px">
+    <label for="cs-mode">方向</label>
+    <select id="cs-mode"><option value="enc">加密</option><option value="dec">解密</option></select>
+  </div>
+</div>
+<div class="field-row">
+  <button class="btn" id="cs-run">执行</button>
+  <button class="btn secondary" id="cs-copy">复制</button>
+</div>
+<div class="field" style="margin-top:14px">
+  <label for="cs-out">结果</label>
+  <textarea id="cs-out" readonly style="min-height:90px"></textarea>
+</div>
+<p class="tip">凯撒密码是最古老的替换密码:每个字母按字母表平移 N 位。暴力破解只需尝试 25 种位移。</p>

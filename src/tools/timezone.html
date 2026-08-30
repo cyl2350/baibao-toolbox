@@ -1,0 +1,19 @@
+<div class="field-row">
+  <div class="field" style="flex:1;min-width:170px">
+    <label for="tz-a">地点 A</label>
+    <select id="tz-a"></select>
+  </div>
+  <div class="field" style="flex:1;min-width:170px">
+    <label for="tz-b">地点 B</label>
+    <select id="tz-b"></select>
+  </div>
+</div>
+<div class="field-row">
+  <div class="field" style="flex:1;min-width:150px">
+    <label for="tz-time">A 地时间(留空 = 现在)</label>
+    <input type="datetime-local" id="tz-time" />
+  </div>
+  <button class="btn" id="tz-run" style="align-self:flex-end">换算</button>
+</div>
+<div class="result-box" id="tz-out" style="margin-top:14px;white-space:normal">选择地点后点击换算</div>
+<p class="tip">按固定 UTC 偏移计算(不随夏令时变化),北京 = UTC+8。适合确认会议时间与粗略时差。</p>

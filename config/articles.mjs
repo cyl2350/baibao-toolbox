@@ -86,4 +86,22 @@ export const articles = [
     keywords: '随机抽奖,抽奖工具,公平抽奖,点名器,随机数',
     tool: 'random-picker',
   },
+  {
+    id: 'calori-guide',
+    title: '基础代谢 BMR 和 TDEE 是什么?减肥一天到底该吃多少热量',
+    category: '健康管理',
+    date: '2025-01-10',
+    desc: '减肥先算热量:基础代谢 BMR、每日总消耗 TDEE、热量缺口怎么算,附在线卡路里计算器与常见误区。',
+    keywords: '基础代谢,bmr,tdee,减肥吃多少热量,卡路里计算,热量缺口',
+    tool: 'calori',
+  },
+  {
+    id: 'idcard-guide',
+    title: '身份证号码第 18 位校验码怎么算?18 位身份证各段含义',
+    category: '生活工具',
+    date: '2025-01-10',
+    desc: '18 位身份证号码每段代表什么?第 18 位校验码的计算公式与 X 的含义,附在线校验工具。',
+    keywords: '身份证校验码,身份证号码含义,18位身份证,身份证第18位x,身份证号段',
+    tool: 'idcard',
+  },
 ]

@@ -1,0 +1,33 @@
+<div class="field-row">
+  <div class="field" style="flex:1;min-width:100px">
+    <label for="cal-sex">性别</label>
+    <select id="cal-sex"><option value="m">男</option><option value="f">女</option></select>
+  </div>
+  <div class="field" style="flex:1;min-width:100px">
+    <label for="cal-age">年龄</label>
+    <input type="number" id="cal-age" value="30" min="10" max="100" />
+  </div>
+  <div class="field" style="flex:1;min-width:110px">
+    <label for="cal-height">身高(cm)</label>
+    <input type="number" id="cal-height" value="170" min="100" max="230" />
+  </div>
+  <div class="field" style="flex:1;min-width:110px">
+    <label for="cal-weight">体重(kg)</label>
+    <input type="number" id="cal-weight" value="65" min="30" max="200" step="0.5" />
+  </div>
+</div>
+<div class="field">
+  <label for="cal-activity">每周活动量</label>
+  <select id="cal-activity">
+    <option value="1.2">久坐不动(办公室,很少运动)</option>
+    <option value="1.375" selected>轻度活动(每周运动 1~3 天)</option>
+    <option value="1.55">中度活动(每周运动 3~5 天)</option>
+    <option value="1.725">高度活动(每周运动 6~7 天)</option>
+    <option value="1.9">极高强度(体力工作 + 每天训练)</option>
+  </select>
+</div>
+<div class="field-row">
+  <button class="btn" id="cal-run">计算</button>
+</div>
+<div class="result-box" id="cal-out" style="margin-top:14px;white-space:normal">输入参数后点击计算</div>
+<p class="tip">公式:Mifflin-St Jeor(1990)。减脂建议每日缺口 300~500 大卡,增肌建议盈余 200~300 大卡。仅供参考,不构成医学建议。</p>

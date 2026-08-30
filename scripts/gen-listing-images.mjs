@@ -309,4 +309,53 @@ for (const p of products) {
   savePng({ c, ctx }, join(root, 'docs/产品/详情图/资料包3合1封面.png'))
 }
 
+// 五合一资料包封面
+{
+  const { c, ctx } = canvas()
+  const grad = ctx.createLinearGradient(0, 0, W, H)
+  grad.addColorStop(0, '#4f6ef7')
+  grad.addColorStop(1, '#8b5cf6')
+  ctx.fillStyle = grad
+  ctx.fillRect(0, 0, W, H)
+  font(ctx, 22)
+  ctx.fillStyle = 'rgba(255,255,255,0.9)'
+  ctx.fillText('百宝工具箱 · 超值资料包', 40, 60)
+  font(ctx, 50, 'bold')
+  ctx.fillStyle = C.white
+  ctx.fillText('职场效率', 50, 240)
+  ctx.fillText('资料包 5 合 1', 50, 310)
+  font(ctx, 22)
+  ctx.fillStyle = '#e8edff'
+  ctx.fillText('AI + 文案 + 简历 + 排版 + 脚本,一次集齐', 50, 390)
+  const rows5 = [
+    '① AI 提示词实战手册(60 模板)',
+    '② 小红书爆款文案模板库(50 模板)',
+    '③ 简历模板 + 面试话术包(20 题)',
+    '④ 公众号排版速查表(42 条)',
+    '⑤ AI 自动化办公脚本合集(36 场景)',
+  ]
+  let y5 = 440
+  font(ctx, 21)
+  rows5.forEach((r) => {
+    ctx.fillStyle = 'rgba(255,255,255,0.16)'
+    ctx.beginPath()
+    ctx.roundRect(50, y5, W - 100, 48, 10)
+    ctx.fill()
+    ctx.fillStyle = C.white
+    ctx.fillText(r, 80, y5 + 32)
+    y5 += 58
+  })
+  font(ctx, 24, 'bold')
+  ctx.fillStyle = '#ffffff'
+  ctx.beginPath()
+  ctx.roundRect(50, H - 210, W - 100, 62, 14)
+  ctx.fill()
+  ctx.fillStyle = '#5b3df5'
+  ctx.fillText('限时特价 ¥15.9 · 单买共 ¥19+', 50 + (W - 100) / 2 - ctx.measureText('限时特价 ¥15.9 · 单买共 ¥19+').width / 2, H - 172)
+  font(ctx, 18)
+  ctx.fillStyle = '#e8edff'
+  ctx.fillText('网盘自动发货 · 一次购买永久有效', 50 + (W - 100) / 2 - ctx.measureText('网盘自动发货 · 一次购买永久有效').width / 2, H - 132)
+  savePng({ c, ctx }, join(root, 'docs/产品/详情图/资料包5合1封面.png'))
+}
+
 console.log('✔ 详情图素材包生成完毕')

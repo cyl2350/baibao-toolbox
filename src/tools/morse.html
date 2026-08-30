@@ -1,0 +1,18 @@
+<div class="field">
+  <label for="mo-in">输入文本或摩斯电码(空格分隔字母, / 分隔单词)</label>
+  <textarea id="mo-in" placeholder="SOS 或 ... --- ..." style="min-height:90px"></textarea>
+</div>
+<div class="field-row">
+  <button class="btn" id="mo-encode">文本 → 摩斯</button>
+  <button class="btn secondary" id="mo-decode">摩斯 → 文本</button>
+  <button class="btn secondary" id="mo-copy">复制</button>
+</div>
+<div class="field" style="margin-top:14px">
+  <label for="mo-out">结果</label>
+  <textarea id="mo-out" readonly style="min-height:90px"></textarea>
+</div>
+<div class="panel" style="margin-top:14px">
+  <h3 style="margin-top:0">对照表(常用)</h3>
+  <div class="result-box" style="white-space:normal;font-size:13px" id="mo-table"></div>
+</div>
+<p class="tip">摩斯电码用「点(.)」与「划(-)」表示字母,字母间空格分隔,单词间用 / 分隔。</p>
