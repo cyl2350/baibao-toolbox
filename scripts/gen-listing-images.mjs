@@ -142,6 +142,7 @@ const products = [
   { md: 'docs/产品/AI提示词实战手册.md', out: 'docs/产品/详情图/ai提示词手册', short: 'AI 提示词实战手册' },
   { md: 'docs/产品/小红书爆款文案模板库.md', out: 'docs/产品/详情图/小红书文案模板', short: '小红书爆款文案模板库' },
   { md: 'docs/产品/简历模板+面试话术包.md', out: 'docs/产品/详情图/简历面试话术包', short: '简历模板 + 面试话术包' },
+  { md: 'docs/产品/公众号排版速查表.md', out: 'docs/产品/详情图/公众号排版速查表', short: '公众号排版速查表' },
 ]
 
 for (const p of products) {

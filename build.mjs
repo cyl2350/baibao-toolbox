@@ -128,6 +128,7 @@ function layout({ depth, title, desc, keywords, path, body, jsonld, extraHead = 
 <meta property="og:description" content="${esc(desc)}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="${canonical}">
+<meta property="og:image" content="https://${site.domain}/og-image.png">
 <link rel="icon" href="${r}favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="${r}css/style.css">
 ${jsonld || ''}
@@ -389,6 +390,9 @@ writeFileSync(join(dist, 'js/common.js'), commonJs, 'utf8')
 for (const [name, content] of Object.entries(vendorCache)) {
   writeFileSync(join(dist, 'vendor', name), content, 'utf8')
 }
+// og:image(社交分享图)
+const ogSrc = join(root, 'src/og-image.png')
+if (existsSync(ogSrc)) copyFileSync(ogSrc, join(dist, 'og-image.png'))
 // favicon
 writeFileSync(join(dist, 'favicon.svg'), `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4f6ef7"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient></defs><rect width="64" height="64" rx="14" fill="url(#g)"/><text x="32" y="44" font-size="34" font-weight="bold" fill="#fff" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif">百</text></svg>`, 'utf8')
 

@@ -39,10 +39,12 @@ docs/产品/            # ★ 可售数字产品(PDF + 闲鱼上架文案)
    - `monetization.adsenseClient`:AdSense 审核通过后填入发布商 ID
    - `monetization.baiduAdUnit`:百度联盟(需备案)广告位 ID
    - `analytics.*`:百度统计 / GA4 追踪 ID
-2. 重新构建:`node build.mjs`
+2. 重新构建并自检:`node build.mjs && node scripts/check-deploy.mjs`(输出上线就绪报告)
 3. 把 `dist/` 部署到任意静态托管(GitHub Pages / Cloudflare Pages / Vercel / Netlify / 国内云服务器均可)。
 
-> 详细步骤、广告申请条件、SEO 收录与收入预期,见 **[docs/运营变现手册.md](docs/运营变现手册.md)**。
+> 详细步骤、广告申请条件、SEO 收录与收入预期,见 **[docs/运营变现手册.md](docs/运营变现手册.md)**;
+> 逐步操作清单见 **[docs/部署检查单.md](docs/部署检查单.md)**;
+> 已打包好 `release/百宝工具箱-部署包.zip`(2.6MB,含 dist 与全部文档,可拷到任何机器直接部署)。
 
 ## 新增一个工具
 
