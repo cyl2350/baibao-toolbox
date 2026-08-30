@@ -11,6 +11,7 @@
     "pdf:xhs": "node scripts/gen-pdf.mjs \"docs/产品/小红书爆款文案模板库.md\" \"docs/产品/小红书爆款文案模板库.pdf\"",
     "pdf:resume": "node scripts/gen-pdf.mjs \"docs/产品/简历模板+面试话术包.md\" \"docs/产品/简历模板+面试话术包.pdf\"",
     "pdf:gzh": "node scripts/gen-pdf.mjs \"docs/产品/公众号排版速查表.md\" \"docs/产品/公众号排版速查表.pdf\"",
+    "pdf:scripts": "node scripts/gen-pdf.mjs \"docs/产品/AI自动化办公脚本合集.md\" \"docs/产品/AI自动化办公脚本合集.pdf\"",
     "img": "node scripts/gen-listing-images.mjs",
     "og": "node scripts/gen-og-image.mjs",
     "preview": "node build.mjs && node server.mjs",
