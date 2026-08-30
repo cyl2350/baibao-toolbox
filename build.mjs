@@ -127,6 +127,7 @@ function layout({ depth, title, desc, keywords, path, body, jsonld, extraHead = 
 <link rel="canonical" href="${canonical}">
 <link rel="manifest" href="${r}manifest.json">
 <link rel="apple-touch-icon" href="${r}apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="百宝工具箱 - 使用教程" href="https://${site.domain}/rss.xml">
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(desc)}">
 <meta property="og:type" content="website">
@@ -236,7 +237,15 @@ function toolPage(t) {
     applicationCategory: 'UtilityApplication',
     operatingSystem: 'Any',
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'CNY' },
-  })}</script>`
+  })}</script>` +
+    `<script type="application/ld+json">${JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: '首页', item: `https://${site.domain}/` },
+        { '@type': 'ListItem', position: 2, name: t.name, item: `https://${site.domain}/${t.id}/` },
+      ],
+    })}</script>`
   writePage(`${t.id}/index.html`, layout({
     depth: 1, path: `/${t.id}/`,
     title: `${t.name} - 免费在线使用 | ${site.name}`,
@@ -377,6 +386,30 @@ function robots() {
   writeFileSync(join(dist, 'robots.txt'), `User-agent: *\nAllow: /\nSitemap: https://${site.domain}/sitemap.xml\n`, 'utf8')
 }
 
+// ---------------- RSS 订阅(教程文章) ----------------
+function rss() {
+  const escXml = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
+  const items = articles.map((a) => `    <item>
+      <title>${escXml(a.title)}</title>
+      <link>https://${site.domain}/articles/${a.id}/</link>
+      <description>${escXml(a.desc)}</description>
+      <pubDate>${new Date(a.date + 'T00:00:00+08:00').toUTCString()}</pubDate>
+      <guid>https://${site.domain}/articles/${a.id}/</guid>
+    </item>`).join('\n')
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>百宝工具箱 - 使用教程</title>
+    <link>https://${site.domain}/articles/</link>
+    <description>在线工具使用方法与实用技巧</description>
+    <language>zh-cn</language>
+${items}
+  </channel>
+</rss>`
+  writeFileSync(join(dist, 'rss.xml'), xml, 'utf8')
+  console.log('  ✓ rss.xml')
+}
+
 // ---------------- 写入与资源复制 ----------------
 function writePage(relPath, html) {
   const full = join(dist, relPath)
@@ -413,8 +446,9 @@ for (const p of pages) contentPage(p)
 console.log('生成文章页…')
 for (const a of articles) articlePage(a)
 articlesIndexPage()
-console.log('生成 404 / sitemap / robots…')
+console.log('生成 404 / sitemap / robots / rss…')
 notFoundPage()
 sitemap()
 robots()
+rss()
 console.log('✔ 构建完成 →', dist)

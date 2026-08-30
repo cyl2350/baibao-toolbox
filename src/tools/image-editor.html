@@ -1,0 +1,36 @@
+<div class="field">
+  <label for="ie-file">选择图片</label>
+  <input type="file" id="ie-file" accept="image/*" />
+</div>
+<div class="field-row">
+  <div class="field" style="flex:1;min-width:130px">
+    <label for="ie-crop">裁剪比例</label>
+    <select id="ie-crop">
+      <option value="free" selected>原比例</option>
+      <option value="1:1">正方形 1:1</option>
+      <option value="4:3">横版 4:3</option>
+      <option value="16:9">横版 16:9</option>
+      <option value="3:4">竖版 3:4</option>
+      <option value="9:16">竖版 9:16</option>
+    </select>
+  </div>
+  <div class="field" style="flex:1;min-width:130px">
+    <label for="ie-format">输出格式</label>
+    <select id="ie-format">
+      <option value="image/png">PNG</option>
+      <option value="image/jpeg">JPG</option>
+    </select>
+  </div>
+</div>
+<div class="field-row">
+  <button class="btn secondary" id="ie-rotl">↺ 左转</button>
+  <button class="btn secondary" id="ie-rotr">↻ 右转</button>
+  <button class="btn secondary" id="ie-fliph">⇋ 水平翻转</button>
+  <button class="btn secondary" id="ie-flipv">⇵ 垂直翻转</button>
+  <button class="btn" id="ie-crop-btn">✂ 应用裁剪</button>
+  <button class="btn secondary" id="ie-download">下载</button>
+</div>
+<div class="field" style="margin-top:14px;text-align:center">
+  <canvas id="ie-canvas" style="max-width:100%;max-height:400px;background:var(--bg);border:1px solid var(--border);border-radius:10px"></canvas>
+</div>
+<p class="tip">全部在浏览器本地处理,图片不上传。裁剪为居中裁剪,旋转每次 90°。</p>

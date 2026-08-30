@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>百宝工具箱 - 使用教程</title>
+    <link>https://cyl2350.github.io/baibao-toolbox/articles/</link>
+    <description>在线工具使用方法与实用技巧</description>
+    <language>zh-cn</language>
+    <item>
+      <title>图片太大怎么办?在线压缩图片的 5 个实用技巧</title>
+      <link>https://cyl2350.github.io/baibao-toolbox/articles/image-compress-guide/</link>
+      <description>图片太大发不出去?本文教你 5 个免费压缩图片的技巧,从选格式、调质量到在线工具,手机电脑都适用。</description>
+      <pubDate>Thu, 09 Jan 2025 16:00:00 GMT</pubDate>
+      <guid>https://cyl2350.github.io/baibao-toolbox/articles/image-compress-guide/</guid>
+    </item>
+    <item>
+      <title>房贷月供怎么算?等额本息和等额本金到底有什么区别</title>
+      <link>https://cyl2350.github.io/baibao-toolbox/articles/mortgage-guide/</link>
+      <description>买房必看:房贷月供的计算公式、等额本息与等额本金的区别、提前还款怎么选,附在线房贷计算器。</description>
+      <pubDate>Thu, 09 Jan 2025 16:00:00 GMT</pubDate>
+      <guid>https://cyl2350.github.io/baibao-toolbox/articles/mortgage-guide/</guid>
+    </item>
+    <item>
+      <title>时间戳是什么?Unix 时间戳入门与常见问题解答</title>
+      <link>https://cyl2350.github.io/baibao-toolbox/articles/timestamp-guide/</link>
+      <description>程序员必懂的时间戳:什么是 Unix 时间戳、秒和毫秒怎么区分、为什么用 1970 年,附在线转换工具。</description>
+      <pubDate>Thu, 09 Jan 2025 16:00:00 GMT</pubDate>
+      <guid>https://cyl2350.github.io/baibao-toolbox/articles/timestamp-guide/</guid>
+    </item>
+    <item>
+      <title>BMI 多少算正常?中国成人标准对照表与常见误区</title>
+      <link>https://cyl2350.github.io/baibao-toolbox/articles/bmi-guide/</link>
+      <description>BMI 指数怎么看?中国成人标准与 WHO 标准有何不同,健身人群 BMI 偏高正常吗,附在线 BMI 计算器。</description>
+      <pubDate>Thu, 09 Jan 2025 16:00:00 GMT</pubDate>
+      <guid>https://cyl2350.github.io/baibao-toolbox/articles/bmi-guide/</guid>
+    </item>
+    <item>
+      <title>Base64 是什么?编码原理、常见用途与在线转换</title>
+      <link>https://cyl2350.github.io/baibao-toolbox/articles/base64-guide/</link>
+      <description>Base64 编码入门:它是什么、为什么图片和接口里到处是它、中文乱码怎么解决,附在线编解码工具。</description>
+      <pubDate>Thu, 09 Jan 2025 16:00:00 GMT</pubDate>
+      <guid>https://cyl2350.github.io/baibao-toolbox/articles/base64-guide/</guid>
+    </item>
+    <item>
+      <title>二维码是怎么生成的?免费在线生成二维码的 3 种方法</title>
+      <link>https://cyl2350.github.io/baibao-toolbox/articles/qrcode-guide/</link>
+      <description>二维码生成原理入门:QR 码如何编码信息、容错等级是什么意思,附免费在线二维码生成器使用方法。</description>
+      <pubDate>Thu, 09 Jan 2025 16:00:00 GMT</pubDate>
+      <guid>https://cyl2350.github.io/baibao-toolbox/articles/qrcode-guide/</guid>
+    </item>
+    <item>
+      <title>日期差怎么算?相隔天数、工作日计算的 3 个实用场景</title>
+      <link>https://cyl2350.github.io/baibao-toolbox/articles/date-calc-guide/</link>
+      <description>合同期限、倒计时、排期都离不开日期计算:自然日与工作日的区别、跨月跨年怎么算,附在线日期计算器。</description>
+      <pubDate>Thu, 09 Jan 2025 16:00:00 GMT</pubDate>
+      <guid>https://cyl2350.github.io/baibao-toolbox/articles/date-calc-guide/</guid>
+    </item>
+    <item>
+      <title>人民币大写怎么写?金额大写转换的规则与常见错误</title>
+      <link>https://cyl2350.github.io/baibao-toolbox/articles/rmb-upper-guide/</link>
+      <description>发票、报销、合同上的金额大写怎么填?大写数字规则、零的处理、常见错误一次讲清,附在线转换工具。</description>
+      <pubDate>Thu, 09 Jan 2025 16:00:00 GMT</pubDate>
+      <guid>https://cyl2350.github.io/baibao-toolbox/articles/rmb-upper-guide/</guid>
+    </item>
+    <item>
+      <title>随机抽奖怎么做才公平?抽奖工具的使用与常见坑</title>
+      <link>https://cyl2350.github.io/baibao-toolbox/articles/random-picker-guide/</link>
+      <description>年会抽奖、课堂点名、幸运观众怎么抽才公平?伪随机与真随机的区别,附免费随机抽取工具。</description>
+      <pubDate>Thu, 09 Jan 2025 16:00:00 GMT</pubDate>
+      <guid>https://cyl2350.github.io/baibao-toolbox/articles/random-picker-guide/</guid>
+    </item>
+    <item>
+      <title>基础代谢 BMR 和 TDEE 是什么?减肥一天到底该吃多少热量</title>
+      <link>https://cyl2350.github.io/baibao-toolbox/articles/calori-guide/</link>
+      <description>减肥先算热量:基础代谢 BMR、每日总消耗 TDEE、热量缺口怎么算,附在线卡路里计算器与常见误区。</description>
+      <pubDate>Thu, 09 Jan 2025 16:00:00 GMT</pubDate>
+      <guid>https://cyl2350.github.io/baibao-toolbox/articles/calori-guide/</guid>
+    </item>
+    <item>
+      <title>身份证号码第 18 位校验码怎么算?18 位身份证各段含义</title>
+      <link>https://cyl2350.github.io/baibao-toolbox/articles/idcard-guide/</link>
+      <description>18 位身份证号码每段代表什么?第 18 位校验码的计算公式与 X 的含义,附在线校验工具。</description>
+      <pubDate>Thu, 09 Jan 2025 16:00:00 GMT</pubDate>
+      <guid>https://cyl2350.github.io/baibao-toolbox/articles/idcard-guide/</guid>
+    </item>
+    <item>
+      <title>银行卡号怎么验证?Luhn 算法原理与卡 BIN 识别</title>
+      <link>https://cyl2350.github.io/baibao-toolbox/articles/luhn-guide/</link>
+      <description>银行卡号最后一位是怎么算出来的?Luhn 校验算法原理、Visa/万事达/银联卡号规律,附在线校验工具。</description>
+      <pubDate>Thu, 09 Jan 2025 16:00:00 GMT</pubDate>
+      <guid>https://cyl2350.github.io/baibao-toolbox/articles/luhn-guide/</guid>
+    </item>
+    <item>
+      <title>条形码和二维码有什么区别?商品条形码怎么生成</title>
+      <link>https://cyl2350.github.io/baibao-toolbox/articles/barcode-guide/</link>
+      <description>一维条码与二维码的区别、EAN-13 商品码结构、电商上架条码怎么生成,附在线条形码生成器。</description>
+      <pubDate>Thu, 09 Jan 2025 16:00:00 GMT</pubDate>
+      <guid>https://cyl2350.github.io/baibao-toolbox/articles/barcode-guide/</guid>
+    </item>
+    <item>
+      <title>打字速度多少算快?WPM 标准与打字练习方法</title>
+      <link>https://cyl2350.github.io/baibao-toolbox/articles/typing-guide/</link>
+      <description>打字速度怎么测?WPM 分级标准、中英文打字技巧与练习方法,附在线打字测速工具。</description>
+      <pubDate>Thu, 09 Jan 2025 16:00:00 GMT</pubDate>
+      <guid>https://cyl2350.github.io/baibao-toolbox/articles/typing-guide/</guid>
+    </item>
+    <item>
+      <title>摩斯电码怎么记?速记口诀与在线转换方法</title>
+      <link>https://cyl2350.github.io/baibao-toolbox/articles/morse-guide/</link>
+      <description>摩斯电码记忆技巧:SOS 为什么是救命信号、常用字母口诀、怎么用在线工具收发摩斯电码。</description>
+      <pubDate>Thu, 09 Jan 2025 16:00:00 GMT</pubDate>
+      <guid>https://cyl2350.github.io/baibao-toolbox/articles/morse-guide/</guid>
+    </item>
+    <item>
+      <title>复利是什么意思?复利计算与定投的力量(附计算器)</title>
+      <link>https://cyl2350.github.io/baibao-toolbox/articles/compound-interest-guide/</link>
+      <description>复利是世界第八大奇迹:复利公式、72 法则、定投的力量,附在线复利计算器与真实测算案例。</description>
+      <pubDate>Thu, 09 Jan 2025 16:00:00 GMT</pubDate>
+      <guid>https://cyl2350.github.io/baibao-toolbox/articles/compound-interest-guide/</guid>
+    </item>
+    <item>
+      <title>在线计算器怎么用?百分比、括号与四则运算技巧</title>
+      <link>https://cyl2350.github.io/baibao-toolbox/articles/calculator-guide/</link>
+      <description>计算器使用技巧:运算优先级、百分比怎么按、括号妙用、常见计算错误,附免费在线科学计算器。</description>
+      <pubDate>Thu, 09 Jan 2025 16:00:00 GMT</pubDate>
+      <guid>https://cyl2350.github.io/baibao-toolbox/articles/calculator-guide/</guid>
+    </item>
+    <item>
+      <title>番茄工作法是什么?25 分钟专注法实操与常见误区</title>
+      <link>https://cyl2350.github.io/baibao-toolbox/articles/pomodoro-guide/</link>
+      <description>番茄工作法完整指南:原理、25/5 节奏、使用步骤、常见误区,附免费在线番茄钟。</description>
+      <pubDate>Thu, 09 Jan 2025 16:00:00 GMT</pubDate>
+      <guid>https://cyl2350.github.io/baibao-toolbox/articles/pomodoro-guide/</guid>
+    </item>
+    <item>
+      <title>证件照尺寸怎么选?一寸二寸护照签证尺寸对照表</title>
+      <link>https://cyl2350.github.io/baibao-toolbox/articles/id-photo-guide/</link>
+      <description>一寸、二寸、护照、签证照片到底多大?厘米与像素对照表,拍摄前先查清楚不返工。</description>
+      <pubDate>Thu, 09 Jan 2025 16:00:00 GMT</pubDate>
+      <guid>https://cyl2350.github.io/baibao-toolbox/articles/id-photo-guide/</guid>
+    </item>
+    <item>
+      <title>参考文献格式怎么写?GB/T 7714 引用格式指南(附生成器)</title>
+      <link>https://cyl2350.github.io/baibao-toolbox/articles/citation-guide/</link>
+      <description>论文参考文献格式完全指南:GB/T 7714-2015 规则、期刊/图书/网页各类型写法,附在线生成器。</description>
+      <pubDate>Thu, 09 Jan 2025 16:00:00 GMT</pubDate>
+      <guid>https://cyl2350.github.io/baibao-toolbox/articles/citation-guide/</guid>
+    </item>
+  </channel>
+</rss>
