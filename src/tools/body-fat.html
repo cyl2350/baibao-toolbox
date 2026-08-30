@@ -1,0 +1,28 @@
+<div class="field-row">
+  <div class="field" style="flex:1;min-width:100px">
+    <label for="bf-sex">性别</label>
+    <select id="bf-sex"><option value="m">男</option><option value="f">女</option></select>
+  </div>
+  <div class="field" style="flex:1;min-width:110px">
+    <label for="bf-height">身高(cm)</label>
+    <input type="number" id="bf-height" value="170" min="120" max="230" />
+  </div>
+  <div class="field" style="flex:1;min-width:110px">
+    <label for="bf-waist">腰围(cm)</label>
+    <input type="number" id="bf-waist" value="80" min="40" max="200" />
+  </div>
+  <div class="field" style="flex:1;min-width:110px">
+    <label for="bf-neck">颈围(cm)</label>
+    <input type="number" id="bf-neck" value="38" min="20" max="80" />
+  </div>
+  <div class="field" style="flex:1;min-width:110px" id="bf-hip-row">
+    <label for="bf-hip">臀围(cm,女)</label>
+    <input type="number" id="bf-hip" value="95" min="40" max="200" />
+  </div>
+</div>
+<div class="field-row">
+  <button class="btn" id="bf-run">计算体脂率</button>
+  <button class="btn secondary" id="bf-demo">填个示例</button>
+</div>
+<div class="result-box" id="bf-out" style="margin-top:14px;white-space:normal">输入围度后点击计算</div>
+<p class="tip">采用美国海军围度公式估算,误差 ±3% 左右;精确测量请用体脂秤或医院人体成分分析。不构成医学建议。</p>

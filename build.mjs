@@ -225,6 +225,14 @@ function toolPage(t) {
   <p class="tool-desc">${esc(t.desc)}</p>
   ${adSlot(1, '3234567890', '工具顶部横幅')}
   <div class="panel"><div class="tool-body">${toolHtml[t.id]}</div></div>
+  <div class="panel">
+    <h3 style="margin-top:0">分享这个工具</h3>
+    <div class="field-row">
+      <a class="btn secondary" target="_blank" rel="noopener" href="https://service.weibo.com/share/share.php?url=${encodeURIComponent(`https://${site.domain}/${t.id}/`)}&title=${encodeURIComponent(`${t.name} - 在线免费使用`)}">分享到微博</a>
+      <a class="btn secondary" target="_blank" rel="noopener" href="https://connect.qq.com/widget/shareqq/index.html?url=${encodeURIComponent(`https://${site.domain}/${t.id}/`)}&title=${encodeURIComponent(`${t.name} - 在线免费使用`)}">分享到 QQ</a>
+      <button class="btn secondary" onclick="window.bbCopy(window.location.href)">复制链接</button>
+    </div>
+  </div>
   ${adSlot(1, '4234567890', '工具底部横幅')}
   ${relatedHtml}
 </div>`

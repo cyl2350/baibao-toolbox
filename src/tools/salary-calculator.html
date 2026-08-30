@@ -1,0 +1,24 @@
+<div class="field-row">
+  <div class="field" style="flex:1;min-width:130px">
+    <label for="sc-salary">税前月薪(元)</label>
+    <input type="number" id="sc-salary" value="15000" min="0" step="100" />
+  </div>
+  <div class="field" style="flex:1;min-width:130px">
+    <label for="sc-fund">公积金比例</label>
+    <select id="sc-fund">
+      <option value="0.05">5%</option>
+      <option value="0.07">7%</option>
+      <option value="0.12" selected>12%</option>
+    </select>
+  </div>
+  <div class="field" style="flex:1;min-width:140px">
+    <label for="sc-deduct">专项附加扣除(元/月)</label>
+    <input type="number" id="sc-deduct" value="0" min="0" step="100" />
+  </div>
+</div>
+<div class="field-row">
+  <button class="btn" id="sc-run">计算税后工资</button>
+  <button class="btn secondary" id="sc-demo">填个示例</button>
+</div>
+<div class="result-box" id="sc-out" style="margin-top:14px;white-space:normal">输入税前工资后点击计算</div>
+<p class="tip">按现行个税(起征点 5000/月,7 级累进)+ 常见社保比例(养老 8%、医疗 2%+3、失业 0.5%)估算,各地基数与比例不同,实际以当地为准。</p>
