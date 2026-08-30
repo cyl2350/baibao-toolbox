@@ -1,0 +1,44 @@
+# 网站健康检查:每 6 小时检查一次线上网站,失败时通过 GitHub Issue 提醒
+name: Site Health Check
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+
+permissions:
+  issues: write
+  contents: read
+
+jobs:
+  health:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check site
+        run: |
+          code=$(curl -s -o /dev/null -w "%{http_code}" --max-time 20 https://cyl2350.github.io/baibao-toolbox/)
+          echo "HTTP $code"
+          if [ "$code" != "200" ]; then
+            echo "SITE_DOWN" >> "$GITHUB_ENV"
+            exit 1
+          fi
+      - name: Open issue on failure
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { data: issues } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              labels: ['site-down']
+            });
+            if (issues.length === 0) {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: '⚠️ 网站无法访问(自动检测)',
+                body: '健康检查发现 https://cyl2350.github.io/baibao-toolbox/ 返回非 200,请检查 GitHub Pages 状态。\\n\\n此 Issue 由自动化健康检查自动创建。',
+                labels: ['site-down']
+              });
+            }

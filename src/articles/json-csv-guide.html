@@ -1,0 +1,42 @@
+<p>给同事传数据,对方说要 CSV,你手上是 JSON——这两种格式到底啥关系?本文讲清区别与互转场景,文末附在线工具。</p>
+
+<h2>一、JSON 和 CSV 的本质区别</h2>
+<table style="width:100%;border-collapse:collapse;font-size:13px">
+<thead><tr style="background:var(--bg)"><th style="padding:6px 8px;text-align:left">对比</th><th style="padding:6px 8px;text-align:left">JSON</th><th style="padding:6px 8px;text-align:left">CSV</th></tr></thead>
+<tbody>
+<tr><td style="padding:5px 8px">结构</td><td style="padding:5px 8px">嵌套层级,支持对象/数组</td><td style="padding:5px 8px">扁平的二维表格</td></tr>
+<tr><td style="padding:5px 8px">类型</td><td style="padding:5px 8px">保留数字/布尔/null 类型</td><td style="padding:5px 8px">全部是文本</td></tr>
+<tr><td style="padding:5px 8px">可读性</td><td style="padding:5px 8px">机器友好,人读略费劲</td><td style="padding:5px 8px">Excel 直接打开,人读友好</td></tr>
+<tr><td style="padding:5px 8px">体积</td><td style="padding:5px 8px">较大(带键名和括号)</td><td style="padding:5px 8px">紧凑(纯逗号分隔)</td></tr>
+<tr><td style="padding:5px 8px">典型用途</td><td style="padding:5px 8px">API 接口、配置文件、程序间传递</td><td style="padding:5px 8px">Excel 导入导出、报表、数据分析</td></tr>
+</tbody>
+</table>
+
+<h2>二、什么时候需要互转?</h2>
+<ul>
+<li><b>API 数据要分析</b>:接口返回 JSON,放进 Excel/SPSS 前转成 CSV;</li>
+<li><b>报表要上线</b>:运营给的 CSV 表要接入系统,转成 JSON 供程序读取;</li>
+<li><b>批量录入</b>:把 JSON 里的数据转成表格人工核对。</li>
+</ul>
+
+<div class="panel" style="margin:18px 0">
+<p style="margin:0"><b>👉 立即使用:</b><a href="../json-csv/">在线 JSON/CSV 互转工具</a> —— 一键转换,支持下载文件,嵌套字段自动展平。</p>
+</div>
+
+<h2>三、嵌套数据怎么办?</h2>
+<p>JSON 允许嵌套(对象里的对象、数组),CSV 只有两维。常见做法:</p>
+<ul>
+<li><b>对象嵌套</b>:展平为点号字段,如 <code>{"user":{"name":"张三"}}</code> → 字段 <code>user.name</code>;</li>
+<li><b>数组</b>:转成 JSON 字符串放进单元格,或用「多行」拆开。</li>
+</ul>
+<p>互转工具一般默认展平对象,数组保留为 JSON 字符串,数据不丢失。</p>
+
+<h2>四、常见坑</h2>
+<h3>CSV 里的逗号和引号</h3>
+<p>字段内含逗号时会被错误分列——正确做法是用双引号包裹(标准 CSV 规则),工具会自动处理。</p>
+<h3>中文乱码</h3>
+<p>CSV 用 Excel 打开乱码时,另存为 UTF-8 with BOM 即可;在线工具一般输出 UTF-8。</p>
+<h3>表头重复</h3>
+<p>CSV 转 JSON 时表头必须唯一,重复列名会导致数据覆盖。</p>
+
+<p><i>总结:JSON 给程序、CSV 给表格;嵌套对象展平、数组留字符串,记住这两条互转就不踩坑。</i></p>

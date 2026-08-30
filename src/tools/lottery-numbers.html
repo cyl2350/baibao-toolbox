@@ -1,0 +1,19 @@
+<div class="field">
+  <label for="ln-type">玩法</label>
+  <select id="ln-type">
+    <option value="ssq">双色球(6 红 + 1 蓝)</option>
+    <option value="dlt">大乐透(5 前区 + 2 后区)</option>
+  </select>
+</div>
+<div class="field-row">
+  <div class="field" style="flex:1;min-width:110px">
+    <label for="ln-count">生成注数</label>
+    <input type="number" id="ln-count" value="5" min="1" max="20" />
+  </div>
+</div>
+<div class="field-row">
+  <button class="btn" id="ln-run">🎲 随机选号</button>
+  <button class="btn secondary" id="ln-copy">复制全部</button>
+</div>
+<div class="result-box" id="ln-out" style="margin-top:14px;white-space:normal"></div>
+<p class="tip">随机选号仅为娱乐参考,中奖概率与机选完全相同。请理性购彩,未成年人禁止购彩。</p>

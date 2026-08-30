@@ -105,14 +105,12 @@ for (const id of toolIds) {
   const html = readFileSync(join(dist, id, 'index.html'), 'utf8')
   const dom = makeDom(html)
   const w = dom.window
-  loadVendor(dom, VENDOR_MAP[id] || [])
-  const errors = execScripts(dom, html)
-  // 注入公共方法
+  // 注入公共方法(与生产环境 common.js 先于工具脚本加载的顺序一致)
   w.bbToast = () => {}
   w.bbCopy = () => {}
   w.bbDownload = () => {}
-  w.bbToast = () => {}
-  // 再执行工具脚本(公共方法现在可用;顺序:脚本可能已执行,但公共方法仅在被调用时使用,无碍)
+  loadVendor(dom, VENDOR_MAP[id] || [])
+  const errors = execScripts(dom, html)
 
   // 模拟点击所有按钮
   if (!errors.length) {

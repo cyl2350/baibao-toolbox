@@ -1,0 +1,21 @@
+<div class="field">
+  <label for="jc-mode">转换方向</label>
+  <select id="jc-mode">
+    <option value="j2c">JSON → CSV</option>
+    <option value="c2j">CSV → JSON</option>
+  </select>
+</div>
+<div class="field">
+  <label for="jc-in">输入</label>
+  <textarea id="jc-in" placeholder='[{"name":"张三","age":30},{"name":"李四","age":25}]' style="min-height:140px"></textarea>
+</div>
+<div class="field-row">
+  <button class="btn" id="jc-run">转换</button>
+  <button class="btn secondary" id="jc-copy">复制</button>
+  <button class="btn secondary" id="jc-download">下载文件</button>
+</div>
+<div class="field" style="margin-top:14px">
+  <label for="jc-out">结果</label>
+  <textarea id="jc-out" readonly style="min-height:140px"></textarea>
+</div>
+<p class="tip">JSON 转 CSV 要求输入对象数组;CSV 转 JSON 支持带表头文本。嵌套对象会被展平(字段名用 . 连接)。</p>

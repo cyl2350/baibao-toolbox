@@ -203,4 +203,22 @@ export const articles = [
     keywords: '体脂率多少正常,体脂率标准,体脂怎么测,男女体脂对照,减脂目标',
     tool: 'body-fat',
   },
+  {
+    id: 'json-csv-guide',
+    title: 'JSON 和 CSV 有什么区别?互转场景与工具推荐',
+    category: '开发工具',
+    date: '2025-01-10',
+    desc: 'JSON 与 CSV 的差异、适用场景、嵌套数据怎么转,附在线 JSON/CSV 互转工具。',
+    keywords: 'json和csv区别,json转csv,csv转json,数据格式,表格数据',
+    tool: 'json-csv',
+  },
+  {
+    id: 'lottery-guide',
+    title: '双色球怎么选号?随机选号的真相与理性购彩建议',
+    category: '生活工具',
+    date: '2025-01-10',
+    desc: '双色球、大乐透选号方式解析:机选和自选概率一样吗?走势图有没有用?附随机选号工具与理性购彩提醒。',
+    keywords: '双色球怎么选号,彩票选号技巧,机选自选区别,大乐透选号,理性购彩',
+    tool: 'lottery-numbers',
+  },
 ]
